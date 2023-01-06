@@ -1,0 +1,692 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using DevExpress.Skins;
+using DevExpress.LookAndFeel;
+using DevExpress.UserSkins;
+using System.Configuration;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Base;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Linq;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraPrinting;
+namespace VCB_TEGAKI
+{
+    public partial class frmLastCheck : Form
+    {
+        public static string datestring = "";
+        List<string> listReslt;
+        //class workDB
+        WorkDB_LC workdb = new WorkDB_LC();
+        string strError = "";
+        //class other
+        other_LC Other = new other_LC();
+        public static int LastcheckID;
+        //Số row của dgvthongke
+        int row = 0;
+        //Đường dẫn đối tượng csv
+        string path = "";
+        //String Text
+        string text;
+        double zom = 20;
+        private double scale = 1;
+        Bitmap imageSource;
+        double tyleImageNew = 1;
+        public string[] INFperformance = new string[2];
+        Bitmap Oribm;
+        Bitmap bm_out;
+        Bitmap bitmapTmp;
+        int demlc;
+        bool allow = true;
+        public static int dot;
+        public static bool save = false;
+        public static bool db = false;
+        public static bool exit = false;
+        public static string batchname;
+        public static int batchID;
+        public static int userID;
+        public static int formID;
+        public static string formName;
+        DataTable dt = new DataTable();
+        DataTable dtexp = new DataTable();
+        DataTable dtkt = new DataTable();
+        DataTable ktcspd = new DataTable();
+        DataTable ktcsps = new DataTable();
+        DataTable kttx2 = new DataTable();
+        DataTable kttx3 = new DataTable();
+        DataTable kttx4 = new DataTable();
+        DataTable kttx5 = new DataTable();
+        public static string imgLocation;
+        string filename = "";
+        DevExpress.XtraGrid.Columns.GridColumn cl = new DevExpress.XtraGrid.Columns.GridColumn();
+        int rw;
+        int tongC3 = 0;
+        int tongC4 = 0;
+        int tong34 = 0;
+        int soDong = 0;
+        DataTable dtTemp;
+        string folderImage = "";
+        string[] arError = null;
+        string[] arrcd = new string[0];
+        string[] arrcs = new string[0];
+        string[] arrttp = new string[0];
+        List<int> countf = new List<int>();
+        List<int> counta = new List<int>();
+        List<string> lstcd = new List<string>();
+        List<string> lstcs = new List<string>();
+        List<string> lstttpx2 = new List<string>();
+        List<string> lstttpx3 = new List<string>();
+        List<string> lstttpx4 = new List<string>();
+        List<string> lstttpx5 = new List<string>();
+        DateTime dtimeBefore = new DateTime();
+        public frmLastCheck()
+        {
+            InitializeComponent();
+            this.CenterToScreen();
+            grThongkeV.IndicatorWidth = 40;
+            folderImage = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ImagePlus";
+            if (Directory.Exists(folderImage))
+            {
+                try
+                {
+                    Directory.Delete(folderImage, true);
+                    Directory.CreateDirectory(folderImage);
+                }
+                catch { }
+            }
+            else
+            {
+                Directory.CreateDirectory(folderImage);
+            }
+            dt = new DataTable();
+            dt.Columns.Add("Image", typeof(String));
+            dt.Columns.Add("顧客名", typeof(String));
+            dt.Columns.Add("顧客コード", typeof(String));
+            dt.Columns.Add("品目コード", typeof(String));
+            dt.Columns.Add("数量", typeof(String));
+            dt.Columns.Add("単価", typeof(String));
+            dt.Columns.Add("希望納期", typeof(String));
+            dt.Columns.Add("摘要", typeof(String));
+            dt.Columns.Add("発注番号（ヘッダー）", typeof(String));
+            dt.Columns.Add("備考", typeof(String));
+            dt.Columns.Add("直送区分", typeof(String));
+            dt.Columns.Add("直送先コード", typeof(String));
+            dt.Columns.Add("受信日", typeof(String));
+            dt.Columns.Add("受信時刻", typeof(String));
+            dt.Columns.Add("担当者コード", typeof(String));
+            dt.Columns.Add("FAXのファイル名", typeof(String));
+            dt.Columns.Add("AllImageId", typeof(String));
+            #region viet
+            //dt.Columns.Add("Image", typeof(String));
+            //dt.Columns.Add("code", typeof(String));
+            //dt.Columns.Add("Mã KH", typeof(String));
+            //dt.Columns.Add("MSP", typeof(String));
+            //dt.Columns.Add("SL", typeof(String));
+            //dt.Columns.Add("Đơn giá", typeof(String));
+            //dt.Columns.Add("Time GH", typeof(String));
+            //dt.Columns.Add("Ghi chú 1", typeof(String));
+            //dt.Columns.Add("MS Đặt hàng", typeof(String));
+            //dt.Columns.Add("Ghi chú 2", typeof(String));
+            //dt.Columns.Add("Phần loại GH", typeof(String));
+            //dt.Columns.Add("Mã nơi GH", typeof(String));
+            //dt.Columns.Add("Ngày nhận Fax", typeof(String));
+            //dt.Columns.Add("Time nhận Fax", typeof(String));
+            //dt.Columns.Add("Người thực hiện", typeof(String));
+            //dt.Columns.Add("File ID", typeof(String));
+            //dt.Columns.Add("AllImageId", typeof(String));
+            #endregion
+        }
+
+        private void frmThongke_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //return;
+            if (save == true)
+            {
+                var msb = MessageBox.Show("Bạn có muốn save giá trị đã thay đổi không?", "Thông báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (msb == DialogResult.Yes)
+                {
+                    btnSaveN_Click(sender, e);
+                    save = false;
+                    return;
+                }
+                else if (msb == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
+            try
+            {
+                File.Delete(path);
+            }
+            catch { }
+            if (Directory.Exists(folderImage))
+            {
+                try
+                {
+                    Directory.Delete(folderImage, true);
+                }
+                catch { }
+            }
+            return;
+        }
+
+        static byte[] Getbytes(string str)
+        {
+            Encoding encoding = Encoding.GetEncoding("Shift_jis");
+            byte[] array = encoding.GetBytes(str);
+            return array;
+        }
+        static byte Getbyteschar(string str)
+        {
+            byte temp;
+            Encoding encoding = Encoding.GetEncoding("Shift_jis");
+            byte[] array = encoding.GetBytes(str);
+            temp = array[0];
+            return temp;
+        }
+        static string Getstring(byte[] b)
+        {
+            Encoding encoding = Encoding.GetEncoding("Shift_jis");
+            string array = encoding.GetString(b);
+            return array;
+        }
+
+        private void cboimage_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboimage.SelectedIndex != -1)
+            {
+                view_Image_TN.Dispose();
+                try
+                {
+                    string strfile = folderImage + @"\" + cboimage.Text;
+                    if (!File.Exists(strfile))
+                    {
+                        bitmapTmp = new Bitmap(byteArrayToImage(workdb.getImageOnServer(cboimage.Text)));
+                        using (Image img = (Bitmap)bitmapTmp.Clone())
+                        {
+                            img.Save(strfile, System.Drawing.Imaging.ImageFormat.Tiff);
+                        }
+                        view_Image_TN.Image = bitmapTmp;
+                        view_Image_TN.CurrentZoom = 0.2f;
+                    }
+                    else
+                    {
+                        bitmapTmp = null;
+                        using (Image img = Image.FromFile(strfile))
+                        {
+                            bitmapTmp = (Bitmap)img.Clone();
+                            view_Image_TN.Image = bitmapTmp;
+                            view_Image_TN.CurrentZoom = 0.2f;
+                        }
+                    }
+
+                }
+                catch
+                {
+                    view_Image_TN.Dispose();
+                }
+            }
+        }
+        private void bgwLoad_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < dtTemp.Rows.Count; i++)
+            {
+                string strtemp = dtTemp.Rows[i][1].ToString();
+                strtemp = strtemp.Replace("\r", "");
+                string[] arrsohang = strtemp.Split('|').ToArray();
+                string msp = arrsohang[2].ToString();
+                string[] masp = msp.Split('\n');
+                string sl = arrsohang[3].ToString();
+                string[] sluong = sl.Split('\n');
+                string dg = arrsohang[4].ToString();
+                if (dg == "")
+                {
+                    for (int j = 0; j < masp.Length - 1; j++)
+                    {
+                        dg = dg + "\n";
+                    }
+                }
+                string[] dongia = dg.Split('\n');
+                string gc = arrsohang[8].ToString();
+                if (gc == "")
+                {
+                    for (int j = 0; j < masp.Length - 1; j++)
+                    {
+                        gc = gc + "\n";
+                    }
+                }
+                string[] ghichu = gc.Split('\n');
+                int max = masp.Count();
+                string tenanh = dtTemp.Rows[i][0].ToString();
+                string id = dtTemp.Rows[i][2].ToString();
+                for (int j = 0; j < max; j++)
+                {
+                    try
+                    {
+                        dt.Rows.Add(new string[17] { tenanh, arrsohang[0], arrsohang[1], masp[j], sluong[j], dongia[j], arrsohang[5], arrsohang[6], arrsohang[7], ghichu[j], arrsohang[9], arrsohang[10], arrsohang[11], arrsohang[12], arrsohang[13], arrsohang[14], id });
+                    }
+                    catch
+                    {
+                        dt.Rows.Add(new string[17] { tenanh, arrsohang[0], arrsohang[1], masp[j], sluong[j], "$$$$$$$", arrsohang[5], arrsohang[6], arrsohang[7], "$$$$$$$", arrsohang[9], arrsohang[10], arrsohang[11], arrsohang[12], arrsohang[13], arrsohang[14], id });
+                    }
+                }
+            }
+        }
+        private void bgwLoad_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            DataView dv = dt.DefaultView;
+            dv.Sort = "Image";
+            dt = dv.ToTable();
+            cboimage.ComboBox.DataSource = dt;
+            cboimage.ComboBox.DisplayMember = "Image";
+            grThongke.DataSource = dt;
+            grThongkeV.Columns[12].Visible = false;
+            grThongkeV.Columns[13].Visible = false;
+            grThongkeV.Columns[14].Visible = false;
+            grThongkeV.Columns[15].Visible = false;
+            grThongkeV.Columns[16].Visible = false;
+            row = grThongkeV.RowCount;
+            grThongkeV.BestFitColumns();
+        }
+        private void grThongkeV_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            save = true;
+        }
+
+        int i = 0;
+
+
+        private void bgwLoadExel_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < dtTemp.Rows.Count; i++)
+            {
+                string idimage = dtTemp.Rows[i][2].ToString();
+                var arrrows = dt.Select("AllImageId='" + idimage + "'");
+                int leng = arrrows.Length;
+                if (leng > 0)
+                {
+                    string[] arrvl = new string[14];
+                    arrvl[0] = arrrows[0].ItemArray[2].ToString();
+                    arrvl[4] = arrrows[0].ItemArray[6].ToString();
+                    arrvl[5] = arrrows[0].ItemArray[7].ToString();
+                    arrvl[6] = arrrows[0].ItemArray[8].ToString();
+                    arrvl[8] = arrrows[0].ItemArray[10].ToString();
+                    arrvl[9] = arrrows[0].ItemArray[11].ToString();
+                    arrvl[10] = arrrows[0].ItemArray[12].ToString();
+                    arrvl[11] = arrrows[0].ItemArray[13].ToString();
+                    arrvl[12] = arrrows[0].ItemArray[14].ToString();
+                    arrvl[13] = arrrows[0].ItemArray[15].ToString();
+
+                    for (int j = 0; j < leng; j++)
+                    {
+                        if (j < leng - 1)
+                        {
+                            arrvl[1] = arrvl[1] + arrrows[j].ItemArray[3].ToString() + "\n";
+                            arrvl[2] = arrvl[2] + arrrows[j].ItemArray[4].ToString() + "\n";
+                            arrvl[3] = arrvl[3] + arrrows[j].ItemArray[5].ToString() + "\n";
+                            arrvl[7] = arrvl[7] + arrrows[j].ItemArray[9].ToString() + "\n";
+                        }
+                        else
+                        {
+                            arrvl[1] = arrvl[1] + arrrows[j].ItemArray[3].ToString();
+                            arrvl[2] = arrvl[2] + arrrows[j].ItemArray[4].ToString();
+                            arrvl[3] = arrvl[3] + arrrows[j].ItemArray[5].ToString();
+                            arrvl[7] = arrvl[7] + arrrows[j].ItemArray[9].ToString();
+                        }
+                    }
+                    string strvl = string.Join("|", arrvl);
+                    workdb.Save_LC(strvl, idimage);
+                }
+            }
+            TimeSpan span = DateTime.Now - dtimeBefore;
+            int ms = (int)span.TotalMilliseconds;
+            workdb.Save_PFM(dot, ms.ToString(), userID);
+            dtimeBefore = DateTime.Now;
+            MessageBox.Show("Complete");
+            save = false;
+        }
+
+        private void bgwLoadExel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                dt.Columns[0].ColumnName = "Image";
+                cboimage.ComboBox.DataSource = dt;
+                cboimage.ComboBox.DisplayMember = "Image";
+                grThongke.DataSource = dt;
+                row = grThongkeV.RowCount;
+            }
+            catch
+            { }
+        }
+        //protected override void OnFormClosing(FormClosingEventArgs e)
+        //{
+        //    if (_findForm != null)
+        //        _findForm.ForceClose();
+
+        //    // if there are unclosed forms in your application,
+        //    // e.Cancel will be true
+        //    e.Cancel = false;
+
+        //    base.OnFormClosing(e);
+        //}
+        private void grThongkeV_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            DevExpress.XtraGrid.Views.Grid.GridView view = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+        private void frmLastCheck_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                if (e.KeyCode == Keys.S)
+                {
+                    btnSaveN_Click(sender, e);
+                }
+                if (e.KeyCode == Keys.T)
+                {
+                    btnSavetxtN_Click(sender, e);
+                }
+                else if (e.KeyCode == Keys.Left)
+                {
+                    view_Image_TN.RotateImage("90");
+                }
+                else if (e.KeyCode == Keys.Right)
+                {
+                    view_Image_TN.RotateImage("270");
+                }
+
+
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+        private void btnSaveN_Click(object sender, EventArgs e)
+        {
+            btncheck_Click(sender, e);
+            if (allow == true)
+            {
+                if (!bgwLoadExel.IsBusy)
+                {
+                    bgwLoadExel.RunWorkerAsync();
+                }
+            }
+        }
+
+        private void btnSavetxtN_Click(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            string datestring = now.Year.ToString() + String.Format("{0:00}", int.Parse(now.Month.ToString())) + String.Format("{0:00}", int.Parse(now.Day.ToString()));
+            btncheck_Click(sender, e);
+            if (allow == true)
+            {
+                grThongkeV.Columns[0].Visible = false;
+                grThongkeV.Columns[12].Visible = true;
+                grThongkeV.Columns[15].Visible = true;
+                grThongkeV.Columns[14].Visible = true;
+                grThongkeV.Columns[13].Visible = true;
+                SaveFileDialog svFD = new SaveFileDialog();
+                if (grThongkeV.Columns.Count > 0)
+                {
+                    using (SaveFileDialog saveDialog = new SaveFileDialog())
+                    {
+                        saveDialog.FileName = "Plus_" + datestring + "_0" + dot + "";
+                        saveDialog.Filter = "Excel (2007) (.xlsx)|*.xlsx";
+                        if (saveDialog.ShowDialog() != DialogResult.Cancel)
+                        {
+                            grThongkeV.ClearColumnsFilter();
+                            grThongkeV.ClearSorting();
+                            grThongkeV.ClearGrouping();
+                            grThongkeV.ClearSelection();
+                            grThongkeV.FindFilterText = "";
+                            grThongkeV.Columns["顧客名"].Visible = false;
+                            string exportFilePath = saveDialog.FileName;
+                            grThongkeV.ExportToXlsx(exportFilePath);
+                            grThongkeV.Columns["顧客名"].Visible = true;
+                            btnSaveN_Click(sender, e);
+                        }
+                        //StringBuilder sb = new StringBuilder();
+
+                        //IEnumerable<string> columnNames = dt.Columns.Cast<DataColumn>().
+                        //                                  Select(column => column.ColumnName);
+                        //sb.AppendLine(string.Join(",", columnNames));
+
+                        //foreach (DataRow row in dt.Rows)
+                        //{
+                        //    IEnumerable<string> fields = row.ItemArray.Select(field => field.ToString());
+                        //    sb.AppendLine(string.Join(",", fields));
+                        //}
+
+                        //File.WriteAllText("test.csv", sb.ToString());
+                    }
+                }
+                grThongke.DataSource = dt;
+                grThongkeV.Columns[0].Visible = true;
+                grThongkeV.Columns[12].Visible = false;
+                grThongkeV.Columns[13].Visible = false;
+                grThongkeV.Columns[14].Visible = false;
+                grThongkeV.Columns[15].Visible = false;
+            }
+        }
+
+        private void btnRRN_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.RotateImage("270");
+        }
+
+        private void btnRRLN_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.RotateImage("90");
+        }
+        private void btnReplate_Click(object sender, EventArgs e)
+        {
+            if (txtContentReplace.Text != "")
+            {
+                var msb = MessageBox.Show("Ban có muốn thay đổi các giá trị tìm được?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (msb == DialogResult.No)
+                {
+                    return;
+                }
+                List<string> colsToUpdate = new List<string> { "顧客コード", "品目コード", "数量", "単価", "希望納期", "摘要", "発注番号（ヘッダー）", "備考", "直送区分", "直送先コード" };
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (String colName in colsToUpdate)
+                    {
+                        string oldValue = row.Field<string>(colName);
+                        if (oldValue != null)
+                            if (oldValue.Contains(txtContentReplace.Text))
+                                row.SetField(colName, oldValue.Replace(txtContentReplace.Text, txtReplaceText.Text));
+                    }
+                }
+            }
+        }
+
+        private void txtContentReplace_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnReplate_Click(sender, e);
+        }
+
+        private void txtContentReplace_TextChanged(object sender, EventArgs e)
+        {
+            grThongkeV.FindFilterText = txtContentReplace.Text;
+        }
+
+        static Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+
+        private void btnfull_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.CurrentZoom = 0.2f;
+        }
+
+        private void frmLastCheck_Load_1(object sender, EventArgs e)
+        {
+            dtTemp = workdb.dtLastcheck(dot);
+            int soluong = dtTemp.Rows.Count;
+            dtimeBefore = DateTime.Now;
+            lblsoluonganh.Text = soluong.ToString();
+            bgwLoad.RunWorkerAsync();
+        }
+
+        private void btnZoomin_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.CurrentZoom = view_Image_TN.CurrentZoom + 0.1f;
+        }
+
+        private void btnZoomOut_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.CurrentZoom = view_Image_TN.CurrentZoom <= 0.1f ? 0.1f : view_Image_TN.CurrentZoom - 0.1f;
+        }
+
+        private void grThongkeV_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            //demff = Convert.ToString(e.CellValue);
+            //demlcc = Convert.ToString(e.CellValue);
+            //if (demff.ToUpper().Contains("F"))
+            //{
+            //    demfusen = demfusen + 1;
+            //}
+            //if (demlcc.ToUpper().Contains("A"))
+            //{
+            //    dema = dema + 1;
+            //}
+            //lblfusen.Text = demfusen.ToString();
+            //lblLC.Text = dema.ToString();
+
+        }
+        private void btncheck_Click(object sender, EventArgs e)
+        {
+            allow = true;
+            int byby = 0;
+            string chuoi = "";
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string strkt = String.Join("", dt.Rows[i].ItemArray);
+                if (strkt.Contains("$$$$$$$"))
+                {
+                    MessageBox.Show("Hàng " + (i + 1) + " , đơn giá hoặc ghi chú 2 chứa dữ liệu trống");
+                    return;
+                }
+                string tenanh = dt.Rows[i][0].ToString();
+                chuoi = dt.Rows[i][2].ToString();
+                int vitri = i + 1;
+                byby = Getbytes(chuoi).Length;
+                if (byby > 8 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Mã khách hàng lớn hơn 8 byte:   " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][3].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 13 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Mã sản phẩm lớn hơn 13 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][4].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 11 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Số lượng lớn hơn 11 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][5].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 13 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Đơn giá lớn hơn 13 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][6].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 8 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Thời gian giao hàng lớn hơn 8 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][7].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 40 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Ghi chú 1 lớn hơn 40 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][7].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 40 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Ghi chú 1 lớn hơn 40 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][8].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 8 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " MS đặt hàng lớn hơn 8 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][9].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 30 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Ghi chú 2 lớn hơn 30 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                chuoi = dt.Rows[i][11].ToString();
+                byby = Getbytes(chuoi).Length;
+                if (byby > 12 && byby != 0)
+                {
+                    MessageBox.Show("Ảnh " + tenanh + " hàng thứ " + vitri + " Mã nơi giao hàng lớn hơn 12 byte:  " + byby + "byte");
+                    allow = false;
+                    break;
+                }
+                else
+                {
+                    lblbao.Text = "Success!!!";
+                }
+            }
+        }
+
+        private void grThongkeV_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            if (e.RowHandle > 0)
+            {
+                if (grThongkeV.GetRowCellValue(e.RowHandle, grThongkeV.Columns["Image"]).ToString() != grThongkeV.GetRowCellValue(e.RowHandle - 1, grThongkeV.Columns["Image"]).ToString())
+                {
+                    e.Appearance.BackColor = Color.PowderBlue;
+                }
+            }
+            else if (e.RowHandle == 0)
+            {
+                e.Appearance.BackColor = Color.PowderBlue;
+            }
+        }
+
+    }
+}

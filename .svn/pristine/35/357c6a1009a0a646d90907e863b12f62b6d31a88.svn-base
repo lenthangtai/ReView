@@ -1,0 +1,291 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+namespace VCB_TEGAKI
+{
+    class DB_Update
+    {
+        private string stringconnecttion = String.Format("Data Source=" + Program.server + ";Initial Catalog=AutoUpdate;User Id=entryplus;Password=entryplus;Integrated Security=no;MultipleActiveResultSets=True;Packet Size=4096;Pooling=false;");
+
+        public void SetResult(int imageId, string content, int leng, int state)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandText = "UPDATE db_owner.ImageContent SET Result = N'" + content + "',State = " + state + ",Tongkytu=" + leng + " WHERE ImageId = " + imageId;
+                    con.Open();
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException sqlException)
+            {
+                throw new System.Exception("Có lỗi trong quá trình cập nhật Result\n" + sqlException.Message);
+            }
+        }
+
+        //lấy status image
+        public string[] GetbatchNew(string arrbatch)
+        {
+            string[] returnValue = new string[] { "", "" };
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandText = "SELECT Batch.Id,Batch.Name FROM dbo.Batch WHERE Hitpoint=0 and Batch.id not in(" + arrbatch + ")  order by ID";
+                    con.Open();
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    while (sqlDataReader.Read())
+                    {
+                        returnValue[0] = sqlDataReader["Id"].ToString().Trim();
+                        returnValue[1] = sqlDataReader["Name"].ToString().Trim();
+                        break;
+                    }
+                    sqlDataReader.Close();
+                }
+            }
+            catch
+            { }
+            return returnValue;
+        }
+
+        public string[] InsertPerformance(int batchId, int userid)
+        {
+
+            string[] id = null;
+            id = new string[2];
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandText = "InsertPerformance";
+                    sqlCommand.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    sqlCommand.Parameters.Add("@StartTime", SqlDbType.DateTime).Direction = ParameterDirection.Output;
+                    sqlCommand.Parameters.Add("@BatchID", SqlDbType.Int, 30).Value = batchId;
+                    sqlCommand.Parameters.Add("@UserID", SqlDbType.Int, 10).Value = userid;
+                    con.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    try
+                    {
+                        id[0] = sqlCommand.Parameters["@ID"].Value.ToString();
+                        id[1] = sqlCommand.Parameters["@StartTime"].Value.ToString();
+                    }
+                    catch
+                    {
+                        id[0] = "";
+                    }
+                }
+            }
+            catch (SqlException sqlException)
+            {
+                throw new System.Exception("Có lỗi trong quá trình đọc dữ liệu\n" + sqlException.Message);
+            }
+            return id;
+        }
+        public bool check_update(string appname)
+        {
+            bool id = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandText = "Select 1 from dbo.PLUS where AppName='" + appname + "'";
+                    con.Open();
+                    if ((sqlCommand.ExecuteScalar()) !=null)
+                        id = true;
+                }
+            }
+            catch { }
+            return id;
+        }
+        /// <summary>
+        /// Lấy thông tin số ảnh còn lại
+        /// </summary>
+        /// <param name="userId">id của user</param>
+        /// <returns>level</returns>
+        public int active_App_Update(string projectname)
+        {
+            int returnVal = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandText = "Select Active from dbo.App_Auto_Update where ProjectName='" + projectname + "'";
+                    con.Open();
+                    returnVal = (int)(sqlCommand.ExecuteScalar());
+                }
+            }
+            catch (SqlException sqlException)
+            {
+                throw new System.Exception(sqlException.Message);
+            }
+            return returnVal;
+        }
+        //
+        //update password
+        //
+        //update password
+        public void Updatepassword(string pass, string name)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandText = "UPDATE db_owner.[User] SET Password = N'" + pass + "' where UPPER(Name) ='" + name + "'";
+                    con.Open();
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException sqlException)
+            {
+                throw new System.Exception("Có lỗi trong quá trình update mật khẩu\n" + sqlException.Message);
+            }
+        }
+        //Kiểm tra username,pass login
+        public string[] usr(string username)
+        {
+            string[] usr = new string[4] { "", "", "", "" };
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandText = @"select Id,Password,Pair,Role from db_owner.AllUser where UPPER(Name) = N'" + username + "'";
+                    con.Open();
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    while (sqlDataReader.Read())
+                    {
+                        usr[0] = sqlDataReader["ID"].ToString();
+                        usr[1] = sqlDataReader["Password"].ToString();
+                        usr[2] = sqlDataReader["Pair"].ToString();
+                        usr[3] = sqlDataReader["Role"].ToString();
+                        break;
+                    }
+                    sqlDataReader.Close();
+                }
+            }
+            catch
+            { }
+
+            return usr;
+        }
+        //Get table Batch
+        public DataTable dtBatch(int hitpoint)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandText = "Select Name,ID,Hitpoint from dbo.batch where Hitpoint=" + hitpoint;
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    con.Open();
+                    da.SelectCommand = sqlCommand;
+                    da.Fill(dt);
+                }
+
+            }
+            catch (SqlException sqlException)
+            {
+                throw new System.Exception("Error! Get table Field\n" + sqlException.Message);
+            }
+            return dt;
+
+        }
+        public int GetIdImageEntrySecond(int batchId, int userid, int pair)
+        {
+            int id = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandText = "INFUSER";
+                    sqlCommand.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    sqlCommand.Parameters.Add("@Pair", SqlDbType.Int).Value = pair;
+                    sqlCommand.Parameters.Add("@BatchID", SqlDbType.Int).Value = batchId;
+                    sqlCommand.Parameters.Add("@IDEntry", SqlDbType.Int).Value = userid;
+                    con.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    id = int.Parse(sqlCommand.Parameters["@ID"].Value.ToString());
+                }
+            }
+            catch
+            {
+
+            }
+            return id;
+        }
+        /// <summary>
+        /// set hitpoint batch = 1 neu ton tai image chua nhap
+        /// </summary>
+        /// <param name="batchId"></param>
+        public void SetHitpointBatch(int batchId, int pair)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandText = "SetHitpointBatch";
+                    sqlCommand.Parameters.Add("@BatchID", SqlDbType.Int).Value = batchId;
+                    sqlCommand.Parameters.Add("@Pair", SqlDbType.Int).Value = pair;
+                    con.Open();
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        /// <summary>
+        /// Check co ton tai record image content ko
+        /// </summary>
+        /// <param name="imageId">id cua image</param>
+        /// <returns>ton tai hay ko</returns>
+        public byte[] get_app_auto_update(string projectname)
+        {
+            byte[] returnVal = null;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(stringconnecttion))
+                {
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Connection = con;
+                    sqlCommand.CommandText = "SELECT FileUpdate FROM dbo.[App_Auto_Update] WHERE ProjectName = @projectname";
+                    sqlCommand.Parameters.Add("@projectname", SqlDbType.NVarChar).Value = projectname;
+                    con.Open();
+                    returnVal = (byte[])sqlCommand.ExecuteScalar();
+                }
+            }
+            catch
+            { }
+            return returnVal;
+        }
+    }
+}

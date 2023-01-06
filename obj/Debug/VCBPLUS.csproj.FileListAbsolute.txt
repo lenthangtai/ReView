@@ -1,0 +1,548 @@
+D:\Project\Project\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+D:\Project\Project\VCB_PLUS\obj\Debug\VCBPLUS.csprojResolveAssemblyReference.cache
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmdetails.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheck.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmEntry.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.FindForm.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_Entry.Properties.Resources.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+D:\Project\Project\VCB_PLUS\obj\Debug\VCBPLUS.csproj.GenerateResource.Cache
+D:\Project\Project\VCB_PLUS\bin\Debug\VCB-PLUS-NEW-1.05.exe.manifest
+D:\Project\Project\VCB_PLUS\bin\Debug\VCB-PLUS-NEW-1.05.application
+D:\Project\Project\VCB_PLUS\bin\Debug\VCB-PLUS-NEW-1.05.exe
+D:\Project\Project\VCB_PLUS\bin\Debug\VCB-PLUS-NEW-1.05.pdb
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.05.exe.licenses
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.05.TrustInfo.xml
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.05.exe.manifest
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.05.application
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.05.exe
+D:\Project\Project\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.05.pdb
+D:\IT\C#\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+D:\IT\C#\VCB_PLUS\bin\Debug\ImageViewerTR.dll
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmdetails.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheck.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmEntry.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.FindForm.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_Entry.Properties.Resources.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+D:\IT\C#\VCB_PLUS\obj\Debug\VCBPLUS.csproj.GenerateResource.Cache
+D:\IT\C#\VCB_PLUS\obj\Debug\VCBPLUS.csprojResolveAssemblyReference.cache
+D:\IT\C#\VCB_PLUS\bin\Debug\VCB-PLUS-NEW-1.11.exe.manifest
+D:\IT\C#\VCB_PLUS\bin\Debug\VCB-PLUS-NEW-1.11.application
+D:\IT\C#\VCB_PLUS\bin\Debug\VCB-PLUS-NEW-1.11.exe
+D:\IT\C#\VCB_PLUS\bin\Debug\VCB-PLUS-NEW-1.11.pdb
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.11.exe.licenses
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.11.TrustInfo.xml
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.11.exe.manifest
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.11.application
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.11.exe
+D:\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-NEW-1.11.pdb
+D:\DATA\IT\C#\VCB_PLUS\bin\Debug\ImageViewerTR.dll
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmdetails.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheck.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmEntry.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.FindForm.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_Entry.Properties.Resources.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCBPLUS.csproj.GenerateResource.Cache
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_Entry.Feedback.resources
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB_Entry.UpdateTool.resources
+D:\DATA\IT\C#\VCB_PLUS\bin\Debug\VCB-PLUS-v1.01.exe.manifest
+D:\DATA\IT\C#\VCB_PLUS\bin\Debug\VCB-PLUS-v1.01.application
+D:\DATA\IT\C#\VCB_PLUS\bin\Debug\VCB-PLUS-v1.01.exe
+D:\DATA\IT\C#\VCB_PLUS\bin\Debug\VCB-PLUS-v1.01.pdb
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-v1.01.exe.licenses
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-v1.01.TrustInfo.xml
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-v1.01.exe.manifest
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-v1.01.application
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-v1.01.exe
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCB-PLUS-v1.01.pdb
+D:\DATA\IT\C#\VCB_PLUS\obj\Debug\VCBPLUS.csprojResolveAssemblyReference.cache
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+E:\DEV_NAM\VCB_PLUS\bin\Debug\ImageViewerTR.dll
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmdetails.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheck.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmEntry.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_Entry.Feedback.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.FindForm.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_Entry.Properties.Resources.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB_Entry.UpdateTool.resources
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCBPLUS.csproj.GenerateResource.Cache
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCBPLUS.csprojResolveAssemblyReference.cache
+E:\DEV_NAM\VCB_PLUS\bin\Debug\VCB-PLUS-v1.02.exe.manifest
+E:\DEV_NAM\VCB_PLUS\bin\Debug\VCB-PLUS-v1.02.application
+E:\DEV_NAM\VCB_PLUS\bin\Debug\VCB-PLUS-v1.02.exe
+E:\DEV_NAM\VCB_PLUS\bin\Debug\VCB-PLUS-v1.02.pdb
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.exe.licenses
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.TrustInfo.xml
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.exe.manifest
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.application
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.exe
+E:\DEV_NAM\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.pdb
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCBPLUS.csprojResolveAssemblyReference.cache
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmdetails.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheck.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmEntry.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_Entry.Feedback.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.FindForm.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_Entry.Properties.Resources.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB_Entry.UpdateTool.resources
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCBPLUS.csproj.GenerateResource.Cache
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.exe.licenses
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.TrustInfo.xml
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.exe
+E:\DEV_NAM\TOOL VCB\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.pdb
+D:\DATA\IT\C#\NEW12\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+D:\DATA\IT\C#\NEW12\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.exe
+D:\DATA\IT\C#\NEW12\VCB_PLUS\obj\Debug\VCB-PLUS-v1.02.pdb
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.BonusSkins.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Data.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Office.v16.1.Core.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Core.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Printing.v16.1.Core.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.RichEdit.v16.1.Core.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Utils.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraBars.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraEditors.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraGrid.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraLayout.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraNavBar.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraPrinting.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraRichEdit.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ImageProcessor.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Drawing.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Sparkline.v16.1.Core.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraTreeList.v16.1.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Data.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Office.v16.1.Core.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Core.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Printing.v16.1.Core.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.RichEdit.v16.1.Core.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Utils.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraBars.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraEditors.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraPrinting.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraGrid.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraLayout.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraNavBar.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraRichEdit.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ImageProcessor.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Drawing.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Sparkline.v16.1.Core.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraTreeList.v16.1.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Office.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Printing.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Printing.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Printing.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Printing.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Utils.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Utils.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Utils.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Utils.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraBars.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraBars.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraBars.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraBars.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraEditors.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraEditors.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraEditors.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraEditors.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraGrid.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraGrid.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraGrid.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraGrid.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraLayout.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraLayout.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraLayout.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraLayout.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmdetails.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheck.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmEntry.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_Entry.FB_NEW_2708.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.FindForm.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_Entry.Lastcheck.Up_Master.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_Entry.Properties.Resources.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_Entry.UpdateTool.resources
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCBPLUS.csproj.GenerateResource.Cache
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.18.exe.config
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.18.exe.manifest
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.18.application
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.18.exe
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.18.pdb
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.18.exe.licenses
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.18.TrustInfo.xml
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.18.exe.manifest
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.18.application
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.18.exe
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.18.pdb
+D:\PhanMem\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCBPLUS.csprojResolveAssemblyReference.cache
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.19.exe.config
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.19.exe.manifest
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.19.application
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.19.exe
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.19.pdb
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.BonusSkins.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Data.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Office.v16.1.Core.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Core.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Printing.v16.1.Core.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.RichEdit.v16.1.Core.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Utils.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraBars.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraEditors.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraGrid.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraLayout.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraNavBar.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraPrinting.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraRichEdit.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ImageProcessor.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Drawing.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Sparkline.v16.1.Core.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraTreeList.v16.1.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Data.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Office.v16.1.Core.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Core.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Printing.v16.1.Core.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.RichEdit.v16.1.Core.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Utils.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraBars.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraEditors.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraPrinting.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraGrid.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraLayout.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraNavBar.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraRichEdit.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ImageProcessor.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Drawing.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.Sparkline.v16.1.Core.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\DevExpress.XtraTreeList.v16.1.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Office.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Printing.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Printing.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Printing.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Printing.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Utils.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Utils.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Utils.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Utils.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraBars.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraBars.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraBars.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraBars.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraEditors.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraEditors.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraEditors.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraEditors.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraGrid.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraGrid.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraGrid.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraGrid.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraLayout.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraLayout.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraLayout.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraLayout.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\de\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\es\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ja\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\bin\Debug\ru\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmdetails.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheck.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmEntry.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_Entry.FB_NEW_2708.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.FindForm.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_Entry.Lastcheck.Up_Master.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_Entry.Properties.Resources.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB_Entry.UpdateTool.resources
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCBPLUS.csproj.GenerateResource.Cache
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.19.exe.licenses
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.19.TrustInfo.xml
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.19.exe.manifest
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.19.application
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.19.exe
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.19.pdb
+D:\Phần Mềm\PLUS\vcb_plus_2020-plus_2020\VCB_PLUS\obj\Debug\VCBPLUS.csprojResolveAssemblyReference.cache
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.BonusSkins.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Data.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Office.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Printing.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.RichEdit.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Utils.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraBars.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraEditors.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraGrid.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraLayout.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraNavBar.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraPrinting.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraRichEdit.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ImageProcessor.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ImageViewerTR.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Drawing.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Sparkline.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraTreeList.v16.1.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Data.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Office.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Printing.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.RichEdit.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Utils.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraBars.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraEditors.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraPrinting.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraGrid.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraLayout.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraNavBar.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraRichEdit.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ImageProcessor.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Pdf.v16.1.Drawing.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.Sparkline.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\DevExpress.XtraTreeList.v16.1.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.Office.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.Printing.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.Printing.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.Printing.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.Printing.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.Utils.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.Utils.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.Utils.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.Utils.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.XtraBars.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.XtraBars.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.XtraBars.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.XtraBars.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.XtraEditors.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.XtraEditors.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.XtraEditors.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.XtraEditors.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.XtraGrid.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.XtraGrid.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.XtraGrid.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.XtraGrid.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.XtraLayout.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.XtraLayout.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.XtraLayout.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.XtraLayout.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\de\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\es\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ja\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\ru\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmdetails.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheck.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmEntry.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_Entry.FB_NEW_2708.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.FindForm.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_Entry.Lastcheck.Up_Master.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_Entry.Properties.Resources.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB_Entry.UpdateTool.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\AIOCR.WaitForm4.resources
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCBPLUS.csproj.GenerateResource.Cache
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.34.exe.config
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.34.exe.manifest
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.34.application
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.34.exe
+D:\BACKUP\DATA\DU AN\VCB_PLUS\bin\Debug\VCB-PLUS-2019-v1.34.pdb
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.34.exe.licenses
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.34.TrustInfo.xml
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.34.exe.manifest
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.34.application
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.34.exe
+D:\BACKUP\DATA\DU AN\VCB_PLUS\obj\Debug\VCB-PLUS-2019-v1.34.pdb
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\VCB-PLUS-2019-v1.34.exe.config
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCBPLUS.csproj.ResolveComReference.cache
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB-PLUS-2019-v1.34.exe
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB-PLUS-2019-v1.34.pdb

@@ -1,0 +1,1092 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+using System.Configuration;
+using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
+using System.Drawing.Drawing2D;
+namespace VCB_TEGAKI
+{
+    public partial class frmEntry : Form
+    {
+        public static bool selecthitpoint = true;    
+        public int batchId;
+        public int userId;
+        public int pair;
+        private double scale = 1;
+        public string userName;
+        public string batchName;
+        int idreturn;
+        DataTable dtimage;
+        DataTable dtbinary;
+        DataTable dtbinary2;
+        Bitmap imageSource;
+        List<BOImage_Entry> ListImage = new List<BOImage_Entry>();     
+        private DAEntry_Entry dAEntry = new DAEntry_Entry();
+        private BOImage_Entry img = new BOImage_Entry();
+        FrmSOP frmsop = new FrmSOP();
+        private bool finish = false;
+        bool getanh = false;
+        byte[] binary;
+        string x2, x3, x4, x5;
+        private int zoomLevel;
+        bool check = false;
+        bool zoom = false;
+        int tbindex = 0;
+        string resul;
+        int lbtong;
+        string tenanh;
+        int[] INFImage;
+        int idimg;
+        int[] arr2 = Enumerable.Range(1, 1000).ToArray();
+        int[] arr3 = Enumerable.Range(1, 1000).ToArray();
+        int[] arr4 = Enumerable.Range(1, 1000).ToArray();
+        int[] arr8 = Enumerable.Range(1, 1000).ToArray();
+        int limitTime = 0;
+        //var 140716
+        int zom = 20;
+        string maso = "";
+        double tyle;
+        double tyleImageNew = 1;
+        Bitmap bm_out;
+        List<TextBox> lsttxt = new List<TextBox>();
+        List<Label> lstlb = new List<Label>();
+        double tong1 = 0;
+        double tong2 = 0;
+        int demsohang;
+        DateTime dtimeBefore = new DateTime();
+        public frmEntry()
+        {
+            InitializeComponent();
+            System.Drawing.Size size;
+            lsttxt = new List<TextBox>() { txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt10};
+            lstlb = new List<Label>() { lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8, lbl9, lbl10 };
+        }
+
+        private void frmEntry_Load(object sender, EventArgs e)
+        {
+           lsttxt.ForEach(a =>
+            {
+                a.Enter += new System.EventHandler(this.TextBox_Enter);
+                a.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+                a.Leave += new System.EventHandler(this.TextBox_Leave);
+                a.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+                a.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+                a.Click += new System.EventHandler(this.TextBox_Click);
+                a.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt1_KeyUp);
+                
+            });
+            // hiển thị thông tin user
+            this.Text = "Entry" + "                     UserName: " + userName + " -- Batch:  " + batchName;
+            //userid
+            int uID = userId;
+            this.CenterToScreen();
+            idimg = dAEntry.GetIDImage(pair);
+            if (idimg == 0)
+            {
+                finish = true;
+                MessageBox.Show("Batch đã hoàn thành");
+                this.Close();
+                return;
+            }
+            else
+            {
+                try
+                {
+
+                    tenanh = dAEntry.Get_imgname(idimg);
+                    imageSource = new Bitmap(Io_Entry.byteArrayToImage(dAEntry.getImageOnServer(tenanh)));
+                    //imageSource = new Bitmap(imageSource, view_Image_TN.Width, view_Image_TN.Height);
+                    view_Image_TN.Image = imageSource;
+
+                    //if (imageSource.Height > imageSource.Width)
+                    //{
+                    //    view_Image_TN.Image = ResizeHeight(imageSource, view_Image_TN.Width, view_Image_TN.Height, "1");
+                    //}
+                    //else
+                    //{
+                    //    view_Image_TN.Image = ResizeWith(imageSource, view_Image_TN.Width, view_Image_TN.Height, "1");
+                    //}
+                    bm_out = (Bitmap)imageSource.Clone();
+                    lblpage.Text = tenanh;
+                }
+                catch
+                {
+                    MessageBox.Show("Server chưa có ảnh");
+                    this.Close();
+                    return;
+                }
+            }
+            idreturn = idimg;
+            Logic(idreturn);
+            //bgwGetImage.RunWorkerAsync();
+            timergetimage.Start();
+            dtimeBefore = DateTime.Now;
+            zom = 20;
+            lblsoluong.Text = (dAEntry.ImageExistEntry(pair)).ToString();
+        }
+
+        #region focus
+        public Bitmap ResizeHeight(Bitmap image, int newWidth, int newHeight, string message)
+        {
+            try
+            {
+                Bitmap newImage = new Bitmap(image, newWidth, newHeight);
+
+                using (Graphics gr = Graphics.FromImage(newImage))
+                {
+                    gr.SmoothingMode = SmoothingMode.AntiAlias;
+                    gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                    gr.DrawImage(image, new Rectangle(0, 0, newImage.Width, newImage.Height));
+
+                    var myBrush = new SolidBrush(Color.FromArgb(70, 205, 205, 205));
+
+                    double diagonal = Math.Sqrt(newImage.Width * newImage.Width + newImage.Height * newImage.Height);
+
+                    Rectangle containerBox = new Rectangle();
+
+                    containerBox.X = (int)(diagonal / 10);
+                    float messageLength = (float)(diagonal / message.Length * 1);
+                    containerBox.Y = -(int)(messageLength / 1.6);
+
+                    Font stringFont = new Font("verdana", messageLength);
+
+                    StringFormat sf = new StringFormat();
+
+                    float slope = (float)(Math.Atan2(newImage.Height, newImage.Width) * 180 / Math.PI);
+
+                    gr.RotateTransform(slope);
+                    gr.DrawString(message, stringFont, myBrush, containerBox, sf);
+                    return newImage;
+                }
+            }
+            catch (Exception exc)
+            {
+                throw exc;
+            }
+        }
+        public int CalculationsHeight(decimal w1, decimal h1, int newWidth)
+        {
+            decimal height = 0;
+            decimal ratio = 0;
+
+
+            if (newWidth < w1)
+            {
+                ratio = w1 / newWidth;
+                height = h1 / ratio;
+
+                return Convert.ToInt32(height);
+            }
+
+            if (w1 < newWidth)
+            {
+                ratio = newWidth / w1;
+                height = h1 * ratio;
+                return Convert.ToInt32(height);
+            }
+
+            return Convert.ToInt32(height);
+        }
+        public Bitmap ResizeWith(Bitmap image, int newWidth, int newHeight, string message)
+        {
+            try
+            {
+                Bitmap newImage = new Bitmap(image, newWidth, newHeight);
+
+                using (Graphics gr = Graphics.FromImage(newImage))
+                {
+                    gr.SmoothingMode = SmoothingMode.AntiAlias;
+                    gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                    gr.DrawImage(image, new Rectangle(0, 0, newImage.Width, newImage.Height));
+
+                    var myBrush = new SolidBrush(Color.FromArgb(70, 205, 205, 205));
+
+                    double diagonal = Math.Sqrt(newImage.Width * newImage.Width + newImage.Height * newImage.Height);
+
+                    Rectangle containerBox = new Rectangle();
+
+                    containerBox.X = (int)(diagonal / 10);
+                    float messageLength = (float)(diagonal / message.Length * 1);
+                    containerBox.Y = -(int)(messageLength / 1.6);
+
+                    Font stringFont = new Font("verdana", messageLength);
+
+                    StringFormat sf = new StringFormat();
+
+                    float slope = (float)(Math.Atan2(newImage.Height, newImage.Width) * 180 / Math.PI);
+
+                    gr.RotateTransform(slope);
+                    gr.DrawString(message, stringFont, myBrush, containerBox, sf);
+                    return newImage;
+                }
+            }
+            catch (Exception exc)
+            {
+                throw exc;
+            }
+        }
+
+        public int CalculationsWith(decimal w1, decimal h1, int newWidth)
+        {
+            decimal height = 0;
+            decimal ratio = 0;
+
+
+            if (newWidth < w1)
+            {
+                ratio = w1 / newWidth;
+                height = h1 / ratio;
+                return Convert.ToInt32(height);
+            }
+
+            if (w1 < newWidth)
+            {
+                ratio = newWidth / w1;
+                height = h1 * ratio;
+                return Convert.ToInt32(height);
+            }
+
+            return Convert.ToInt32(height);
+        }
+        public void Logic(int id)
+        {
+            resul = "";
+            string str = "";
+            binary = null;
+            string[] arrrole = null;
+            int temid = 0;
+            for (int i = 0; i < lsttxt.Count; i++)
+            {
+                lsttxt[i].Visible = false;
+                lstlb[i].Visible = false;
+            }
+            resul = dAEntry.Get_Result(id);
+            str = dAEntry.Get_Rules(resul);          
+            maso = dAEntry.Get_maso(resul);
+            temid = dAEntry.Get_Temid(resul);
+            arrrole = str.Split(',');
+            lsttxt[7].Text = "";
+            for (int i = 0; i < arrrole.Length; i++)
+            {
+                lsttxt[Convert.ToInt32(arrrole[i]) - 2].Visible = true;
+                lstlb[Convert.ToInt32(arrrole[i]) - 2].Visible = true;
+            }
+            lsttxt[7].Visible = false;
+            lstlb[7].Visible = false;
+            lsttxt[8].Visible = false;
+            lstlb[8].Visible = false;
+            if (temid > 6 && temid < 13)
+            {
+                lsttxt[7].Text = "C";
+                lsttxt[7].Enabled = false;
+                lsttxt[7].Visible = true;
+                lsttxt[8].Visible = true;
+                lstlb[7].Visible = true;
+                lstlb[8].Visible = true;
+            }
+            if (lsttxt[4].Visible == true)
+            {
+                lsttxt[4].Focus();
+                return;
+            }
+            else if (lsttxt[3].Visible == true)
+            {
+                lsttxt[3].Focus();
+                return;
+            }
+            else if (lsttxt[8].Visible == true)
+            {
+                lsttxt[8].Focus();
+                return;
+            }
+            else if (lsttxt[0].Visible == true)
+            {
+                lsttxt[0].Focus();
+                return;
+            }
+            else if (lsttxt[1].Visible == true)
+            {
+                lsttxt[1].Focus();
+                return;
+            }
+            else if (lsttxt[2].Visible == true)
+            {
+                lsttxt[2].Focus();
+                return;
+            }
+            else if (lsttxt[6].Visible == true)
+            {
+                lsttxt[6].Focus();
+                return;
+            }
+        }
+        #endregion
+        
+        //public Bitmap ResizeByWidth(Image img, int width)
+        //{
+        //    // lấy chiều rộng và chiều cao ban đầu của ảnh
+        //    int originalW = img.Width;
+        //    int originalH = img.Height;
+
+        //    // lấy chiều rộng và chiều cao mới tương ứng với chiều rộng truyền vào của ảnh (nó sẽ giúp ảnh của chúng ta sau khi resize vần giứ được độ cân đối của tấm ảnh
+        //    int resizedW = width;
+        //    int resizedH = (originalH * resizedW) / originalW;
+
+        //    // tạo một Bitmap có kích thước tương ứng với chiều rộng và chiều cao mới
+        //    Bitmap bmp = new Bitmap(resizedW, resizedH);
+
+        //    // tạo mới một đối tượng từ Bitmap
+        //    Graphics graphic = Graphics.FromImage((Image)bmp);
+        //    graphic.InterpolationMode = InterpolationMode.High;
+
+        //    // vẽ lại ảnh với kích thước mới
+        //    graphic.DrawImage(img, 0, 0, resizedW, resizedH);
+
+        //    // gải phóng resource cho đối tượng graphic
+        //    graphic.Dispose();
+
+        //    // trả về anh sau khi đã resize
+        //    return bmp;
+        //}
+        //public Bitmap ResizeByHeight(Image img, int height)
+        //{
+        //    // lấy chiều rộng và chiều cao ban đầu của ảnh
+        //    int originalW = img.Width;
+        //    int originalH = img.Height;
+
+        //    // lấy chiều rộng và chiều cao mới tương ứng với chiều rộng truyền vào của ảnh (nó sẽ giúp ảnh của chúng ta sau khi resize vần giứ được độ cân đối của tấm ảnh
+         
+
+        //    int resizedH = height;
+        //    int resizedW = (originalW * resizedH) / originalH;
+        //    // tạo một Bitmap có kích thước tương ứng với chiều rộng và chiều cao mới
+        //    Bitmap bmp = new Bitmap(resizedW, resizedH);
+
+        //    // tạo mới một đối tượng từ Bitmap
+        //    Graphics graphic = Graphics.FromImage((Image)bmp);
+        //    graphic.InterpolationMode = InterpolationMode.High;
+
+        //    // vẽ lại ảnh với kích thước mới
+        //    graphic.DrawImage(img, 0, 0, resizedW, resizedH);
+
+        //    // gải phóng resource cho đối tượng graphic
+        //    graphic.Dispose();
+
+        //    // trả về anh sau khi đã resize
+        //    return bmp;
+        //}
+        private void frmEntry_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (!finish)
+                {
+                    dAEntry.Return_HitpointEntry(idreturn, pair);
+                    dAEntry.Return_HitpointEntry(img.Id, pair);       
+                    for (int i = 0; i < ListImage.Count; i++)
+                    {
+                        dAEntry.Return_HitpointEntry(ListImage[i].Id, pair);
+                    }                    
+                }
+                else
+                {
+
+                }
+            }
+            catch { }
+            return;
+        }        
+        protected System.Drawing.Point clickPosition;
+        protected System.Drawing.Point scrollPosition;
+        private void picBoxImage_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.clickPosition.X = e.X;
+            this.clickPosition.Y = e.Y;
+        }
+        private void frmEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+            if (e.Control)
+            {
+                if (e.KeyCode == Keys.N)
+                {
+                    btnNotgood_Click(sender, e);
+                }
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnSubmit_Click(sender, e);
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.F)
+                {
+                    imageSource = (Bitmap)bm_out.Clone();
+                    view_Image_TN.Image = imageSource;
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.Right)
+                {
+                    view_Image_TN.RotateImage("270");
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.Left)
+                {
+                    view_Image_TN.RotateImage("90");
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void frmEntry_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if (e.KeyChar == 43)
+                    e.Handled = true;
+                //if (e.KeyChar == 10)
+                //    e.Handled = true;
+                if (e.KeyChar == 13)
+                    e.Handled = true;
+
+        }
+
+        private void frmEntry_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                e.Handled = true;
+        }
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (e.KeyCode == Keys.Add)
+            {
+                try
+                {
+                //    if (tb.TabIndex == 9)
+                //    {
+                //        string[] arrtach = null;
+                //        arrtach = tb.Text.Split('\r').ToArray();
+                //        //tb.Text = tb.Text + arrtach[arrtach.Length - 2]; //+ "\n";
+                //        Clipboard.Clear();
+                //        Clipboard.SetText(arrtach[arrtach.Length - 2].Replace("\n", ""));
+                //        SendKeys.Send("^{v}");
+                //        tb.SelectionStart = tb.Text.Length;
+                //    }
+                //    else
+                //    {
+                    if (tb.TabIndex == 5 || tb.TabIndex == 6 || tb.TabIndex == 7 || tb.TabIndex == 8)
+                    {
+                        string[] arrtach = null;
+                        arrtach = tb.Text.Split('\r').ToArray();
+                        tb.Text = tb.Text + arrtach[arrtach.Length - 2].Replace("\n", ""); //+ "\n";
+                        tb.SelectionStart = tb.Text.Length;
+                    }
+                    //}
+                }
+                catch
+                {
+                }
+
+            }
+            if (e.Control)
+            {
+                if (e.KeyCode == Keys.NumPad1)
+                {
+                    //Clipboard.Clear();
+                    //Clipboard.SetText("4977564");
+                    //SendKeys.Send("^{v}");
+                    ////tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    tb.Text = tb.Text + "4977564";
+                    tb.SelectionStart = tb.Text.Length;
+                }
+                else if (e.KeyCode == Keys.NumPad2)
+                {
+                    //Clipboard.Clear();
+                    //Clipboard.SetText("AM必着");
+                    //SendKeys.Send("^{v}");
+                    //tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    //tb.Text = tb.Text + "AM必着";
+                    tb.AppendText("AM必着");
+                    return;
+                    //tb.SelectionStart = tb.Text.Length;
+                }
+                else if (e.KeyCode == Keys.NumPad3)
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText("階定番分");
+                    SendKeys.Send("^{v}");
+                    //tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    //tb.Text = tb.Text + "階定番分";
+                    tb.SelectionStart = tb.Text.Length;
+                }
+                else if (e.KeyCode == Keys.NumPad4)
+                {
+                    Clipboard.Clear();
+                    Clipboard.SetText("様");
+                    SendKeys.Send("^{v}");
+                    //tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    //tb.Text = tb.Text + "様";
+                    tb.SelectionStart = tb.Text.Length;
+                }
+                else if (e.KeyCode == Keys.Subtract)
+                {
+                    tb.Text = "";
+                }
+            }           
+            
+        }
+        private void TextBox_Enter(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.BackColor = Color.PowderBlue;
+            tb.SelectionStart = tb.Text.Length + 1;
+        }
+        private void TextBox_Click(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;           
+        }
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.BackColor = SystemColors.Window;
+        }
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;           
+        }
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (e.KeyChar == 43)
+                e.Handled = true;
+            if (e.KeyChar == 13)
+                e.Handled = true;
+            if (e.KeyChar == 10)
+                e.Handled = true;
+            if (tb.TabIndex == 5)
+            {
+                if (e.KeyChar == 45)
+                {
+                    e.Handled = true;
+                }
+            }
+            if (tb.TabIndex == 1 || tb.TabIndex == 4)
+            {
+                if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                    e.Handled = true;
+            }
+        }      
+        private void timergetimage_Tick(object sender, EventArgs e)
+        {
+            if (ListImage.Count < 2)
+            {
+                int id = dAEntry.GetIDImage(pair);
+                if (id>0)
+                {
+                    BOImage_Entry img2 = new BOImage_Entry();
+                    img2.PageUrl = dAEntry.Get_imgname(id);
+                    img2.Id = id;
+                    img2.Imagesource = new Bitmap(Io_Entry.byteArrayToImage(dAEntry.getImageOnServer(img2.PageUrl)));
+                    ListImage.Add(img2);
+                    if (ListImage.Count == 0)
+                    {
+                        getanh = true;
+                    }           
+                }               
+            }            
+        }
+        private void txt2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                e.Handled = true;
+        }
+        private void txt1_KeyUp(object sender, KeyEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;           
+        }
+        private void view_Image_TN_MouseHover(object sender, EventArgs e)
+        {
+            view_Image_TN.Focus();
+        }
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            string[] arr2 = null;
+            string[] arr3 = null;
+            int sohang2 = 0; 
+            int sohang3 = 0; 
+            int sohang4 = 0; 
+            int sohang8 = 0;
+            sohang2 = txt2.Text.Split('\n').Length;
+            sohang3 = txt3.Text.Split('\n').Length;
+            arr2 = txt2.Text.Split('\n').ToArray();
+            arr3 = txt3.Text.Split('\n').ToArray();
+            sohang4 = txt4.Text.Split('\n').Length;
+            sohang8 = txt8.Text.Split('\n').Length;
+            if (sohang2 != sohang3 || sohang2 != sohang4 && txt4.Visible == true || sohang2 != sohang8 && txt8.Visible == true)
+            {
+                MessageBox.Show("Số hàng không đồng đều");
+                return;
+            }
+            else if (txt2.Text == "" || txt3.Text == "")
+            {
+                MessageBox.Show("Mã SP hoặc Số lượng trống");
+                return;
+            }
+            else if (arr2[arr2.Length - 1] == "" || arr3[arr3.Length - 1] == "")
+            {
+                MessageBox.Show("Mã SP hoặc Số lượng có hàng trống");
+                return;
+            }
+            // else
+            else
+            {
+                btnSubmit.Focus();
+                string[] arr = lsttxt.Select(x => x.Text.Trim()).ToArray();
+                string imgContentContent = String.Join("|", arr);
+                imgContentContent = imgContentContent.Replace("\r", "");
+                int lng = imgContentContent.Length - 8;
+                string imgContent = "";
+                int imgContentImageId = 0;
+                if (tenanh == "")
+                {
+                    string allinfo = img.PageUrl;
+                    string ngaythang = allinfo.Substring(0, 8);
+                    string giophut = allinfo.Substring(8, 4);
+                    string vbpo = "VBPOx1";
+                    imgContent = maso + "|" + imgContentContent + "|" + ngaythang + "|" + giophut + "|" + vbpo + "|" + allinfo;
+                    imgContentImageId = img.Id;
+                }
+                else
+                {
+                    string allinfo = tenanh;
+                    string ngaythang = allinfo.Substring(0, 8);
+                    string giophut = allinfo.Substring(8, 4);
+                    string vbpo = "VBPOx1";
+                    imgContent = maso + "|" + imgContentContent + "|" + ngaythang + "|" + giophut + "|" + vbpo + "|" + allinfo;
+                    imgContentImageId = idreturn;
+                }
+                int uID = userId;
+                int imgContentUserId = userId;
+                tyleImageNew = 1;
+                zom = 11;
+                TimeSpan span = DateTime.Now - dtimeBefore;
+                int ms = (int)span.TotalMilliseconds;
+                try
+                {
+                    if (idreturn != 0)
+                    {
+                        if (pair == 1)
+                        {
+                            dAEntry.AddImageContent1(idreturn.ToString(), imgContent.Trim(), imgContentUserId.ToString(), lng.ToString(), ms);
+                        }
+                        else if (pair == 2)
+                        {
+                            dAEntry.AddImageContent2(idreturn.ToString(), imgContent.Trim(), imgContentUserId.ToString(), lng.ToString(), ms);
+                        }
+                    }
+                    else
+                    {
+                        if (pair == 1)
+                        {
+                            dAEntry.AddImageContent1(imgContentImageId.ToString(), imgContent.Trim(), imgContentUserId.ToString(), lng.ToString(), ms);
+                        }
+                        else if (pair == 2)
+                        {
+                            dAEntry.AddImageContent2(imgContentImageId.ToString(), imgContent.Trim(), imgContentUserId.ToString(), lng.ToString(), ms);
+                        }
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                    return;
+                }
+                bm_out = null;
+                imageSource = null;
+                view_Image_TN.Dispose();                
+                tenanh = "";
+                maso = "";
+                idreturn = 0;
+                img = new BOImage_Entry();
+                if (ListImage.Count > 0)
+                {
+                    img = ListImage[0];
+                    ListImage.RemoveAt(0);
+                }
+                else
+                {
+                    if (getanh)
+                    {
+                        finish = true;
+                        this.Close();
+                        return;
+                    }
+                    else
+                    {
+                        while (ListImage.Count == 0)
+                        {
+                            btnSubmit.Enabled = false;
+                            btnNotgood.Enabled = false;
+                            finish = true;
+                            MessageBox.Show("Batch đã hoàn thành");
+                            this.Close();
+                            return;
+                        }
+                        img = ListImage[0];
+                        ListImage.RemoveAt(0);
+                    }
+                }
+
+                try
+                {
+                    //Get Image
+                    imageSource = (Bitmap)img.Imagesource.Clone();
+                    view_Image_TN.Image = imageSource;
+                    //if (imageSource.Height > imageSource.Width)
+                    //{
+                    //    view_Image_TN.Image = ResizeHeight(imageSource, view_Image_TN.Width, view_Image_TN.Height, "1");
+                    //}
+                    //else
+                    //{
+                    //    view_Image_TN.Image = ResizeWith(imageSource, view_Image_TN.Width, view_Image_TN.Height, "1");
+                    //}
+                    //view_Image_TN.Image = imageSource;
+                    bm_out = (Bitmap)imageSource.Clone();
+                }
+                catch
+                {
+                    MessageBox.Show("Không load được ảnh: " + img.PageUrl, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                    return;
+                }
+                // hiển thị tên field name         
+                lblpage.Text = img.PageUrl;
+                lsttxt.ForEach(s => s.Text = "");
+                dtimeBefore = DateTime.Now;
+                lblsoluong.Text = (dAEntry.ImageExistEntry(pair) + ListImage.Count).ToString();
+                zom = 20;
+                Logic(img.Id);
+            }
+        }
+
+        private void btnNotgood_Click(object sender, EventArgs e)
+        {
+            string[] arr2 = null;
+            try
+            {
+                arr2 = txt2.Text.Split('\n').ToArray();
+            }
+            catch
+            {
+            }
+            btnSubmit.Focus();
+            string[] arr = lsttxt.Select(x => x.Text.Trim()).ToArray();
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    if (i == 0 || i == 1 || i == 2 || i == 6)
+            //    {
+            //        string ktdong = arr[i].ToString();
+            //        if (ktdong != "")
+            //        {
+            //            string[] arrkt = null;
+            //            arrkt = ktdong.Split('\n').ToArray();
+            //            if (arrkt.Length == 1)
+            //                for (int j = 1; j < arr2.Length; j++)
+            //                {
+            //                    arr[i] = arr[i] + "\n";
+            //                }
+            //            else if (arrkt.Length > 1)
+            //            {
+            //                for (int l = 0; l < (arr2.Length - arrkt.Length); l++)
+            //                {
+            //                    arr[i] = arr[i] + "\n";
+            //                }
+            //            }
+            //        }
+            //        else if (ktdong == "")
+            //        {
+            //            for (int k = 1; k < arr2.Length; k++)
+            //            {
+            //                arr[i] = arr[i] + "\n";
+            //            }
+            //        }
+            //    }
+            //}
+            string imgContentContent = String.Join("|", arr);
+            imgContentContent = imgContentContent.Replace("\r", "");
+            int lng = imgContentContent.Length - 8;
+            bm_out = null;
+            int uID = userId;
+            tyleImageNew = 1;
+            zom = 11;
+            string imgContent = "";
+            int imgContentImageId = 0;
+            if (tenanh == "")
+            {
+                string allinfo = img.PageUrl;
+                string ngaythang = allinfo.Substring(0, 8);
+                string giophut = allinfo.Substring(8, 4);
+                string vbpo = "VBPOx1";
+                string nt = ngaythang;
+                string time = giophut;
+                string vbo = vbpo;
+                imgContent = maso + "|" + imgContentContent + "|" + ngaythang + "|" + giophut + "|" + vbpo + "|" + allinfo;
+                imgContentImageId = img.Id;
+            }
+            else
+            {
+                string allinfo = tenanh;
+                string ngaythang = allinfo.Substring(0, 8);
+                string giophut = allinfo.Substring(8, 4);
+                string vbpo = "VBPOx1";
+                string nt = ngaythang;
+                string time = giophut;
+                string vbo = vbpo;
+                imgContent = maso + "|" + imgContentContent + "|" + ngaythang + "|" + giophut + "|" + vbpo + "|" + allinfo;
+                imgContentImageId = idreturn;
+            }
+            int imgContentUserId = userId;
+            TimeSpan span = DateTime.Now - dtimeBefore;
+            int ms = (int)span.TotalMilliseconds;
+            try
+            {
+                if (idreturn != 0)
+                {
+                    if (pair == 1)
+                    {
+                        dAEntry.AddImageContentNG1(idreturn.ToString(), imgContent.Trim(), imgContentUserId.ToString(), lng.ToString(), ms);
+                    }
+                    else if (pair == 2)
+                    {
+                        dAEntry.AddImageContentNG2(idreturn.ToString(), imgContent.Trim(), imgContentUserId.ToString(), lng.ToString(), ms);
+                    }
+                }
+                else
+                {
+                    if (pair == 1)
+                    {
+                        dAEntry.AddImageContentNG1(imgContentImageId.ToString(), imgContent.Trim(), imgContentUserId.ToString(), lng.ToString(), ms);
+                    }
+                    else if (pair == 2)
+                    {
+                        dAEntry.AddImageContentNG2(imgContentImageId.ToString(), imgContent.Trim(), imgContentUserId.ToString(), lng.ToString(), ms);
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+            bm_out = null;
+            imageSource = null;
+            view_Image_TN.Dispose();   
+            maso = "";
+            tenanh = "";
+            idreturn = 0;
+            if (ListImage.Count > 0)
+            {
+                img = ListImage[0];
+                ListImage.RemoveAt(0);
+            }
+            else
+            {
+                if (getanh)
+                {
+                    finish = true;
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    while (ListImage.Count == 0)
+                    {
+                        btnSubmit.Enabled = false;
+                        btnNotgood.Enabled = false;
+                        finish = true;
+                        MessageBox.Show("Batch đã hoàn thành");
+                        this.Close();
+                        return;
+                    
+                    }
+                    img = ListImage[0];
+                    ListImage.RemoveAt(0);
+                }
+            }
+
+            try
+            {
+                //Get Image
+                imageSource = (Bitmap)img.Imagesource.Clone();
+                //if (imageSource.Height > imageSource.Width)
+                //{
+                //    //view_Image_TN.Image = ResizeHeight(imageSource, view_Image_TN.Width, view_Image_TN.Height, "1");
+                //}
+                //else
+                //{
+                //    //view_Image_TN.Image = ResizeWith(imageSource, view_Image_TN.Width, view_Image_TN.Height, "1");
+                //}
+                ////view_Image_TN.Image = imageSource;
+                view_Image_TN.Image = imageSource;
+                bm_out = (Bitmap)imageSource.Clone();
+            }
+            catch
+            {
+                MessageBox.Show("Không load được ảnh: " + img.PageUrl, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+            // hiển thị tên field name         
+            lblpage.Text = img.PageUrl;
+            lsttxt.ForEach(s => s.Text = "");
+            demsohang = 0;
+            lblsoluong.Text = (dAEntry.ImageExistEntry(pair) + ListImage.Count).ToString();
+            dtimeBefore = DateTime.Now;
+            zom = 20;
+            Logic(img.Id);
+        }
+
+        private void view_Image_TN_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+                view_Image_TN.RotateImage("90");
+        }
+
+        private void btnsop_Click(object sender, EventArgs e)
+        {
+            binary = dAEntry.Get_imgsop(resul);  
+            frmsop.getimg = binary;
+            frmsop.ShowDialog();
+        }
+
+        private void txt2_TextChanged(object sender, EventArgs e)
+        {
+            int sohang = txt2.Text.Split('\r').Length;
+            txtlb2.Text = string.Join("\r\n", arr2.Take(sohang));
+            txtlb2.AppendText("\r\n");
+        }
+
+        private void txt2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int bb = txt2.Text.Substring(0, txt2.SelectionStart).Split('\n').Length;
+                string[] arrt2 = txt2.Text.Split('\r').ToArray();
+                if (bb == arrt2.Length)
+                    txt2.AppendText("\r\n");
+                else
+                {
+                    arrt2[bb] = "\n\r" + arrt2[bb];                    
+                    int select = 0;
+                    for (int i = 0; i < bb; i++)
+                    {
+                        select = select + arrt2[i].Length;
+                    }
+                    string join = string.Join("\r", arrt2);
+                    txt2.Text = join;
+                    txt2.SelectionStart = select + bb + 1;
+                }
+            }
+        }
+
+        private void txt3_TextChanged(object sender, EventArgs e)
+        {
+            int sohang = txt3.Text.Split('\r').Length;
+            txtlb3.Text = string.Join("\r\n", arr3.Take(sohang));
+            txtlb3.AppendText("\r\n");
+        }
+        private void txt3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int bb = txt3.Text.Substring(0, txt3.SelectionStart).Split('\n').Length;
+                string[] arrt2 = txt3.Text.Split('\r').ToArray();
+                if (bb == arrt2.Length)
+                    txt3.AppendText("\r\n");
+                else
+                {
+                    arrt2[bb] = "\n\r" + arrt2[bb];
+                    int select = 0;
+                    for (int i = 0; i < bb; i++)
+                    {
+                        select = select + arrt2[i].Length;
+                    }
+                    string join = string.Join("\r", arrt2);
+                    txt3.Text = join;
+                    txt3.SelectionStart = select + bb + 1;
+                }
+            }
+        }
+
+        private void txt4_TextChanged(object sender, EventArgs e)
+        {
+            int sohang = txt4.Text.Split('\r').Length;
+            txtlb4.Text = string.Join("\r\n", arr4.Take(sohang));
+            txtlb4.AppendText("\r\n");
+        }
+        private void txt4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int bb = txt4.Text.Substring(0, txt4.SelectionStart).Split('\n').Length;
+                string[] arrt2 = txt4.Text.Split('\r').ToArray();
+                if (bb == arrt2.Length)
+                    txt4.AppendText("\r\n");
+                else
+                {
+                    arrt2[bb] = "\n\r" + arrt2[bb];
+                    int select = 0;
+                    for (int i = 0; i < bb; i++)
+                    {
+                        select = select + arrt2[i].Length;
+                    }
+                    string join = string.Join("\r", arrt2);
+                    txt4.Text = join;
+                    txt4.SelectionStart = select + bb + 1;
+                }
+            }
+        }
+
+        private void txt8_TextChanged(object sender, EventArgs e)
+        {
+
+            int sohang = txt8.Text.Split('\r').Length;
+            txtlb8.Text = string.Join("\r\n", arr8.Take(sohang));
+            txtlb8.AppendText("\r\n");
+        }
+        private void txt8_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int bb = txt8.Text.Substring(0, txt8.SelectionStart).Split('\n').Length;
+                string[] arrt2 = txt8.Text.Split('\r').ToArray();
+                if (bb == arrt2.Length)
+                    txt8.AppendText("\r\n");
+                else
+                {
+                    arrt2[bb] = "\n\r" + arrt2[bb];
+                    int select = 0;
+                    for (int i = 0; i < bb; i++)
+                    {
+                        select = select + arrt2[i].Length;
+                    }
+                    string join = string.Join("\r", arrt2);
+                    txt8.Text = join;
+                    txt8.SelectionStart = select + bb + 1;
+                }
+            }
+        }
+    }
+}

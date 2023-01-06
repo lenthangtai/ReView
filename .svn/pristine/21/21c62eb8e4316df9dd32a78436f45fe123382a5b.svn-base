@@ -1,0 +1,2120 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using COMExcel = Microsoft.Office.Interop.Excel;
+using Microsoft.VisualBasic.FileIO;
+using System.Configuration;
+using Microsoft.Office.Interop.Excel;
+using System.IO;
+using System.Windows.Forms.Design;
+using System.Reflection;
+using System.Drawing.Imaging;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+namespace VCB_TEGAKI
+{
+    public partial class frmAdmin : Form
+    {
+        DataSet ds = new DataSet();
+
+        public Int32 formid, formiduser, formidngay, formidcherker;
+        // string cthuc = "";
+        System.Data.DataTable dtbatchlc;
+        System.Data.DataTable dtp = new System.Data.DataTable();
+        System.Data.DataTable dtcp = new System.Data.DataTable();
+        System.Data.DataTable dt = new System.Data.DataTable();
+        System.Data.DataTable dtfb = new System.Data.DataTable();
+        System.Data.DataTable dtc = new System.Data.DataTable();
+        System.Data.DataTable dtlc = new System.Data.DataTable();
+        System.Data.DataTable dtlklc = new System.Data.DataTable();  
+        System.Data.DataTable dtcspd = new System.Data.DataTable();
+        System.Data.DataTable dtcsps = new System.Data.DataTable();
+        System.Data.DataTable ktcspd = new System.Data.DataTable();
+        System.Data.DataTable ktcsps = new System.Data.DataTable();
+        System.Data.DataTable dtidPFM = new System.Data.DataTable();
+        System.Data.DataTable dtResultsEntry = new System.Data.DataTable();
+        string tongsoluong1,tongsoluong2,soluongp1,soluongp2,soluongcp ,soluonge1, soluonge2, slcheck,slqc;
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\pathCrop.txt";
+        string pagesFilePath;
+        string[] arrCD;
+        string[] arrCS;
+        int[] arrIndex;
+        int idsop = 0;
+        int ttsop = 0;
+        int pagesFilePathLength;
+        ImageCodecInfo myImageCodecInfo;
+        System.Drawing.Imaging.Encoder myEncoder;
+        EncoderParameters myEncoderParameters;
+        EncoderParameter myEncoderParameter;
+        //private static string imgLocation = ConfigurationManager.AppSettings["LocalImage"].ToString();
+        //Đường dẫn đối tượng excel
+        string ph = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\tyleloitrenkytu.xls";
+      
+        #region Variable
+        // Khởi động chtr Excell
+        Microsoft.Office.Interop.Excel.Application exApp;
+        // Thêm file temp xls
+        Microsoft.Office.Interop.Excel.Workbook oBook;
+        // Lấy sheet 1.
+        Microsoft.Office.Interop.Excel.Worksheet oSheet;
+        //class workDB
+        string pathImage = "";
+        string listBatch = "";
+        WorkDB_Admin workdb = new WorkDB_Admin();
+        Io_Entry Io = new Io_Entry();
+        System.Data.DataTable dtAllUser;
+        System.Data.DataTable dtTemplate; System.Data.DataTable dtbatch;
+        System.Data.DataTable dtresult = new System.Data.DataTable();
+        System.Data.DataTable dtstatus = new System.Data.DataTable();
+        System.Data.DataTable dttemplate = new System.Data.DataTable();
+        System.Data.DataTable tableall = new System.Data.DataTable();
+        System.Data.DataTable dtPFMP = new System.Data.DataTable();
+        System.Data.DataTable dtPFMCP = new System.Data.DataTable();
+        System.Data.DataTable dtPFM = new System.Data.DataTable();
+        System.Data.DataTable dtPFMCheck = new System.Data.DataTable();
+        System.Data.DataTable dtPFMLastCheck = new System.Data.DataTable();
+        string sodong;
+        string sophieu;
+        DataRow[] foundRows;
+        string datestring, datestringFB = ""; int idUser = 0;
+        string expression;
+        int batchId;
+        string dotlc;
+        string imgname;
+        string batchname;
+        int trangthai = 0;
+        string filename = "";
+        bool noncharacter = false;
+        double phieu = 0.0;
+        // 3 variable temp
+        string typeUser = "";
+        string typeSearch = "";
+        string typeGroup = "";
+        public int iddetails;
+        string isop;
+        //List Batch;
+        string lstBatch;
+        string lstBatchPFM;
+        List<string> listBatchNameArray = new List<string>();
+        int row;
+        double dong = 0.0;
+        int rowExcel;
+        int columExcel;
+        int idTemplate;
+        System.Data.DataTable dtSoPhieu_SoDong;
+        string trungtam = "";
+        #endregion
+
+
+        public frmAdmin()
+        {
+            InitializeComponent();
+            this.CenterToScreen();
+            dtPFMP.Columns.Add("FullName", typeof(string));
+            dtPFMP.Columns.Add("Trung tâm", typeof(string));
+            dtPFMP.Columns.Add("Tổng trường", typeof(double));
+            dtPFMP.Columns.Add("Lỗi sai", typeof(double));
+            dtPFMP.Columns.Add("Thời gian", typeof(double));
+            dtPFMP.Columns.Add("Đảm nhận", typeof(double));
+            dtPFMP.Columns.Add("Trường NG", typeof(double));
+            dtPFMP.Columns.Add("Tỉ lệ sai", typeof(double));
+            dtPFMP.Columns.Add("Tốc độ (trường/phút)", typeof(double));
+            //
+            dtPFMCP.Columns.Add("FullName", typeof(string));
+            dtPFMCP.Columns.Add("Trung tâm", typeof(string));
+            dtPFMCP.Columns.Add("Tổng trường", typeof(double));
+            dtPFMCP.Columns.Add("Thời gian", typeof(double));
+            dtPFMCP.Columns.Add("Đảm nhận", typeof(double));
+            //
+            dtPFM.Columns.Add("FullName", typeof(string));
+            dtPFM.Columns.Add("Level", typeof(string));
+            dtPFM.Columns.Add("Trung tâm", typeof(string));
+            dtPFM.Columns.Add("Tổng ký tự", typeof(double));
+            dtPFM.Columns.Add("Lỗi sai", typeof(double));
+            dtPFM.Columns.Add("Tỉ lệ sai", typeof(double));
+            dtPFM.Columns.Add("Thời gian", typeof(double));
+            dtPFM.Columns.Add("Tốc độ", typeof(double));
+            dtPFM.Columns.Add("Đảm nhận", typeof(double));
+            dtPFM.Columns.Add("Tổng trường", typeof(double));
+            dtPFM.Columns.Add("Số trường NG", typeof(double));
+            //
+            dtPFMCheck.Columns.Add("FullName", typeof(string));
+            dtPFMCheck.Columns.Add("Level", typeof(string));
+            dtPFMCheck.Columns.Add("Trung tâm", typeof(string));
+            dtPFMCheck.Columns.Add("Tổng trường", typeof(double));
+            dtPFMCheck.Columns.Add("Thời gian", typeof(double));
+            dtPFMCheck.Columns.Add("Đảm nhận", typeof(double));
+            dtPFMCheck.Columns.Add("Tốc độ (trường/phút)", typeof(double));
+            //
+            dtPFMLastCheck.Columns.Add("FullName", typeof(string));
+            dtPFMLastCheck.Columns.Add("Trung tâm", typeof(string));
+            dtPFMLastCheck.Columns.Add("Đợt", typeof(string));
+            dtPFMLastCheck.Columns.Add("Tổng phiếu", typeof(double));
+            dtPFMLastCheck.Columns.Add("Thời gian", typeof(double));
+            dtPFMLastCheck.Columns.Add("Tốc độ (trường/phút)", typeof(double));
+            //status   
+            dtResultsEntry.Columns.Add("Id", typeof(int));
+            dtResultsEntry.Columns.Add("Tên Ảnh", typeof(String));
+            dtResultsEntry.Columns.Add("P1", typeof(Int32));
+            dtResultsEntry.Columns.Add("P2", typeof(Int32));
+            dtResultsEntry.Columns.Add("CheckP", typeof(string));
+            dtResultsEntry.Columns.Add("Entry1", typeof(Int32));
+            dtResultsEntry.Columns.Add("Entry2", typeof(Int32));
+            dtResultsEntry.Columns.Add("C2", typeof(Int32));
+            dtResultsEntry.Columns.Add("LC", typeof(Int32));
+        }
+
+        //Get all User
+        private void DtAllUser()
+        {
+            //ThanhNH 140116
+            dtAllUser = new System.Data.DataTable();
+            dtAllUser = workdb.daAllUser();
+            grdUsers.DataSource = null;
+            grdUsers.DataSource = dtAllUser;
+            grvUsers.RowCellClick += gridView1_RowCellClick;
+            grvUsers.Columns[0].Visible = false;
+
+        }
+        void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.Clicks == 1)
+            {
+                lblID.Text = grvUsers.GetRowCellValue(e.RowHandle, "Id").ToString();
+                txtUsername.Text = grvUsers.GetRowCellValue(e.RowHandle, "User").ToString();
+                txtUsername.Enabled = false;
+                txtFullname.Text = grvUsers.GetRowCellValue(e.RowHandle, "Fullname").ToString();
+                txtMSNV.Text = grvUsers.GetRowCellValue(e.RowHandle, "MSNV").ToString();
+                txtEmail.Text = grvUsers.GetRowCellValue(e.RowHandle, "Email").ToString();
+                cboGroup.Text = grvUsers.GetRowCellValue(e.RowHandle, "Group").ToString(); ;
+                cboRole.Text = grvUsers.GetRowCellValue(e.RowHandle, "role").ToString();
+                cboPair.Text = grvUsers.GetRowCellValue(e.RowHandle, "Pair").ToString();
+                cboLevel.Text = grvUsers.GetRowCellValue(e.RowHandle, "Lvl").ToString();
+                PExitNewUser();
+            }
+        }
+        void gridView2_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.Clicks == 1)
+            {
+                txtsoptem.Enabled = false;
+                txtsoprule.Enabled = false;
+                txtCodeNumber.Enabled = false;
+                isop = grTempV.GetRowCellValue(e.RowHandle, "Id").ToString();
+                txtsoptem.Text = grTempV.GetRowCellValue(e.RowHandle, "TempName").ToString();
+                txtsoprule.Text = grTempV.GetRowCellValue(e.RowHandle, "Rules").ToString();
+                txtCodeNumber.Text = grTempV.GetRowCellValue(e.RowHandle, "CodeNumber").ToString();
+                txtSOP.Text = "";
+                ttsop = 0;
+            }
+        }
+        private void VCB_Admin_Load(object sender, EventArgs e)
+        {
+            //CreatFileExcel();
+            DtAllUser();
+            rdbeP.Checked = true;
+            myImageCodecInfo = GetEncoderInfo("image/png");
+            myEncoder = System.Drawing.Imaging.Encoder.Compression;
+            myEncoderParameters = new EncoderParameters(1);
+            myEncoderParameter = new EncoderParameter(myEncoder, (long)EncoderValue.CompressionCCITT4);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+            datestringFB = DateTime.Now.Year.ToString().Substring(2, 2) + String.Format("{0:00}", int.Parse(DateTime.Now.Month.ToString())) + String.Format("{0:00}", int.Parse(DateTime.Now.Day.ToString()));
+            cboTrungTam.DataSource = workdb.dttrungtam();
+            //dtbatch = workdb.daBatch();
+            //cboBatchPFM.Properties.DisplayMember = "Name";
+            //cboBatchPFM.Properties.ValueMember = "ID";
+            //cboBatchPFM.Properties.DataSource = dtbatch;
+            //cboBatchStatus.Properties.DisplayMember = "Name";
+            //cboBatchStatus.Properties.ValueMember = "ID";
+            //cboBatchStatus.Properties.DataSource = dtbatch;
+            //cboBatchFB.Properties.DisplayMember = "Name";
+            //cboBatchFB.Properties.ValueMember = "ID";
+            //cboBatchFB.Properties.DataSource = dtbatch;
+        }
+
+        private void VCB_Admin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                System.IO.File.Delete(ph);
+            }
+            catch
+            {
+            }
+            return;
+        }
+
+
+        public static Image byteArrayToImage(byte[] byteArrayIn)
+        {
+
+            using (MemoryStream ms = new MemoryStream(byteArrayIn))
+            {
+                Image returnImage = Image.FromStream(ms);
+                return returnImage;
+            }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            lblError.Text = "";      
+            if (txtUsername.Text.Trim() == "")
+            { lblError.Text = "Username is empty"; return; }
+            if (txtMSNV.Text.Trim() == "")
+            { lblError.Text = "MSNV is empty"; return; }
+            if (txtFullname.Text.Trim() == "")
+            { lblError.Text = "Fullname is empty"; return; }
+            if (txtEmail.Text.Trim() == "")
+            { lblError.Text = "Email is empty"; return; }
+            if (cboRole.SelectedIndex == -1)
+            { lblError.Text = "Role is incorrect"; return; }   
+            if (trangthai == 1)
+            {
+                int ktus = workdb.ktuser(txtUsername.Text.Trim());
+                if (ktus == 1)
+                {
+                    lblTitle.Text = "User already exists";
+                }
+            else
+                {
+                //New User
+                workdb.NewUser(txtUsername.Text.Trim(), txtFullname.Text.Trim(), cboLevel.Text, cboPair.Text, cboGroup.Text, txtEmail.Text.Trim(), cboRole.Text, txtMSNV.Text.Trim());
+                lblTitle.Text = "Success!!!";
+                }
+            }
+            else if (trangthai == 2)
+            {
+
+                workdb.UpdateUser(Convert.ToInt32(lblID.Text), txtFullname.Text.Trim(), cboLevel.Text, cboPair.Text, cboGroup.Text, txtEmail.Text.Trim(), cboRole.Text, txtMSNV.Text.Trim());
+                lblTitle.Text = "Success!!!";
+            }
+            DtAllUser();
+            PExitNewUser();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (lblTitle.Text == "Find user")
+            { DtAllUser(); txtUsername.Text = ""; }
+            //set properties
+            PExitNewUser();
+        }
+
+        //set properties when exit new user
+        private void PExitNewUser()
+        {
+            btnOk.Visible = false; btnCancel.Visible = false; txtEmail.Enabled = false;
+            txtFullname.Enabled = false; txtMSNV.Enabled = false; txtUsername.Enabled = false;
+            cboLevel.Enabled = false; cboPair.Enabled = false; cboRole.Enabled = false; cboGroup.Enabled = false;
+        }
+        //set properties when click New user or Edit user
+        private void PNewUserAndEditUser()
+        {
+            btnOk.Visible = true; btnCancel.Visible = true;
+            txtFullname.Enabled = true; txtMSNV.Enabled = true; txtEmail.Enabled = true;
+            cboLevel.Enabled = true; cboPair.Enabled = true; cboRole.Enabled = true; cboGroup.Enabled = true; 
+        }
+
+        private void cboRole_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (lblTitle.Text == "Find user")
+            {
+
+                txtUsername.Text = ""; cboPair.Text = ""; cboLevel.Text = ""; cboGroup.Text = "";
+
+                expression = "Role = '" + cboRole.Text + "'";
+            }
+        }
+
+        private void cboLevel_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (lblTitle.Text == "Find user")
+            {
+                txtUsername.Text = ""; cboPair.Text = ""; cboRole.Text = ""; cboGroup.Text = "";
+                expression = "Lvl = '" + cboLevel.Text + "'";
+            }
+        }
+
+        private void cboPair_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (lblTitle.Text == "Find user")
+            {
+                txtUsername.Text = ""; cboLevel.Text = ""; cboRole.Text = ""; cboGroup.Text = "";
+                expression = "Pair = '" + cboPair.Text + "'";
+            }
+        }
+
+        private void cboGroup_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (lblTitle.Text == "Find user")
+            {
+                txtUsername.Text = ""; cboPair.Text = ""; cboRole.Text = ""; cboLevel.Text = "";
+                expression = "Group = '" + cboGroup.Text + "'";
+            }
+        }
+
+        private void tabControlAdmin_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (tabPerformance.Name == Status.SelectedTab.Name || tabFeedback.Name == Status.SelectedTab.Name || tabstatus.Name == Status.SelectedTab.Name || tabInsert.Name == Status.SelectedTab.Name)
+            {
+                //lblInformation.Text = "";
+                //dtTemplate = new System.Data.DataTable();
+                //dtbatch = new System.Data.DataTable();
+                //dtstatus = new System.Data.DataTable();
+                //dtstatus = workdb.Get_AllBatch();                
+                //cboBatchPFM.Properties.DisplayMember = "Name";
+                //cboBatchPFM.Properties.ValueMember = "ID";
+                //cboBatchPFM.Properties.DataSource = dtbatch;
+                //cboBatchStatus.Properties.DisplayMember = "Name";
+                //cboBatchStatus.Properties.ValueMember = "ID";
+                //cboBatchStatus.Properties.DataSource = dtstatus;
+                dttemplate = workdb.Get_allTemp();
+                grTemp.DataSource = dttemplate;
+                grTempV.Columns[0].Visible = false;
+                grTempV.RowCellClick += gridView2_RowCellClick;
+                typeUser = "ENTRYP";
+                dtfb = workdb.daBatch();
+                cboBatchFB.Properties.DisplayMember = "Name";
+                cboBatchFB.Properties.ValueMember = "ID";
+                cboBatchFB.Properties.DataSource = dtfb;
+            }
+        }
+        private void btnExportCheck_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svFD = new SaveFileDialog();
+            svFD.RestoreDirectory = true;
+            svFD.Title = "Save to file excel";
+            svFD.Filter = "Excel 2007 file|*.xlsx";
+            svFD.FileName = "_Check";
+            if (svFD.ShowDialog() == DialogResult.OK)
+            {
+
+                filename = svFD.FileName;
+                if (!bwExportExcel.IsBusy)
+                {
+                    listBatchNameArray = new List<string>();
+                    for (int i = 0; i < cboBatchFB.Properties.Items.Count; i++)
+                    {
+                        if (cboBatchFB.Properties.Items[i].CheckState == CheckState.Checked)
+                        {
+                            listBatchNameArray.Add(dtfb.Rows[i]["Name"].ToString());
+                        }
+                    }
+                    prgExcel.Value = 0;
+                    prgExcel.Visible = true;
+                    bwExportExcel.RunWorkerAsync();
+                }
+            }
+        }
+
+        private void bwExportExcel_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int progress1 = 0;
+            int row = listBatchNameArray.Count;
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int a = 0; a < listBatchNameArray.Count; a++)
+            {
+                try
+                {
+                    dtresult = new System.Data.DataTable();
+                    imgname = listBatchNameArray[a];
+                    dtresult = workdb.dtResult(imgname);
+
+                    string imagString;
+
+                    // Khởi động chtr Excell
+                    exApp = new Microsoft.Office.Interop.Excel.Application();
+                    // Thêm file temp xls
+                    oBook = exApp.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+                    // Lấy sheet 1.
+                    oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oBook.Worksheets[1];
+
+                    oSheet.Cells[1, 1].Value2 = "Batch : " + batchId;
+                    oSheet.Cells[1, 1].Font.Size = 24;
+                    oSheet.Range["A1:I1"].Merge();
+                    oSheet.Cells[3, 1].Value2 = "STT";
+                    oSheet.Columns["A", Type.Missing].ColumnWidth = 5;
+                    oSheet.Cells[3, 2].Value2 = "Tên ảnh";
+                    oSheet.Columns["B", Type.Missing].ColumnWidth = 20;
+                    oSheet.Cells[3, 3].Value2 = "Ảnh";
+                    oSheet.Columns["C", Type.Missing].ColumnWidth = 100;
+                    oSheet.Cells[3, 4].Value2 = "Entry1";
+                    oSheet.Columns["D", Type.Missing].ColumnWidth = 10;
+                    oSheet.Columns["E", Type.Missing].Font.Color = Color.Red;
+                    oSheet.Cells[3, 5].Value2 = "Nội dung nhập 1";
+                    oSheet.Cells[3, 5].Font.Color = Color.Black;
+                    oSheet.Columns["E", Type.Missing].ColumnWidth = 20;
+                    oSheet.Cells[3, 6].Value2 = "Lỗi sai 1";
+                    oSheet.Columns["F", Type.Missing].ColumnWidth = 10;
+                    oSheet.Cells[3, 7].Value2 = "Entry2";
+                    oSheet.Columns["G", Type.Missing].ColumnWidth = 10;
+                    oSheet.Columns["H", Type.Missing].Font.Color = Color.Red;
+                    oSheet.Cells[3, 8].Value2 = "Nội dung nhập 2";
+                    oSheet.Cells[3, 8].Font.Color = Color.Black;
+                    oSheet.Columns["H", Type.Missing].ColumnWidth = 20;
+                    oSheet.Cells[3, 9].Value2 = "Lỗi sai 2";
+                    oSheet.Columns["I", Type.Missing].ColumnWidth = 10;
+                    oSheet.Cells[3, 10].Value2 = "Checker";
+                    oSheet.Columns["J", Type.Missing].ColumnWidth = 10;
+                    oSheet.Cells[3, 11].Value2 = "Nội dung chọn";
+                    oSheet.Columns["K", Type.Missing].ColumnWidth = 20;
+                    oSheet.Range["A3:K3"].Font.Bold = true;
+
+
+                    string rwcow = Convert.ToString(row + 3);
+                    oSheet.Range["A3:K" + rwcow].Borders[XlBordersIndex.xlInsideHorizontal].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:K" + rwcow].Borders[XlBordersIndex.xlInsideVertical].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:K" + rwcow].Borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:K" + rwcow].Borders[XlBordersIndex.xlEdgeTop].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:K" + rwcow].Borders[XlBordersIndex.xlEdgeRight].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:K" + rwcow].Borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:K" + rwcow].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    oSheet.Range["A3:K" + rwcow].VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    oSheet.Range["A3:K" + rwcow].WrapText = true;
+                    oSheet.Range["A3:K" + rwcow].Font.Size = 13;
+                    string content1 = "";
+                    string content2 = "";
+                    string check = "";
+                    for (int i = 0; i < dtresult.Rows.Count; i++)
+                    {
+                        content1 = ""; content2 = ""; check = ""; rowExcel = i;
+                        oSheet.Cells[i + 4, 1].Value2 = i + 1;
+                        for (int j = 0; j < dtresult.Columns.Count; j++)
+                        {
+                            oSheet.Cells[i + 4, j + 2].Value2 = dtresult.Rows[i][j].ToString().Replace("|", Environment.NewLine);
+                            if (j == 3)
+                            {
+                                content1 = oSheet.Cells[i + 4, j + 2].Value2;
+                            }
+                            if (j == 6)
+                            {
+                                content2 = oSheet.Cells[i + 4, j + 2].Value2;
+                            }
+                            if (j == 9)
+                            {
+                                check = oSheet.Cells[i + 4, j + 2].Value2;
+                                columExcel = 5;
+                                c = null;
+                                c = new int[content1.Length + 1, check.Length + 1];
+                                LCS(content1, check);
+                                BackTrack(content1, check, content1.Length, check.Length);
+                                columExcel = 8;
+                                c = null;
+                                c = new int[content2.Length + 1, check.Length + 1];
+                                LCS(content2, check);
+                                BackTrack(content2, check, content2.Length, check.Length);
+                            }
+                            if (j == 1)
+                            {
+                                imagString = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + "ImageCheck.jpg";
+                                byte[] img = null;
+                                img = workdb.GetImageBatch(dtresult.Rows[i][j - 1].ToString().Trim());
+                                Bitmap bm = new Bitmap(Io_Entry.byteArrayToImage(img));
+                                bm.Save(imagString, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                Range oRange = (Range)oSheet.Cells[i + 4, j + 2];
+                                float Left = (float)((double)oRange.Left);
+                                float Top = (float)((double)oRange.Top);
+                                float ImageSize1 = float.Parse((bm.Width / 3).ToString());
+                                float ImageSize2 = float.Parse((bm.Height / 3).ToString());
+                                oSheet.Shapes.AddPicture(imagString, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, ImageSize1 / 2, ImageSize2 / 2);
+                                try
+                                {
+                                    oRange.RowHeight = ImageSize2 / 2;
+                                }
+                                catch
+                                {
+                                    oRange.RowHeight = 408;
+                                }
+                            }
+                        }
+                    }
+                    exApp.Visible = false;
+                    // Save file
+                    oBook.Application.DisplayAlerts = false;
+                    filename = Path.GetDirectoryName(filename) + @"\" + imgname + ".xlsx";
+                    oBook.SaveAs(filename, Type.Missing, Type.Missing, Type.Missing, false, Type.Missing);
+                    oBook.Close(false, false, false);
+                    exApp.Quit();
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oBook);
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(exApp);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                progress1 = progress1 + 1;
+                worker.ReportProgress(progress1 * 100 / row);
+            }
+
+        }
+
+        private void bwExportExcel_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            prgExcel.Value = e.ProgressPercentage;
+        }
+
+        private void bwExportExcel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                prgExcel.Value = 0;
+                prgExcel.Visible = false;
+                lblInformation.Text = "Error!, " + e.Error.Message.ToString();
+            }
+            else
+            {
+                lblInformation.Text = "Completed!";
+                prgExcel.Value = prgExcel.Maximum;
+                prgExcel.Visible = false;
+            }
+        }
+
+        private void cbobatchF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (cbobatchF.SelectedIndex != -1)
+            //{
+            //    lblInformation.Text = "";
+            //    batchId = int.Parse(dtbatch.Rows[cbobatchF.SelectedIndex]["id"].ToString());
+            //    batchname = dtbatch.Rows[cbobatchF.SelectedIndex]["name"].ToString();
+            //    btnExportCheck.Enabled = true; btnExportQC.Enabled = true;
+            //}
+        }
+
+        private void btnExportQC_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog svFD = new SaveFileDialog();
+            svFD.RestoreDirectory = true;
+            svFD.Title = "Save to file excel";
+            svFD.Filter = "Excel 2007 file|*.xlsx";
+            svFD.FileName = imgname + "_QC";
+            if (svFD.ShowDialog() == DialogResult.OK)
+            {
+
+                filename = svFD.FileName;
+                if (!bwExportExcelQC.IsBusy)
+                {
+                    listBatchNameArray = new List<string>();
+                    for (int i = 0; i < cboBatchFB.Properties.Items.Count; i++)
+                    {
+                        if (cboBatchFB.Properties.Items[i].CheckState == CheckState.Checked)
+                        {
+                            listBatchNameArray.Add(dtbatch.Rows[i]["Name"].ToString());
+                        }
+                    }
+                    prgExcel.Value = 0;
+                    prgExcel.Visible = true;
+                    bwExportExcelQC.RunWorkerAsync();
+                }
+
+            }
+        }
+
+        private void bwExportExcelQC_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int progress1 = 0;
+            int row = listBatchNameArray.Count;
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int a = 0; a < listBatchNameArray.Count; a++)
+            {
+                try
+                {
+                    dtresult = new System.Data.DataTable();
+                    imgname = listBatchNameArray[a];
+                    dtresult = workdb.dtResultQA(batchId);
+
+                    string imagString;
+
+                    // Khởi động chtr Excell
+                    Microsoft.Office.Interop.Excel.Application exApp = new Microsoft.Office.Interop.Excel.Application();
+                    // Thêm file temp xls
+                    Microsoft.Office.Interop.Excel.Workbook oBook = exApp.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+                    // Lấy sheet 1.
+                    Microsoft.Office.Interop.Excel.Worksheet oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oBook.Worksheets[1];
+
+                    oSheet.Cells[1, 1].Value2 = "Batch : " + batchId;
+                    oSheet.Cells[1, 1].Font.Size = 24;
+                    oSheet.Range["A1:I1"].Merge();
+                    oSheet.Cells[3, 1].Value2 = "STT";
+                    oSheet.Columns["A", Type.Missing].ColumnWidth = 5;
+                    oSheet.Cells[3, 2].Value2 = "Tên ảnh";
+                    oSheet.Columns["B", Type.Missing].ColumnWidth = 20;
+                    oSheet.Cells[3, 3].Value2 = "Ảnh";
+                    oSheet.Columns["C", Type.Missing].ColumnWidth = 42;
+                    oSheet.Cells[3, 4].Value2 = "Entry1";
+                    oSheet.Columns["D", Type.Missing].ColumnWidth = 10;
+                    oSheet.Cells[3, 5].Value2 = "Nội dung nhập 1";
+                    oSheet.Columns["E", Type.Missing].ColumnWidth = 20;
+                    oSheet.Cells[3, 6].Value2 = "Entry2";
+                    oSheet.Columns["F", Type.Missing].ColumnWidth = 10;
+                    oSheet.Cells[3, 7].Value2 = "Nội dung nhập 2";
+                    oSheet.Columns["G", Type.Missing].ColumnWidth = 20;
+                    oSheet.Cells[3, 8].Value2 = "Checker";
+                    oSheet.Columns["H", Type.Missing].ColumnWidth = 10;
+                    oSheet.Cells[3, 9].Value2 = "Nội dung chọn";
+                    oSheet.Columns["I", Type.Missing].ColumnWidth = 20;
+                    oSheet.Range["A3:I3"].Font.Bold = true;
+
+
+                    string rwcow = Convert.ToString(row + 3);
+                    oSheet.Range["A3:I" + rwcow].Borders[XlBordersIndex.xlInsideHorizontal].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:I" + rwcow].Borders[XlBordersIndex.xlInsideVertical].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:I" + rwcow].Borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:I" + rwcow].Borders[XlBordersIndex.xlEdgeTop].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:I" + rwcow].Borders[XlBordersIndex.xlEdgeRight].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:I" + rwcow].Borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
+                    oSheet.Range["A3:I" + rwcow].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                    oSheet.Range["A3:I" + rwcow].VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+                    oSheet.Range["A3:I" + rwcow].WrapText = true;
+                    oSheet.Range["A3:I" + rwcow].Font.Size = 13;
+
+                    for (int i = 0; i < dtresult.Rows.Count; i++)
+                    {
+
+                        oSheet.Cells[i + 4, 1].Value2 = i + 1;
+                        for (int j = 0; j < dtresult.Columns.Count; j++)
+                        {
+                            oSheet.Cells[i + 4, j + 2].Value2 = dtresult.Rows[i][j].ToString().Replace("|", Environment.NewLine);
+
+                            if (j == 1)
+                            {
+                                imagString = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\" + "ImageQC.jpg";
+                                byte[] img = null;
+                                img = workdb.GetImageBatch(dtresult.Rows[i][j - 1].ToString().Trim());
+                                Bitmap bm = new Bitmap(Io_Entry.byteArrayToImage(img));
+                                bm.Save(imagString, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                Range oRange = (Range)oSheet.Cells[i + 4, j + 2];
+                                float Left = (float)((double)oRange.Left);
+                                float Top = (float)((double)oRange.Top);
+                                float ImageSize1 = float.Parse((bm.Width / 3).ToString());
+                                float ImageSize2 = float.Parse((bm.Height / 3).ToString());
+                                oSheet.Shapes.AddPicture(imagString, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, ImageSize1 / 2, ImageSize2 / 2);
+                                try
+                                {
+                                    oRange.RowHeight = ImageSize2 / 2;
+                                }
+                                catch { oRange.RowHeight = 408; }
+
+                            }
+                        }
+                    }
+                    exApp.Visible = false;
+                    // Save file
+                    oBook.Application.DisplayAlerts = false;
+                    filename = Path.GetDirectoryName(filename) + @"\" + imgname + "_QC";
+                    oBook.SaveAs(filename, Type.Missing, Type.Missing, Type.Missing, false, Type.Missing);
+                    oBook.Close(false, false, false);
+                    exApp.Quit();
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oBook);
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(exApp);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                progress1 = progress1 + 1;
+                worker.ReportProgress(progress1 * 100 / row);
+            }
+        }
+
+
+
+        private void txtPhieu_KeyDown(object sender, KeyEventArgs e)
+        {
+            //noncharacter = false;
+            //var aa = (char)e.KeyCode;
+            //if (e. && e.KeyValue != 8)
+            //    noncharacter = true;
+        }
+
+        private void txtPhieu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char.IsLetter)(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (grvPerformance.Columns.Count > 0)
+            {
+                using (SaveFileDialog saveDialog = new SaveFileDialog())
+                {
+                    saveDialog.FileName = "";
+                    saveDialog.Filter = "Excel (2007) (.xlsx)|*.xlsx";
+                    if (saveDialog.ShowDialog() != DialogResult.Cancel)
+                    {
+                        grvPerformance.ClearColumnsFilter();
+                        grvPerformance.ClearSorting();
+                        grvPerformance.ClearGrouping();
+                        grvPerformance.ClearSelection();
+                        grvPerformance.FindFilterText = "";
+                        string exportFilePath = saveDialog.FileName;
+                        string fileExtenstion = new FileInfo(exportFilePath).Extension;
+                        //NImageExporter imageExporter = chartControl.ImageExporter;
+                        grvPerformance.ExportToXlsx(exportFilePath);
+                    }
+                }
+            }
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            dtPFMP.Clear();
+            dtPFMCP.Clear();
+            dtPFM.Clear();
+            dtPFMCheck.Clear();
+            dtPFMLastCheck.Clear();
+            dtidPFM.Rows.Clear();
+            if (cboBatchPFM.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn Đợt");
+                return;
+            }
+            lstBatchPFM = "";
+            if (!bgwXem.IsBusy)
+            {
+                prgbExcel.Value = 0;
+                prgbExcel.Visible = true;
+                dt = new System.Data.DataTable();
+                grcPerformance.DataSource = null;
+                grvPerformance.Columns.Clear();
+                dtidPFM = new System.Data.DataTable();
+                    int id = 0;
+                    if (cboBatchPFM.Text == "Đợt 1")
+                    { id = 1; }
+                    else if (cboBatchPFM.Text == "Đợt 2")
+                    { id = 2; }
+                    else if (cboBatchPFM.Text == "Đợt 3")
+                    { id = 3; }
+                    else if (cboBatchPFM.Text == "Đợt 4")
+                    { id = 4; }
+                    if (id != 0)
+                    {
+                        dtidPFM = workdb.Get_PFM(id);                      
+                    }
+                    else
+                    {
+                        if (cboBatchPFM.Text == "All")
+                        {
+                            dtidPFM = workdb.Get_PFMAll();
+                        }
+                    }
+                if (dtidPFM.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtidPFM.Rows.Count; i++)
+                    {
+                        lstBatchPFM = lstBatchPFM + dtidPFM.Rows[i][0] + " ";
+                    }
+                    lstBatchPFM = lstBatchPFM.Trim().Replace(' ', ',');
+                    trungtam = cboTrungTam.Text;
+                }
+                if (lstBatchPFM != "")
+                {
+                    bgwXem.RunWorkerAsync();
+                }              
+            }
+            dotlc = cboBatchPFM.Text;
+        }
+        #region Loại User
+        private void rdbEntry_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbEntry.Checked == true)
+            {
+                cboTrungTam.Visible = true;
+                lbltrungtam.Visible = true;
+                typeUser = "ENTRY";
+            }
+        }
+
+        private void rdbCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbCheck.Checked == true)
+            {
+                cboTrungTam.Visible = true;
+                lbltrungtam.Visible = true;
+                typeUser = "CHECK";
+            }
+        }
+
+        private void rdbLastCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbLastCheck.Checked == true)
+            {
+                cboTrungTam.Visible = false;
+                lbltrungtam.Visible = false;
+                typeUser = "LASTCHECK";
+            }
+        }
+
+        private void rdbeP_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbeP.Checked == true)
+            {
+                cboTrungTam.Visible = true;
+                lbltrungtam.Visible = true;
+                typeUser = "ENTRYP";
+            }
+        }
+
+        private void rdbcheckp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbcheckp.Checked == true)
+            {
+                cboTrungTam.Visible = true;
+                lbltrungtam.Visible = true;
+                typeUser = "CHECKP";
+            }
+        }
+        #endregion
+        private void bgwXem_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            #region ENTRYP
+            if (typeUser == "ENTRYP")
+            {
+                dtp.Clear();
+                dtp = workdb.getPerformaceEntry(lstBatchPFM, trungtam);
+                var results = from status in dtp.AsEnumerable()
+                              group status by (status.Field<string>("MSNV")) into status
+                              select new
+                              {
+                                  Fullname = status.Select(x => x.Field<string>("FullName")).FirstOrDefault(),
+                                  Trungtam = status.Select(x => x.Field<string>("Trung Tâm")).FirstOrDefault(),
+                                  Tongtruong = status.Select(x => x.Field<string>("MSNV")).Count(),
+                                  Loisai = status.Select(x => x.Field<int>("Lỗi sai")).Sum(),
+                                  Thoigian = ((status.Select(x => x.Field<int>("Thời gian")).Sum()) / 1000.0) / 60,
+                                  NotGood = status.Select(x => x.Field<int>("NGP")).Where(x => x != 0).Count(),
+                              };
+                double tongls = results.Sum(x => x.Loisai);
+                double tongtg = Math.Round(results.Sum(x => x.Thoigian), 2);
+                double tongtruong = results.Sum(x => x.Tongtruong);
+                double tongng = results.Sum(x => x.NotGood);
+                prgbExcel.Invoke((System.Action)(() =>
+                {
+                    prgbExcel.Maximum = results.Count();
+                }));
+                foreach (var element in results)
+                {
+                    var rowindex = dtPFMP.NewRow();
+                    rowindex["FullName"] = element.Fullname;
+                    rowindex["Trung tâm"] = element.Trungtam;
+                    rowindex["Tổng trường"] = element.Tongtruong;
+                    rowindex["Lỗi sai"] = element.Loisai;
+                    rowindex["Thời gian"] = Math.Round(element.Thoigian, 2);
+                    rowindex["Đảm nhận"] = Math.Round((element.Tongtruong / tongtruong) * 100, 2);
+                    rowindex["Trường NG"] = element.NotGood;
+                    rowindex["Tỉ lệ sai"] = Math.Round(element.Loisai / Convert.ToDouble(element.Tongtruong), 2);
+                    rowindex["Tốc độ (trường/phút)"] = Math.Round(Convert.ToDouble(element.Tongtruong) / element.Thoigian, 2);
+                    dtPFMP.Rows.Add(rowindex);
+                }
+                DataRow newRow = dtPFMP.NewRow();
+                DataRow newRow1 = dtPFMP.NewRow();
+                DataRow newRow2 = dtPFMP.NewRow();
+                DataRow newRow3 = dtPFMP.NewRow();
+                DataRow newRow4 = dtPFMP.NewRow();
+                //Max,Min,average 
+                newRow1[1] = "Cao nhất";
+                newRow1[2] = dtPFMP.Compute("Max ([Tổng trường])", "");
+                newRow1[3] = dtPFMP.Compute("Max ([Lỗi sai])", "");
+                newRow1[4] = dtPFMP.Compute("Max ([Thời gian])", "");
+                newRow1[5] = dtPFMP.Compute("Max ([Đảm nhận])", "");
+                newRow1[6] = dtPFMP.Compute("Max ([Trường NG])", "");
+                newRow1[7] = dtPFMP.Compute("Max ([Tỉ lệ sai])", "");
+                newRow1[8] = dtPFMP.Compute("Max ([Tốc độ (trường/phút)])", "");
+                newRow2[1] = "Thấp nhất";
+                newRow2[2] = dtPFMP.Compute("Min ([Tổng trường])", "");
+                newRow2[3] = dtPFMP.Compute("Min ([Lỗi sai])", "");
+                newRow2[4] = dtPFMP.Compute("Min ([Thời gian])", "");
+                newRow2[5] = dtPFMP.Compute("Min ([Đảm nhận])", "");
+                newRow2[6] = dtPFMP.Compute("Min ([Trường NG])", "");
+                newRow2[7] = dtPFMP.Compute("Min ([Tỉ lệ sai])", "");
+                newRow2[8] = dtPFMP.Compute("Min ([Tốc độ (trường/phút)])", "");
+                try
+                {
+                    newRow3[1] = "Trung bình";
+                    newRow3[2] = Math.Round(double.Parse(dtPFMP.Compute("Avg ([Tổng trường])", "").ToString()), 0);
+                    newRow3[3] = Math.Round(double.Parse(dtPFMP.Compute("Avg ([Lỗi sai])", "").ToString()), 0);
+                    newRow3[4] = Math.Round(double.Parse(dtPFMP.Compute("Avg ([Thời gian])", "").ToString()), 2);
+                    newRow3[5] = Math.Round(double.Parse(dtPFMP.Compute("Avg ([Đảm nhận])", "").ToString()), 0);
+                    newRow3[6] = Math.Round(double.Parse(dtPFMP.Compute("Avg ([Trường NG])", "").ToString()), 0);
+                    newRow3[7] = Math.Round(double.Parse(dtPFMP.Compute("Avg ([Tỉ lệ sai])", "").ToString()), 0);
+                    newRow3[8] = Math.Round(double.Parse(dtPFMP.Compute("Avg ([Tốc độ (trường/phút)])", "").ToString()), 0);
+                }
+                catch
+                {
+                }
+                dtPFMP.Rows.Add(newRow);
+                dtPFMP.Rows.Add(newRow1);
+                dtPFMP.Rows.Add(newRow2);
+                dtPFMP.Rows.Add(newRow3);
+                if (trungtam == "ALL")
+                {
+                    DataRow newRow5 = dtPFMP.NewRow();
+                    DataRow newRow7 = dtPFMP.NewRow();
+                    DataRow newRow8 = dtPFMP.NewRow();
+                    dtPFMP.Rows.Add(newRow5);
+                    newRow7[1] = "ALL";
+                    newRow7[2] = tongtruong;
+                    newRow7[3] = tongls;
+                    newRow7[4] = tongtg;
+                    newRow7[5] = "100";
+                    newRow7[6] = tongng;
+                    //newRow7[7] = dtPFMP.Compute("Sum ([Tỉ lệ sai])", "");
+                    //newRow7[8] = Math.Round(tongtruong/tongtg,2);
+                    dtPFMP.Rows.Add(newRow7);
+                    string tkuGroup = dtPFMP.Compute("COUNT ([Trung tâm])", "[Trung tâm] = 'DN'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        string timeGroup = dtPFMP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DN'").ToString();
+                        double tlsGroup = double.Parse(dtPFMP.Compute("Sum ([Lỗi sai])", "[Trung tâm] = 'DN'").ToString());
+                        double tongtruongdn = double.Parse(dtPFMP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DN'").ToString());
+                        newRow8[1] = "DN";
+                        newRow8[2] = tkuGroup;
+                        newRow8[3] = tlsGroup;
+                        newRow8[4] = timeGroup;
+                        newRow8[5] = Math.Round(tongtruong / tongtruongdn, 2);
+                        newRow8[6] = dtPFMP.Compute("SUM ([Trường NG])", "[Trung tâm] = 'DN'");
+                        dtPFMP.Rows.Add(newRow8);
+                    }
+                    tkuGroup = dtPFMP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'HUE'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRow8 = dtPFMP.NewRow();
+                        string timeGroup = dtPFMP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'HUE'").ToString();
+                        double tlsGroup = double.Parse(dtPFMP.Compute("Sum ([Lỗi sai])", "[Trung tâm] = 'HUE'").ToString());
+                        double tongtruonghue = double.Parse(dtPFMP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'HUE'").ToString());
+                        newRow8[1] = "HUE";
+                        newRow8[2] = tkuGroup;
+                        newRow8[3] = tlsGroup;
+                        newRow8[4] = timeGroup;
+                        newRow8[5] = Math.Round(tongtruong / tongtruonghue, 2);
+                        newRow8[6] = dtPFMP.Compute("SUM ([Trường NG])", "[Trung tâm] = 'HUE'");
+                        dtPFMP.Rows.Add(newRow8);
+                    }
+                    tkuGroup = dtPFMP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'PY'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRow8 = dtPFMP.NewRow();
+                        string timeGroup = dtPFMP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'PY'").ToString();
+                        double tlsGroup = double.Parse(dtPFMP.Compute("Sum ([Lỗi sai])", "[Trung tâm] = 'PY'").ToString());
+                        double tongtruongpy = double.Parse(dtPFMP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'PY'").ToString());
+                        newRow8[1] = "PY";
+                        newRow8[2] = tkuGroup;
+                        newRow8[3] = tlsGroup;
+                        newRow8[4] = timeGroup;
+                        newRow8[5] = Math.Round(tongtruong / tongtruongpy, 2);
+                        newRow8[6] = dtPFMP.Compute("SUM ([Trường NG])", "[Trung tâm] = 'PY'");
+                        dtPFMP.Rows.Add(newRow8);
+                    }
+                    tkuGroup = dtPFMP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DL'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRow8 = dtPFMP.NewRow();
+                        string timeGroup = dtPFMP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DL'").ToString();
+                        double tlsGroup = double.Parse(dtPFMP.Compute("Sum ([Lỗi sai])", "[Trung tâm] = 'DL'").ToString());
+                        double tongtruongdl = double.Parse(dtPFMP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DL'").ToString());
+                        newRow8[1] = "DL";
+                        newRow8[2] = tkuGroup;
+                        newRow8[3] = tlsGroup;
+                        newRow8[4] = timeGroup;
+                        newRow8[5] = Math.Round(tongtruong / tongtruongdl, 2);
+                        newRow8[6] = dtPFMP.Compute("SUM ([Trường NG])", "[Trung tâm] = 'DL'");
+                        dtPFMP.Rows.Add(newRow8);
+                    }
+                }
+                else
+                {
+                    DataRow newRow5 = dtPFMP.NewRow();
+                    DataRow newRow6 = dtPFMP.NewRow();
+                    DataRow newRow7 = dtPFMP.NewRow();
+                    dtPFMP.Rows.Add(newRow5);
+                    dtPFMP.Rows.Add(newRow6);
+                    newRow7[1] = trungtam;
+                    newRow7[2] = tongtruong;
+                    newRow7[3] = tongls;
+                    newRow7[4] = tongtg;
+                    dtPFMP.Rows.Add(newRow7);
+                }
+                worker.ReportProgress(dtPFMP.Rows.Count);
+            }
+            #endregion
+            #region CHECKP
+            if (typeUser == "CHECKP")
+            {
+                dtcp.Clear();
+                dtcp = workdb.All_CheckP(lstBatchPFM, trungtam);
+                var results = from status in dtcp.AsEnumerable()
+                              group status by (status.Field<string>("MSNV")) into status
+                              select new
+                              {
+                                  Fullname = status.Select(x => x.Field<string>("FullName")).FirstOrDefault(),
+                                  Trungtam = status.Select(x => x.Field<string>("Trung Tâm")).FirstOrDefault(),
+                                  Tongtruong = status.Select(x => x.Field<string>("MSNV")).Count() / 1.0,
+                                  Thoigian = (status.Select(x => x.Field<int>("Thời gian")).Sum() / 1000.0) / 60,
+                              };
+                double tt = results.Sum(x => x.Tongtruong);
+                double tp = results.Sum(x => x.Thoigian);
+                prgbExcel.Invoke((System.Action)(() =>
+                {
+                    prgbExcel.Maximum = results.Count();
+                }));
+                foreach (var element in results)
+                {
+                    var rowcheck1 = dtPFMCP.NewRow();
+                    rowcheck1["FullName"] = element.Fullname;
+                    rowcheck1["Trung tâm"] = element.Trungtam;
+                    rowcheck1["Tổng trường"] = element.Tongtruong;
+                    rowcheck1["Thời gian"] = element.Thoigian;
+                    rowcheck1["Đảm nhận"] = Math.Round(element.Tongtruong / tt * 100, 2);
+                    dtPFMCP.Rows.Add(rowcheck1);
+                }
+                DataRow newRowCheck = dtPFMCP.NewRow();
+                DataRow newRowCheck1 = dtPFMCP.NewRow();
+                DataRow newRowCheck2 = dtPFMCP.NewRow();
+                DataRow newRowCheck3 = dtPFMCP.NewRow();
+                DataRow newRowCheck4 = dtPFMCP.NewRow();
+                //Max,Min,average 
+                newRowCheck1[1] = "Cao nhất";
+                newRowCheck1[2] = dtPFMCP.Compute("Max ([Tổng trường])", "");
+                newRowCheck1[3] = dtPFMCP.Compute("Max ([Thời gian])", "");
+                newRowCheck1[4] = dtPFMCP.Compute("Max ([Đảm nhận])", "");
+                newRowCheck2[1] = "Thấp nhất";
+                newRowCheck2[2] = dtPFMCP.Compute("Min ([Tổng trường])", "");
+                newRowCheck2[3] = dtPFMCP.Compute("Min ([Thời gian])", "");
+                newRowCheck2[4] = dtPFMCP.Compute("Min ([Đảm nhận])", "");
+                try
+                {
+                    newRowCheck3[1] = "Trung bình";
+                    newRowCheck3[2] = Math.Round(double.Parse(dtPFMCP.Compute("Avg ([Tổng trường])", "").ToString()), 2);
+                    newRowCheck3[3] = Math.Round(double.Parse(dtPFMCP.Compute("Avg ([Thời gian])", "").ToString()), 2);
+                    newRowCheck3[4] = Math.Round(double.Parse(dtPFMCP.Compute("Avg ([Đảm nhận])", "").ToString()), 2);
+                }
+                catch
+                {
+                }
+                dtPFMCP.Rows.Add(newRowCheck);
+                dtPFMCP.Rows.Add(newRowCheck1);
+                dtPFMCP.Rows.Add(newRowCheck2);
+                dtPFMCP.Rows.Add(newRowCheck3);
+                if (trungtam == "ALL")
+                {
+                    DataRow newRowCheck5 = dtPFMCP.NewRow();
+                    DataRow newRowCheck7 = dtPFMCP.NewRow();
+                    DataRow newRowCheck8 = dtPFMCP.NewRow();
+                    dtPFMCP.Rows.Add(newRowCheck5);
+                    newRowCheck7[1] = "ALL";
+                    newRowCheck7[2] = tt;
+                    newRowCheck7[3] = tp;
+                    newRowCheck7[4] = "100";
+                    dtPFMCP.Rows.Add(newRowCheck7);
+                    string tkuGroup = dtPFMCP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DN'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        string timeGroup = dtPFMCP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DN'").ToString();
+                        double ttgGroup = double.Parse(dtPFMCP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DN'").ToString());
+                        double tdnGroup = double.Parse(dtPFMCP.Compute("Sum ([Đảm nhận])", "[Trung tâm] = 'DN'").ToString());
+
+                        newRowCheck8[1] = "DN";
+                        newRowCheck8[2] = tkuGroup;
+                        newRowCheck8[3] = ttgGroup;
+                        newRowCheck8[4] = tdnGroup;
+                        dtPFMCP.Rows.Add(newRowCheck8);
+                    }
+                    tkuGroup = dtPFMCP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'HUE'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRowCheck8 = dtPFMCP.NewRow();
+                        string timeGroup = dtPFMCP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'HUE'").ToString();
+                        double ttgGroup = double.Parse(dtPFMCP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'HUE'").ToString());
+                        double tdnGroup = double.Parse(dtPFMCP.Compute("Sum ([Đảm nhận])", "[Trung tâm] = 'HUE'").ToString());
+
+                        newRowCheck8[1] = "HUE";
+                        newRowCheck8[2] = tkuGroup;
+                        newRowCheck8[3] = ttgGroup;
+                        newRowCheck8[4] = tdnGroup;
+                        dtPFMCP.Rows.Add(newRowCheck8);
+                    }
+                    tkuGroup = dtPFMCP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'PY'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRowCheck8 = dtPFMCP.NewRow();
+                        string timeGroup = dtPFMCP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'PY'").ToString();
+                        double ttgGroup = double.Parse(dtPFMCP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'PY'").ToString());
+                        double tdnGroup = double.Parse(dtPFMCP.Compute("Sum ([Đảm nhận])", "[Trung tâm] = 'PY'").ToString());
+
+                        newRowCheck8[1] = "PY";
+                        newRowCheck8[2] = tkuGroup;
+                        newRowCheck8[3] = ttgGroup;
+                        newRowCheck8[4] = tdnGroup;
+                        dtPFMCP.Rows.Add(newRowCheck8);
+                    }
+                    tkuGroup = dtPFMCP.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DL'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRowCheck8 = dtPFMCP.NewRow();
+                        string timeGroup = dtPFMCP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DL'").ToString();
+                        double ttgGroup = double.Parse(dtPFMCP.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DL'").ToString());
+                        double tdnGroup = double.Parse(dtPFMCP.Compute("Sum ([Đảm nhận])", "[Trung tâm] = 'DL'").ToString());
+
+                        newRowCheck8[1] = "DL";
+                        newRowCheck8[2] = tkuGroup;
+                        newRowCheck8[3] = ttgGroup;
+                        newRowCheck8[4] = tdnGroup;
+                        dtPFMCP.Rows.Add(newRowCheck8);
+                    }
+                }
+                else
+                {
+                    DataRow newRowCheck5 = dtPFMCP.NewRow();
+                    DataRow newRowCheck7 = dtPFMCP.NewRow();
+                    dtPFMCP.Rows.Add(newRowCheck5);
+                    newRowCheck7[1] = typeGroup;
+                    newRowCheck7[2] = tt;
+                    newRowCheck7[3] = tp;
+                    newRowCheck7[4] = "100";
+                    dtPFMCP.Rows.Add(newRowCheck7);
+                }
+                worker.ReportProgress(dtPFMCP.Rows.Count);
+            }
+            #endregion
+            #region ENTRY
+            if (typeUser == "ENTRY")
+            {
+                dt.Clear();
+                dt = workdb.Get_PFMEntry(lstBatchPFM, trungtam);
+                var results = from status in dt.AsEnumerable()
+                              group status by (status.Field<string>("MSNV")) into status
+                              select new
+                              {
+                                  Fullname = status.Select(x => x.Field<string>("FullName")).FirstOrDefault(),
+                                  Level = status.Select(x => x.Field<int>("Level")).FirstOrDefault(),
+                                  Trungtam = status.Select(x => x.Field<string>("Trung Tâm")).FirstOrDefault(),
+                                  Tongkytu = status.Select(x => x.Field<int>("Tổng ký tự")).Sum() / 1.0,
+                                  Loisai = status.Select(x => x.Field<int>("Lỗi sai")).Sum(),
+                                  Thoigian = ((status.Select(x => x.Field<int>("Thời gian")).Sum()) / 1000.0) / 60,
+                                  Tongtruong = status.Select(x => x.Field<string>("MSNV")).Count(),
+                                  NotGood = status.Select(x => x.Field<int>("NG")).Where(x => x != 0).Count(),
+                              };
+                double tongkt = results.Sum(x => x.Tongkytu);
+                double tongls = results.Sum(x => x.Loisai);
+                double tongtg = Math.Round(results.Sum(x => x.Thoigian), 2);
+                double tongtruong = results.Sum(x => x.Tongtruong);
+                prgbExcel.Invoke((System.Action)(() =>
+                {
+                    prgbExcel.Maximum = results.Count();
+                }));
+                foreach (var element in results)
+                {
+                    var rowindex = dtPFM.NewRow();
+                    rowindex["FullName"] = element.Fullname;
+                    rowindex["Level"] = element.Level;
+                    rowindex["Trung tâm"] = element.Trungtam;
+                    rowindex["Tổng ký tự"] = element.Tongkytu;
+                    rowindex["Lỗi sai"] = element.Loisai;
+                    rowindex["Tỉ lệ sai"] = Math.Round((Convert.ToDouble(element.Loisai) / Convert.ToDouble(element.Tongkytu)) * 100.0, 2);
+                    rowindex["Thời gian"] = Math.Round(element.Thoigian, 2);
+                    rowindex["Tốc độ"] = Math.Round(element.Tongkytu / element.Thoigian, 2);
+                    rowindex["Đảm nhận"] = Math.Round((element.Tongkytu / tongkt) * 100, 2);
+                    rowindex["Tổng trường"] = element.Tongtruong;
+                    rowindex["Số trường NG"] = element.NotGood;
+                    dtPFM.Rows.Add(rowindex);
+                }
+                DataRow newRow = dtPFM.NewRow();
+                DataRow newRow1 = dtPFM.NewRow();
+                DataRow newRow2 = dtPFM.NewRow();
+                DataRow newRow3 = dtPFM.NewRow();
+                DataRow newRow4 = dtPFM.NewRow();
+                //Max,Min,average 
+                newRow1[2] = "Cao nhất";
+                newRow1[3] = dtPFM.Compute("Max ([Tổng ký tự])", "");
+                newRow1[4] = dtPFM.Compute("Max ([Lỗi sai])", "");
+                newRow1[5] = dtPFM.Compute("Max ([Tỉ lệ sai])", "");
+                newRow1[6] = dtPFM.Compute("Max ([Thời gian])", "");
+                newRow1[7] = dtPFM.Compute("Max ([Tốc độ])", "");
+                newRow1[8] = dtPFM.Compute("Max ([Đảm nhận])", "");
+                newRow1[9] = dtPFM.Compute("Max ([Tổng trường])", "");
+                newRow1[10] = dtPFM.Compute("Max ([Số trường NG])", "");
+                newRow2[2] = "Thấp nhất";
+                newRow2[3] = dtPFM.Compute("Min ([Tổng ký tự])", "");
+                newRow2[4] = dtPFM.Compute("Min ([Lỗi sai])", "");
+                newRow2[5] = dtPFM.Compute("Min ([Tỉ lệ sai])", "");
+                newRow2[6] = dtPFM.Compute("Min ([Thời gian])", "");
+                newRow2[7] = dtPFM.Compute("Min ([Tốc độ])", "");
+                newRow2[8] = dtPFM.Compute("Min ([Đảm nhận])", "");
+                newRow2[9] = dtPFM.Compute("Min ([Tổng trường])", "");
+                newRow2[10] = dtPFM.Compute("Min ([Số trường NG])", "");
+                try
+                {
+                    newRow3[2] = "Trung bình";
+                    newRow3[3] = Math.Round(double.Parse(dtPFM.Compute("Avg ([Tổng ký tự])", "").ToString()), 0);
+                    newRow3[4] = Math.Round(double.Parse(dtPFM.Compute("Avg ([Lỗi sai])", "").ToString()), 0);
+                    newRow3[5] = Math.Round(double.Parse(dtPFM.Compute("Avg ([Tỉ lệ sai])", "").ToString()), 2);
+                    newRow3[6] = Math.Round(double.Parse(dtPFM.Compute("Avg ([Thời gian])", "").ToString()), 0);
+                    newRow3[7] = Math.Round(double.Parse(dtPFM.Compute("Avg ([Tốc độ])", "").ToString()), 0);
+                    newRow3[8] = Math.Round(double.Parse(dtPFM.Compute("Avg ([Đảm nhận])", "").ToString()), 0);
+                    newRow3[9] = Math.Round(double.Parse(dtPFM.Compute("Avg ([Tổng trường])", "").ToString()), 0);
+                    newRow3[10] = Math.Round(double.Parse(dtPFM.Compute("Avg ([Số trường NG])", "").ToString()), 0);
+                }
+                catch
+                {
+                }
+                dtPFM.Rows.Add(newRow);
+                dtPFM.Rows.Add(newRow1);
+                dtPFM.Rows.Add(newRow2);
+                dtPFM.Rows.Add(newRow3);
+                if (trungtam == "ALL")
+                {
+                    DataRow newRow5 = dtPFM.NewRow();
+                    DataRow newRow7 = dtPFM.NewRow();
+                    DataRow newRow8 = dtPFM.NewRow();
+                    dtPFM.Rows.Add(newRow5);
+                    newRow7[2] = "ALL";
+                    newRow7[3] = tongkt;
+                    newRow7[4] = tongls;
+                    newRow7[5] = tongkt - tongls;
+                    newRow7[6] = tongtg;
+                    newRow7[7] = "100";
+                    newRow7[8] = Math.Round((Convert.ToDouble(newRow7[5]) * 100.0 / tongkt), 2);
+                    newRow7[9] = tongtruong;
+                    newRow7[10] = dtPFM.Compute("Sum ([Số trường NG])", "level>0");
+                    dtPFM.Rows.Add(newRow7);
+                    string tkuGroup = dtPFM.Compute("Sum ([Tổng ký tự])", "[Trung tâm] = 'DN'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        string timeGroup = dtPFM.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DN'").ToString();
+                        double tlsGroup = double.Parse(dtPFM.Compute("Sum ([Lỗi sai])", "[Trung tâm] = 'DN'").ToString());
+                        double tongtruongdn = double.Parse(dtPFM.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DN'").ToString());
+
+                        newRow8[2] = "DN";
+                        newRow8[3] = tkuGroup;
+                        newRow8[4] = tlsGroup;
+                        newRow8[5] = double.Parse(tkuGroup) - tlsGroup;
+                        newRow8[6] = timeGroup;
+                        newRow8[7] = 0;
+                        newRow8[8] = Math.Round((Convert.ToDouble(newRow8[5]) * 100.0 / (Convert.ToDouble(newRow8[3]))), 2);
+                        newRow8[9] = tongtruongdn;
+                        newRow8[10] = dtPFM.Compute("SUM ([Số trường NG])", "[Trung tâm] = 'DN'");
+                        dtPFM.Rows.Add(newRow8);
+                    }
+                    tkuGroup = dtPFM.Compute("Sum ([Tổng ký tự])", "[Trung tâm] = 'HUE'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRow8 = dtPFM.NewRow();
+                        string timeGroup = dtPFM.Compute("Sum ([Thời gian])", "[Trung tâm] = 'HUE'").ToString();
+                        double tlsGroup = double.Parse(dtPFM.Compute("Sum ([Lỗi sai])", "[Trung tâm] = 'HUE'").ToString());
+                        double tongtruonghue = double.Parse(dtPFM.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'HUE'").ToString());
+                        newRow8[2] = "HUE";
+                        newRow8[3] = tkuGroup;
+                        newRow8[4] = tlsGroup;
+                        newRow8[5] = Math.Round(double.Parse(tkuGroup) - tlsGroup, 2);
+                        newRow8[6] = timeGroup;
+                        newRow8[7] = 0;
+                        newRow8[8] = Math.Round((Convert.ToDouble(newRow8[5]) * 100.0 / (Convert.ToDouble(newRow8[3]))), 2);
+                        newRow8[9] = tongtruonghue;
+                        newRow8[10] = dtPFM.Compute("SUM ([Số trường NG])", "[Trung tâm] = 'HUE'");
+                        dtPFM.Rows.Add(newRow8);
+                    }
+                    tkuGroup = dtPFM.Compute("Sum ([Tổng ký tự])", "[Trung tâm] = 'PY'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRow8 = dtPFM.NewRow();
+                        string timeGroup = dtPFM.Compute("Sum ([Thời gian])", "[Trung tâm] = 'PY'").ToString();
+                        double tlsGroup = double.Parse(dtPFM.Compute("Sum ([Lỗi sai])", "[Trung tâm] = 'PY'").ToString());
+                        double tongtruongpy = double.Parse(dtPFM.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'PY'").ToString());
+                        newRow8[2] = "PY";
+                        newRow8[3] = tkuGroup;
+                        newRow8[4] = tlsGroup;
+                        newRow8[5] = double.Parse(tkuGroup) - tlsGroup;
+                        newRow8[6] = timeGroup;
+                        newRow8[7] = Math.Round((Convert.ToDouble(newRow8[0]) * 100.0 / Convert.ToInt32(sophieu)), 2);
+                        newRow8[8] = Math.Round((Convert.ToDouble(newRow8[5]) * 100.0 / (Convert.ToDouble(newRow8[3]))), 2);
+                        newRow8[9] = tongtruongpy;
+                        newRow8[10] = dtPFM.Compute("SUM ([Số trường NG])", "[Trung tâm] = 'PY'");
+                        dtPFM.Rows.Add(newRow8);
+                    }
+                    tkuGroup = dtPFM.Compute("Sum ([Tổng ký tự])", "[Trung tâm] = 'DL'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRow8 = dtPFM.NewRow();
+                        string timeGroup = dtPFM.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DL'").ToString();
+                        double tlsGroup = double.Parse(dtPFM.Compute("Sum ([Lỗi sai])", "[Trung tâm] = 'DL'").ToString());
+                        double tongtruongdl = double.Parse(dtPFM.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DL'").ToString());
+                        newRow8[2] = "DL";
+                        newRow8[3] = tkuGroup;
+                        newRow8[4] = tlsGroup;
+                        newRow8[5] = double.Parse(tkuGroup) - tlsGroup;
+                        newRow8[6] = timeGroup;
+                        newRow8[7] = Math.Round((Convert.ToDouble(newRow8[0]) * 100.0 / Convert.ToInt32(sophieu)), 2);
+                        newRow8[8] = Math.Round((Convert.ToDouble(newRow8[5]) * 100.0 / (Convert.ToDouble(newRow8[3]))), 2);
+                        newRow8[9] = tongtruongdl;
+                        newRow8[10] = dtPFM.Compute("SUM ([Số trường NG])", "[Trung tâm] = 'DL'");
+                        dtPFM.Rows.Add(newRow8);
+                    }
+                }
+                else
+                {
+                    DataRow newRow5 = dtPFM.NewRow();
+                    DataRow newRow6 = dtPFM.NewRow();
+                    DataRow newRow7 = dtPFM.NewRow();
+                    dtPFM.Rows.Add(newRow5);
+                    dtPFM.Rows.Add(newRow6);
+                    newRow7[2] = typeGroup;
+                    newRow7[3] = tongkt;
+                    newRow7[4] = tongls;
+                    newRow7[5] = tongkt - tongls;
+                    newRow7[6] = tongtg;
+                    newRow7[9] = dtPFM.Compute("SUM ([Tổng trường])", "level>0");
+                    newRow7[10] = dtPFM.Compute("SUM ([Số trường NG])", "level>0");
+                    dtPFM.Rows.Add(newRow7);
+                }
+                worker.ReportProgress(dtPFM.Rows.Count);
+            }
+            #endregion
+            #region CHECK
+            if (typeUser == "CHECK")
+            {
+                dtc.Clear();
+                dtc = workdb.All_Check(lstBatchPFM, trungtam);
+                var results = from status in dtc.AsEnumerable()
+                              group status by (status.Field<string>("MSNV")) into status
+                              select new
+                              {
+                                  Fullname = status.Select(x => x.Field<string>("FullName")).FirstOrDefault(),
+                                  Trungtam = status.Select(x => x.Field<string>("Trung Tâm")).FirstOrDefault(),
+                                  Level = status.Select(x => x.Field<int>("Lvl")).FirstOrDefault(),
+                                  Tongtruong = status.Select(x => x.Field<string>("MSNV")).Count() / 1.0,
+                                  Thoigian = (status.Select(x => x.Field<int>("Thời gian")).Sum() / 1000.0) / 60,
+                              };
+                double tt = results.Sum(x => x.Tongtruong);
+                double tp = results.Sum(x => x.Thoigian);
+                prgbExcel.Invoke((System.Action)(() =>
+                {
+                    prgbExcel.Maximum = results.Count();
+                }));
+                foreach (var element in results)
+                {
+                    var rowcheck1 = dtPFMCheck.NewRow();
+                    rowcheck1["FullName"] = element.Fullname;
+                    rowcheck1["Level"] = element.Level;
+                    rowcheck1["Trung tâm"] = element.Trungtam;
+                    rowcheck1["Tổng trường"] = element.Tongtruong;
+                    rowcheck1["Thời gian"] = Math.Round(element.Thoigian / 60, 2);
+                    rowcheck1["Đảm nhận"] = Math.Round(element.Tongtruong / tt * 100, 2);
+                    rowcheck1["Tốc độ (trường/phút)"] = Math.Round(element.Tongtruong / (element.Thoigian/60) , 2);
+                    dtPFMCheck.Rows.Add(rowcheck1);
+                }
+                DataRow newRowCheck = dtPFMCheck.NewRow();
+                DataRow newRowCheck1 = dtPFMCheck.NewRow();
+                DataRow newRowCheck2 = dtPFMCheck.NewRow();
+                DataRow newRowCheck3 = dtPFMCheck.NewRow();
+                DataRow newRowCheck4 = dtPFMCheck.NewRow();
+                //Max,Min,average 
+                newRowCheck1[2] = "Cao nhất";
+                newRowCheck1[3] = dtPFMCheck.Compute("Max ([Tổng trường])", "");
+                newRowCheck1[4] = dtPFMCheck.Compute("Max ([Thời gian])", "");
+                newRowCheck1[5] = dtPFMCheck.Compute("Max ([Đảm nhận])", "");
+                newRowCheck1[6] = dtPFMCheck.Compute("Max ([Tốc độ (trường/phút)])", "");
+
+                newRowCheck2[2] = "Thấp nhất";
+                newRowCheck2[3] = dtPFMCheck.Compute("Min ([Tổng trường])", "");
+                newRowCheck2[4] = dtPFMCheck.Compute("Min ([Thời gian])", "");
+                newRowCheck2[5] = dtPFMCheck.Compute("Min ([Đảm nhận])", "");
+                newRowCheck1[6] = dtPFMCheck.Compute("Max ([Tốc độ (trường/phút)])", "");
+                try
+                {
+                    newRowCheck3[2] = "Trung bình";
+                    newRowCheck3[3] = Math.Round(double.Parse(dtPFMCheck.Compute("Avg ([Tổng trường])", "").ToString()), 2);
+                    newRowCheck3[4] = Math.Round(double.Parse(dtPFMCheck.Compute("Avg ([Thời gian])", "").ToString()), 2);
+                    newRowCheck3[5] = Math.Round(double.Parse(dtPFMCheck.Compute("Avg ([Đảm nhận])", "").ToString()), 2);
+                    newRowCheck3[6] = Math.Round(double.Parse(dtPFMCheck.Compute("Avg ([Tốc độ (trường/phút)])", "").ToString()), 2);
+                }
+                catch
+                {
+                }
+                dtPFMCheck.Rows.Add(newRowCheck);
+                dtPFMCheck.Rows.Add(newRowCheck1);
+                dtPFMCheck.Rows.Add(newRowCheck2);
+                dtPFMCheck.Rows.Add(newRowCheck3);
+                if (trungtam == "ALL")
+                {
+                    DataRow newRowCheck5 = dtPFMCheck.NewRow();
+                    DataRow newRowCheck7 = dtPFMCheck.NewRow();
+                    DataRow newRowCheck8 = dtPFMCheck.NewRow();
+                    dtPFMCheck.Rows.Add(newRowCheck5);
+                    newRowCheck7[2] = "ALL";
+                    newRowCheck7[3] = tt;
+                    newRowCheck7[4] = tp;
+                    newRowCheck7[5] = "100";
+                    dtPFMCheck.Rows.Add(newRowCheck7);
+                    string tkuGroup = dtPFMCheck.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DN'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        string timeGroup = dtPFMCheck.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DN'").ToString();
+                        double ttgGroup = double.Parse(dtPFMCheck.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DN'").ToString());
+                        double tdnGroup = double.Parse(dtPFMCheck.Compute("Sum ([Đảm nhận])", "[Trung tâm] = 'DN'").ToString());
+
+                        newRowCheck8[2] = "DN";
+                        newRowCheck8[3] = tkuGroup;
+                        newRowCheck8[4] = ttgGroup;
+                        newRowCheck8[5] = tdnGroup;
+                        dtPFMCheck.Rows.Add(newRowCheck8);
+                    }
+                    tkuGroup = dtPFMCheck.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'HUE'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRowCheck8 = dtPFMCheck.NewRow();
+                        string timeGroup = dtPFMCheck.Compute("Sum ([Thời gian])", "[Trung tâm] = 'HUE'").ToString();
+                        double ttgGroup = double.Parse(dtPFMCheck.Compute("Sum ([Thời gian])", "[Trung tâm] = 'HUE'").ToString());
+                        double tdnGroup = double.Parse(dtPFMCheck.Compute("Sum ([Đảm nhận])", "[Trung tâm] = 'HUE'").ToString());
+
+                        newRowCheck8[2] = "HUE";
+                        newRowCheck8[3] = tkuGroup;
+                        newRowCheck8[4] = ttgGroup;
+                        newRowCheck8[5] = tdnGroup;
+                        dtPFMCheck.Rows.Add(newRowCheck8);
+                    }
+                    tkuGroup = dtPFMCheck.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'PY'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRowCheck8 = dtPFMCheck.NewRow();
+                        string timeGroup = dtPFMCheck.Compute("Sum ([Thời gian])", "[Trung tâm] = 'PY'").ToString();
+                        double ttgGroup = double.Parse(dtPFMCheck.Compute("Sum ([Thời gian])", "[Trung tâm] = 'PY'").ToString());
+                        double tdnGroup = double.Parse(dtPFMCheck.Compute("Sum ([Đảm nhận])", "[Trung tâm] = 'PY'").ToString());
+
+                        newRowCheck8[2] = "PY";
+                        newRowCheck8[3] = tkuGroup;
+                        newRowCheck8[4] = ttgGroup;
+                        newRowCheck8[5] = tdnGroup;
+                        dtPFMCheck.Rows.Add(newRowCheck8);
+                    }
+                    tkuGroup = dtPFMCheck.Compute("Sum ([Tổng trường])", "[Trung tâm] = 'DL'").ToString();
+                    if (tkuGroup != "0" && tkuGroup != "")
+                    {
+                        newRowCheck8 = dtPFMCheck.NewRow();
+                        string timeGroup = dtPFMCheck.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DL'").ToString();
+                        double ttgGroup = double.Parse(dtPFMCheck.Compute("Sum ([Thời gian])", "[Trung tâm] = 'DL'").ToString());
+                        double tdnGroup = double.Parse(dtPFMCheck.Compute("Sum ([Đảm nhận])", "[Trung tâm] = 'DL'").ToString());
+
+                        newRowCheck8[2] = "DL";
+                        newRowCheck8[3] = tkuGroup;
+                        newRowCheck8[4] = ttgGroup;
+                        newRowCheck8[5] = tdnGroup;
+                        dtPFMCheck.Rows.Add(newRowCheck8);
+                    }
+                }
+                else
+                {
+                    DataRow newRowCheck5 = dtPFMCheck.NewRow();
+                    DataRow newRowCheck7 = dtPFMCheck.NewRow();
+                    dtPFMCheck.Rows.Add(newRowCheck5);
+                    newRowCheck7[2] = typeGroup;
+                    newRowCheck7[3] = tt;
+                    newRowCheck7[4] = tp;
+                    newRowCheck7[5] = "100";
+                    dtPFMCheck.Rows.Add(newRowCheck7);
+                }
+                worker.ReportProgress(dtPFMCheck.Rows.Count);
+            }
+            #endregion
+            #region LASTCHECK
+            else
+            {
+                if (typeUser == "LASTCHECK")
+                {
+                    string timelc = "";
+                    string[] tilc = null;
+                    string lcid = "";
+                    string[] lid = null;
+                    dtlklc.Clear();
+                    dtlc.Clear();
+                    dtlklc = workdb.Get_TimeLC(lstBatchPFM);
+                    if (dtlklc.Rows.Count > 0)
+                    {
+                        timelc = dtlklc.Rows[0][0].ToString();
+                        tilc = timelc.Split('|').ToArray();
+                        lcid = dtlklc.Rows[0][1].ToString();
+                        lid = lcid.Split('|').ToArray();
+                    }
+                    if (tilc.Length > 1 && lid.Length > 1)
+                    {
+                        for (int i = 1; i < lid.Length; i++)
+                        {
+                            dtlc = workdb.GetAll_LC(lid[i]);
+                            var rowcheck = dtPFMLastCheck.NewRow();
+                            rowcheck["FullName"] = dtlc.Rows[0][0].ToString();
+                            rowcheck["Trung tâm"] = dtlc.Rows[0][1].ToString();
+                            rowcheck["Đợt"] = dotlc;
+                            rowcheck["Tổng Phiếu"] = dtlklc.Rows.Count;
+                            rowcheck["Thời gian"] = Math.Round((Convert.ToDouble(tilc[i]) / 60.0) / 60.0,2);
+                            double tg = (Convert.ToDouble(tilc[i])/60.0)/60.0;
+                            double tp = dtlklc.Rows.Count;
+                            rowcheck["Tốc độ (trường/phút)"] = Math.Round(tp / tg, 2);
+                            dtPFMLastCheck.Rows.Add(rowcheck);
+                        }
+                    }
+                }
+            }
+            #endregion
+            }
+        private void bgwXem_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            try
+            {
+                prgbExcel.Value = e.ProgressPercentage;
+            }
+            catch
+            {
+            }
+        }
+
+        private void bgwXem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            grcPerformance.DataSource = null;
+            prgbExcel.Value = prgbExcel.Maximum;
+            prgbExcel.Visible = false;
+            if (typeUser == "ENTRYP")
+            {
+                grcPerformance.DataSource = dtPFMP;
+            }
+            else if (typeUser == "CHECKP")
+            {
+                grcPerformance.DataSource = dtPFMCP;
+            }
+            else if (typeUser == "ENTRY")
+            {
+                grcPerformance.DataSource = dtPFM;
+            }
+            else if (typeUser == "CHECK")
+            {
+                grcPerformance.DataSource = dtPFMCheck;
+            }
+            else if (typeUser == "LASTCHECK")
+            {
+                grcPerformance.DataSource = dtPFMLastCheck;
+            }         
+        }
+
+        private void frmAdmin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && btnOk.Visible == true)
+                btnOk_Click(sender, e);
+        }
+        static int max(int a, int b)
+        {
+            return (a > b) ? a : b;
+        }
+        static int[,] c;
+        //Prints one LCS
+        private string BackTrack(string s1, string s2, int i, int j)
+        {
+            if (i == 0 || j == 0)
+                return "";
+            if (s1[i - 1] == s2[j - 1])
+            {
+                oSheet.Cells[rowExcel + 4, columExcel].Characters(i, 1).Font.color = Color.Black;
+                return BackTrack(s1, s2, i - 1, j - 1) + s1[i - 1];
+            }
+            else if (c[i - 1, j] > c[i, j - 1])
+                return BackTrack(s1, s2, i - 1, j);
+            else
+                return BackTrack(s1, s2, i, j - 1);
+
+        }
+        static int LCS(string s1, string s2)
+        {
+            for (int i = 1; i <= s1.Length; i++)
+                c[i, 0] = 0;
+            for (int i = 1; i <= s2.Length; i++)
+                c[0, i] = 0;
+
+            for (int i = 1; i <= s1.Length; i++)
+                for (int j = 1; j <= s2.Length; j++)
+                {
+                    if (s1[i - 1] == s2[j - 1])
+                        c[i, j] = c[i - 1, j - 1] + 1;
+                    else
+                    {
+                        c[i, j] = max(c[i - 1, j], c[i, j - 1]);
+
+                    }
+
+                }
+
+            return c[s1.Length, s2.Length];
+
+        }
+
+        private void txtDong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char.IsLetter)(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void btnadd_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "New user"; lblError.Text = "";
+            txtFullname.Text = ""; txtMSNV.Text = ""; txtUsername.Text = ""; txtEmail.Text = ""; txtUsername.Enabled = true;
+            cboLevel.SelectedIndex = -1; cboPair.SelectedIndex = -1; cboRole.SelectedIndex = -1; cboGroup.SelectedIndex = -1;
+            trangthai = 1;
+            PNewUserAndEditUser();
+            txtUsername.Focus();
+            
+        }
+
+        private void btndel_Click(object sender, EventArgs e)
+        {
+            if (lblID.Text != "")
+                if (MessageBox.Show("Delete this user?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    workdb.DeleteUser(Convert.ToInt32(lblID.Text));
+                    DtAllUser();
+                }
+            trangthai = 3;
+        }
+
+        private void btnedit_Click(object sender, EventArgs e)
+        {
+            PNewUserAndEditUser();
+            trangthai = 2;
+        }
+
+        private void btnviewstt_Click(object sender, EventArgs e)
+        {
+            dtResultsEntry.Rows.Clear();
+            grdstatus.DataSource = null;      
+            dtbatchlc = new System.Data.DataTable();
+            if (cbosttus.Text == "Đợt 1")
+            {
+                dtbatchlc = workdb.Get_LC1();
+            }
+            else if (cbosttus.Text == "Đợt 2")
+            {
+                dtbatchlc = workdb.Get_LC2();
+            }
+            else if (cbosttus.Text == "Đợt 3")
+            {
+                dtbatchlc = workdb.Get_LC3();
+            }
+            else if (cbosttus.Text == "Đợt 4")
+            {
+                dtbatchlc = workdb.Get_LC4();
+            }
+            else if (cbosttus.Text == "All")
+            {
+                dtbatchlc = workdb.Get_LCAll();
+            }
+            //lstBatch = lstBatch.Trim().Replace(' ', ',');                                           
+            if (dtbatchlc.Rows.Count > 0)
+            {
+                var results = from status in dtbatchlc.AsEnumerable()
+                              group status by status.Field<int>("Id") into status
+                              select new
+                              {
+                                  Id = status.Select(x => x.Field<int>("Id")).FirstOrDefault(),
+                                  Count = status.Count(),
+                                  P1 = status.Count(x => x.Field<int>("Hitpoint1") == 0),
+                                  P2 = status.Count(x => x.Field<int>("Hitpoint2") == 0),
+                                  CP = status.Count(x => x.Field<int>("Hitpoint1") == 1 && x.Field<int>("Hitpoint2") == 1 && x.Field<int>("InfoP") == 2),
+                                  Entry1 = status.Count(x => x.Field<int>("Hitpoint1") == 2 && x.Field<int>("InfoP") == 0),
+                                  Entry2 = status.Count(x => x.Field<int>("Hitpoint2") == 2 && x.Field<int>("InfoP") == 0),
+                                  Check = status.Count(x => x.Field<int>("HitPoint1")==3 && x.Field<int>("HitPoint2")==3 && x.Field<int>("InfoE")==2),
+                                  QC = status.Count(x => x.Field<int>("HitPoint1") == 3 && x.Field<int>("HitPoint2") == 3 && x.Field<int>("InfoE") == 1),
+                                  LC = status.Count(x => x.Field<int>("HitPoint1") == 4 && x.Field<int>("HitPoint2") == 4 && x.Field<int>("InfoE") == 0),
+                              };
+
+                foreach (var element in results)
+                {
+                    var row = dtResultsEntry.NewRow();
+                    row["Id"] = dtbatchlc.Select("Id = " + element.Id)[0][0];
+                    row["Tên Ảnh"] = dtbatchlc.Select("Id = " + element.Id)[0][1];
+                    row["P1"] = element.P1;
+                    row["P2"] = element.P2;  
+                    row["CheckP"] = element.CP;
+                    row["Entry1"] = element.Entry1;
+                    row["Entry2"] = element.Entry2;
+                    row["C2"] = element.Check;
+                    row["LC"] = element.LC;
+                    dtResultsEntry.Rows.Add(row);
+                }
+                grdstatus.DataSource = dtResultsEntry;
+                grvstatus.Columns["Tên Ảnh"].Summary.Clear();
+                grvstatus.Columns["P1"].Summary.Clear();
+                grvstatus.Columns["P2"].Summary.Clear();
+                grvstatus.Columns["CheckP"].Summary.Clear();
+                grvstatus.Columns["Entry1"].Summary.Clear();
+                grvstatus.Columns["Entry2"].Summary.Clear();
+                grvstatus.Columns["C2"].Summary.Clear();
+                int tongSL = Convert.ToInt32(dtbatchlc.Rows.Count);
+                grvstatus.Columns["Tên Ảnh"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "Count", "Tổng trường");
+                grvstatus.Columns["Tên Ảnh"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "Count", "Tổng nhập");
+                grvstatus.Columns["Tên Ảnh"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "Count", "Còn lại");
+                int tongP1 = Convert.ToInt32(dtResultsEntry.Select("P1 = 1").Length);
+                grvstatus.Columns["P1"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "P1", tongSL.ToString());
+                grvstatus.Columns["P1"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "P1", tongP1.ToString());
+                grvstatus.Columns["P1"].Summary.Add(DevExpress.Data.SummaryItemType.Sum, "P1", (tongSL - tongP1).ToString());
+                int tongP2 = Convert.ToInt32(dtResultsEntry.Select("P2 = 1").Length);
+                grvstatus.Columns["P2"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "P2", tongSL.ToString());
+                grvstatus.Columns["P2"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "P2", tongP2.ToString());
+                grvstatus.Columns["P2"].Summary.Add(DevExpress.Data.SummaryItemType.Custom, "P2", (tongSL - tongP2).ToString());
+            }
+            try
+            {
+                grvstatus.Columns[0].Visible = false;
+            }
+            catch
+            {
+            }
+        }
+        
+        private void grvstatus_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.Clicks == 2)
+            {
+                frmdetails frmdta = new frmdetails();
+                frmdta.iddt = Convert.ToInt32(grvstatus.GetRowCellValue(e.RowHandle, "Id"));
+                frmdta.ShowDialog();
+            }
+        }
+
+        private void grvUsers_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            DevExpress.XtraGrid.Views.Grid.GridView view = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void grdUsers_MouseHover(object sender, EventArgs e)
+        {
+            grvUsers.Focus();
+        }
+
+        private void txtsearch_TextChanged(object sender, EventArgs e)
+        {
+            grvUsers.FindFilterText = txtsearch.Text;
+            //dtAllUser = workdb.Search_All(txtsearch.Text);
+            //grdUsers.DataSource = dtAllUser;
+
+        }
+
+        private void grvstatus_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            int r = e.RowHandle;
+            var cl = e.Column;
+            string vl = e.CellValue.ToString();
+            if (r > -1)
+            {
+                if (cl.FieldName == "P1")
+                {
+                    tongsoluong1 = vl;
+                    if (vl == "0")
+                        e.Appearance.BackColor = Color.YellowGreen;
+                }
+                if (cl.FieldName == "P2")
+                {
+                    tongsoluong2 = vl;
+                    if (vl == "0")
+                        e.Appearance.BackColor = Color.YellowGreen;
+                }
+                //if (cl.FieldName == "CheckP")
+                //{
+                //    if (tongsoluong1 == "1")
+                //    {
+                //        vl = "1";
+                //    }
+                //    if (vl == "0")
+                //        e.Appearance.BackColor = Color.YellowGreen;
+                //}
+                if (cl.FieldName == "Entry1")
+                {
+                    if (tongsoluong1 == "1")
+                    {
+                        vl = "1";
+                        soluonge1 = "1";
+                    }
+                    if (vl == "0")
+                        e.Appearance.BackColor = Color.YellowGreen;
+                }
+                if (cl.FieldName == "Entry2")
+                {
+                    if (tongsoluong2 == "1")
+                    {
+                        vl = "1";
+                        soluonge2 = "1";
+                    }
+                    if (vl == "0")
+                        e.Appearance.BackColor = Color.YellowGreen;
+                }
+                //if (cl.FieldName == "C2")
+                //{
+                //    if (soluonge1 == "1" || soluonge2 == "1")
+                //    { vl = "1"; }
+                //    if (vl == "0")
+                //        e.Appearance.BackColor = Color.YellowGreen;
+                //}
+                if (cl.FieldName == "LC")
+                {
+                    if (vl == "1")
+                        e.Appearance.BackColor = Color.YellowGreen;
+                }
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //string strPreferenceToRemember = @"C:\";
+            //if (File.Exists(path))
+            //{
+            //    strPreferenceToRemember = File.ReadAllText(path);
+            //}
+            //else
+            //{
+            //    File.WriteAllText(path, strPreferenceToRemember);
+            //}
+
+            //FolderBrowserDialogEx fbd = new FolderBrowserDialogEx();
+            //fbd.SelectedPath = strPreferenceToRemember;
+            //if (DialogResult.OK == fbd.ShowDialog())
+            //{
+            //    txtSOP.Text = fbd.SelectedPath;
+            //    File.WriteAllText(path, txtSOP.Text);
+            //}
+            //else
+            //{
+            //    return;
+            //}
+            //txtSOP.Text = fbd.SelectedPath;
+            ////string[] ext = new string[4] { ".jpg", ".tif", ".png", ".tiff" };
+            ////pagesFilePath = Directory.GetFiles(txtSourceDirectory.Text,"*.tif",SearchOption.AllDirectories).Where(s => ext.Any(vl => s.EndsWith(vl))).ToArray();
+            //pagesFilePath = Directory.GetFiles(txtSOP.Text, "*.png", System.IO.SearchOption.AllDirectories);
+            //Array.Sort(pagesFilePath);
+            //pagesFilePathLength = pagesFilePath.Length;
+            string strPreferenceToRemember = @"C:\";
+            if (File.Exists(path))
+            {
+                strPreferenceToRemember = File.ReadAllText(path);
+            }
+            else
+            {
+                File.WriteAllText(path, strPreferenceToRemember);
+            }
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "png files (*.png)|*.png";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+            string[] ext = new string[4] { ".jpg", ".tif", ".png", ".tiff" };
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    txtSOP.Text = openFileDialog1.FileName;
+                    File.WriteAllText(path, txtSOP.Text);
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+        }
+        private byte[] imageToByteArray(Bitmap imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                try
+                {
+                    imageIn.Save(ms, myImageCodecInfo, myEncoderParameters);
+                    return ms.ToArray();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
+        private void cboTemName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (cboTemName.SelectedIndex > -1)
+            //{
+            //    idsop = Convert.ToInt32(dttemplate.Rows[cboTemName.SelectedIndex]["Id"]);
+            //}
+        }
+        private static ImageCodecInfo GetEncoderInfo(String mimeType)
+        {
+            int j;
+            ImageCodecInfo[] encoders;
+            encoders = ImageCodecInfo.GetImageEncoders();
+            for (j = 0; j < encoders.Length; ++j)
+            {
+                if (encoders[j].MimeType == mimeType)
+                    return encoders[j];
+            }
+            return null;
+        }
+
+        private void btnistemp_Click(object sender, EventArgs e)
+        {
+            txtsoptem.Text = "";
+            txtsoprule.Text = "";
+            txtCodeNumber.Text = "";
+            txtsoptem.Enabled = true;
+            txtsoprule.Enabled = true;
+            txtCodeNumber.Enabled = true;
+            ttsop = 1;
+            txtsoptem.Focus();
+        }
+
+        private void btneditsop_Click(object sender, EventArgs e)
+        {
+            txtsoptem.Enabled = true;
+            txtsoprule.Enabled = true;
+            txtCodeNumber.Enabled = true;
+            ttsop = 2;
+            txtsoptem.Focus();
+        }
+
+        private void btndelsop_Click(object sender, EventArgs e)
+        {
+            if (isop != "")
+                if (MessageBox.Show("Delete this user?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    workdb.DeleteTemplate(Convert.ToInt32(isop));
+                    MessageBox.Show("Delete Success!!");
+                }
+            trangthai = 3;
+        }
+
+        private void btnUpsop_Click(object sender, EventArgs e)
+        {
+            if (txtsoptem.Text == "" || txtsoprule.Text == "" || txtCodeNumber.Text == "" || txtSOP.Text == "")
+            {
+                MessageBox.Show("Có trường trống");
+                return;
+            }
+            else
+            {
+                if (ttsop == 1)
+                {
+                    workdb.Insert_Template(txtsoptem.Text.Trim(), txtsoprule.Text.Trim(), txtCodeNumber.Text.Trim());
+                    string id = workdb.Get_imgname(txtsoptem.Text.Trim());
+                    Bitmap imagepage = new Bitmap(txtSOP.Text);
+                    workdb.Insert_SOP(Convert.ToInt32(id), imageToByteArray(imagepage));
+                    MessageBox.Show("Insert Success!!");
+                }
+                if (ttsop == 2)
+                {
+                    workdb.Update_Template(txtsoptem.Text.Trim(), txtsoprule.Text.Trim(), txtCodeNumber.Text.Trim(), isop.ToString());
+                    Bitmap imagepage = new Bitmap(txtSOP.Text);
+                    workdb.Insert_SOP(Convert.ToInt32(isop), imageToByteArray(imagepage));
+                    MessageBox.Show("Edit Success!!");
+                }
+                dttemplate = workdb.Get_allTemp();
+                grTemp.DataSource = dttemplate;
+                grTempV.Columns[0].Visible = false;
+                txtsoptem.Enabled = false;
+                txtsoprule.Enabled = false;
+                txtCodeNumber.Enabled = false;
+                ttsop = 0;
+            }
+        }
+
+        private void grTempV_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            DevExpress.XtraGrid.Views.Grid.GridView view = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void grvUsers_CustomDrawRowIndicator_1(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            DevExpress.XtraGrid.Views.Grid.GridView view = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void grTemp_ProcessGridKey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                grTempV.PostEditor();
+                grTempV.UpdateCurrentRow();
+                grTempV.FocusedRowHandle = GridControl.NewItemRowHandle;
+            }
+        }
+
+        private void grTemp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                grTempV.AddNewRow();
+                grTempV.FocusedColumn = grTempV.Columns[0];
+            }
+            if (e.KeyCode == Keys.Add)
+            {
+                    GridColumn col = new GridColumn();
+                    col = grTempV.Columns.AddVisible("Cột mới", string.Empty);
+                    grTempV.Columns.Add(col);
+            }
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUsername.Text.Contains("P1-"))
+            {
+                cboLevel.Text = "1";
+                cboPair.Text = "3";
+                cboRole.Text = "ENTRY";
+            }
+            else if (txtUsername.Text.Contains("P2-"))
+            {
+                cboLevel.Text = "1";
+                cboPair.Text = "4";
+                cboRole.Text = "ENTRY";
+            }
+            else if (txtUsername.Text.Contains("E1-"))
+            {
+                cboLevel.Text = "1";
+                cboPair.Text = "1";
+                cboRole.Text = "ENTRY";
+            }
+            else if (txtUsername.Text.Contains("E2-"))
+            {
+                cboLevel.Text = "1";
+                cboPair.Text = "2";
+                cboRole.Text = "ENTRY";
+            }
+        }
+    }
+    #region add button to statusTrip
+    [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.MenuStrip |
+                                       ToolStripItemDesignerAvailability.ContextMenuStrip |
+                                       ToolStripItemDesignerAvailability.StatusStrip)]
+    public class ButtonStripItem : ToolStripControlHost
+    {
+        private System.Windows.Forms.Button button;
+
+        public ButtonStripItem()
+            : base(new System.Windows.Forms.Button())
+        {
+            this.button = this.Control as System.Windows.Forms.Button;
+        }
+
+        // Add properties, events etc. you want to expose...
+    }
+    #endregion
+}
+

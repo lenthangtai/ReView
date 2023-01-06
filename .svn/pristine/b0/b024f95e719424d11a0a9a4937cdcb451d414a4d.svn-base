@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F23E7E9-4A15-4EDE-847B-EA5497BE7283}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VCB_Entry</RootNamespace>
+    <AssemblyName>VCB-PLUS-NEW-1.04</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Letter P.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D6300039E9BFC79040371A91738E17EB2F1E2381</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>VCB TEGAKI_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\BMC_\VCB LC\VCB LC\DevExpress.BonusSkins.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\BMC_\VCB LC\VCB LC\DevExpress.Data.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\BMC_\VCB LC\VCB LC\DevExpress.Printing.v12.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\BMC_\VCB LC\VCB LC\DevExpress.Utils.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\BMC_\VCB LC\VCB LC\DevExpress.XtraEditors.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\BMC_\VCB LC\VCB LC\DevExpress.XtraGrid.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\BMC_\VCB LC\VCB LC\DevExpress.XtraLayout.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\BMC_\VCB LC\VCB LC\DevExpress.XtraNavBar.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="ImageViewerTR, Version=1.0.5962.30911, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll\ImageViewerTR.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmAdmin.designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmdetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmdetails.Designer.cs">
+      <DependentUpon>frmdetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\WorkDB.cs" />
+    <Compile Include="browserFolder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Check\BOImage.cs" />
+    <Compile Include="Check\BOImageContent.cs" />
+    <Compile Include="Check\DAEntry.cs" />
+    <Compile Include="Check\frmCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check\frmCheck.designer.cs">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check\frmCheckQC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check\frmCheckQC.designer.cs">
+      <DependentUpon>frmCheckQC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check\FrmCheckP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check\FrmCheckP.designer.cs">
+      <DependentUpon>FrmCheckP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check\Io.cs" />
+    <Compile Include="Check\Until.cs" />
+    <Compile Include="clFTP.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="CROP\clValue.cs" />
+    <Compile Include="CROP\Common.cs" />
+    <Compile Include="CROP\DBsql.cs" />
+    <Compile Include="CROP\frmUpdateImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CROP\frmUpdateImage.designer.cs">
+      <DependentUpon>frmUpdateImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="db_Update.cs" />
+    <Compile Include="ENTRY\Buddy.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ENTRY\FrmEntryP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ENTRY\FrmEntryP.designer.cs">
+      <DependentUpon>FrmEntryP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ENTRY\DAEntry.cs" />
+    <Compile Include="ENTRY\frmEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ENTRY\frmEntry.designer.cs">
+      <DependentUpon>frmEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogIn.designer.cs">
+      <DependentUpon>frmLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ENTRY\BOImage.cs" />
+    <Compile Include="ENTRY\IoEntry.cs" />
+    <Compile Include="FrmSOP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSOP.Designer.cs">
+      <DependentUpon>FrmSOP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lastcheck\ExcelDataBaseHelper.cs" />
+    <Compile Include="Lastcheck\FindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lastcheck\FindForm.designer.cs">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lastcheck\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lastcheck\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lastcheck\frmCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lastcheck\frmCalculator.Designer.cs">
+      <DependentUpon>frmCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lastcheck\Io.cs" />
+    <Compile Include="Lastcheck\other.cs" />
+    <Compile Include="Lastcheck\Person.cs" />
+    <Compile Include="Lastcheck\RicherTextBox2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Lastcheck\WorkDB.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoftwareInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoftwareInfo.Designer.cs">
+      <DependentUpon>SoftwareInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmdetails.resx">
+      <DependentUpon>frmdetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check\frmCheck.resx">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check\frmCheckQC.resx">
+      <DependentUpon>frmCheckQC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check\FrmCheckP.resx">
+      <DependentUpon>FrmCheckP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CROP\frmUpdateImage.resx">
+      <DependentUpon>frmUpdateImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ENTRY\FrmEntryP.resx">
+      <DependentUpon>FrmEntryP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ENTRY\frmEntry.resx">
+      <DependentUpon>frmEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogIn.resx">
+      <DependentUpon>frmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSOP.resx">
+      <DependentUpon>FrmSOP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lastcheck\FindForm.resx">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lastcheck\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lastcheck\frmCalculator.resx">
+      <DependentUpon>frmCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lastcheck\RicherTextBox2.resx">
+      <DependentUpon>RicherTextBox2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SoftwareInfo.resx">
+      <DependentUpon>SoftwareInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="VCB TEGAKI_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FORM XUAT LOI.xls" />
+    <None Include="Resources\object-rotate-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\object-rotate-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zoom-In-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zoom-Out-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.jpg" />
+    <None Include="Resources\up0.png" />
+    <None Include="Resources\up4.gif" />
+    <None Include="Resources\up0.gif" />
+    <None Include="Resources\up00.png" />
+    <None Include="Resources\add_5_48x48x32.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\save as.png" />
+    <None Include="Resources\add.ico" />
+    <None Include="Resources\Button Previous.png" />
+    <None Include="Resources\Button-Next-icon.png" />
+    <None Include="Resources\Button-Next-icon2.png" />
+    <Content Include="favicon.ico" />
+    <None Include="Resources\add_user - Copy.png" />
+    <None Include="Resources\add_user.png" />
+    <None Include="Resources\delete_user.png" />
+    <None Include="Resources\edit1.png" />
+    <None Include="Resources\search_user.png" />
+    <None Include="Resources\homme.png" />
+    <None Include="Resources\+1.png" />
+    <None Include="Resources\+2.png" />
+    <None Include="Resources\-1.png" />
+    <None Include="Resources\-2.png" />
+    <None Include="Resources\backk.png" />
+    <None Include="Resources\nextt.png" />
+    <None Include="Resources\Iconsmind-Outline-Full-Screen-2.ico" />
+    <None Include="Resources\new.png" />
+    <None Include="Resources\edit2.png" />
+    <None Include="Resources\delete1.png" />
+    <Content Include="Hopstarter-Orb-Bittorrent-Plus.ico" />
+    <Content Include="Letter P.ico" />
+    <None Include="Resources\Letter P.ico" />
+    <Content Include="TEGAKI.ico" />
+    <Content Include="whitebie.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

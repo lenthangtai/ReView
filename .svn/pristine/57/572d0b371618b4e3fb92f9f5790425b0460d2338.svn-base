@@ -1,0 +1,521 @@
+﻿namespace VCB_TEGAKI
+{
+    partial class frmEntry
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEntry));
+            this.timergetimage = new System.Windows.Forms.Timer(this.components);
+            this.view_Image_TN = new ImageViewerTR.ImageViewerTR();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnNotgood = new System.Windows.Forms.Button();
+            this.lbl6 = new System.Windows.Forms.Label();
+            this.lbl10 = new System.Windows.Forms.Label();
+            this.lbl9 = new System.Windows.Forms.Label();
+            this.lbl7 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl8 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblsoluong = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblpage = new System.Windows.Forms.Label();
+            this.btnsop = new System.Windows.Forms.Button();
+            this.txt5 = new System.Windows.Forms.TextBox();
+            this.txt7 = new System.Windows.Forms.TextBox();
+            this.txt9 = new System.Windows.Forms.TextBox();
+            this.txt10 = new System.Windows.Forms.TextBox();
+            this.txt6 = new System.Windows.Forms.TextBox();
+            this.txt8 = new VCB_TEGAKI.SyncTextBox();
+            this.txtlb8 = new VCB_TEGAKI.SyncTextBox();
+            this.txt4 = new VCB_TEGAKI.SyncTextBox();
+            this.txtlb4 = new VCB_TEGAKI.SyncTextBox();
+            this.txt3 = new VCB_TEGAKI.SyncTextBox();
+            this.txtlb3 = new VCB_TEGAKI.SyncTextBox();
+            this.txt2 = new VCB_TEGAKI.SyncTextBox();
+            this.txtlb2 = new VCB_TEGAKI.SyncTextBox();
+            this.SuspendLayout();
+            // 
+            // timergetimage
+            // 
+            this.timergetimage.Interval = 500;
+            this.timergetimage.Tick += new System.EventHandler(this.timergetimage_Tick);
+            // 
+            // view_Image_TN
+            // 
+            this.view_Image_TN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.view_Image_TN.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.view_Image_TN.CurrentZoom = 1F;
+            this.view_Image_TN.Image = null;
+            this.view_Image_TN.Location = new System.Drawing.Point(12, 5);
+            this.view_Image_TN.MaxZoom = 20F;
+            this.view_Image_TN.MinZoom = 0.05F;
+            this.view_Image_TN.Name = "view_Image_TN";
+            this.view_Image_TN.Size = new System.Drawing.Size(612, 721);
+            this.view_Image_TN.TabIndex = 0;
+            this.view_Image_TN.TabStop = false;
+            this.view_Image_TN.MouseDown += new System.Windows.Forms.MouseEventHandler(this.view_Image_TN_MouseDown);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Location = new System.Drawing.Point(813, 670);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(137, 56);
+            this.btnSubmit.TabIndex = 9;
+            this.btnSubmit.TabStop = false;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnNotgood
+            // 
+            this.btnNotgood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNotgood.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotgood.Location = new System.Drawing.Point(1049, 670);
+            this.btnNotgood.Name = "btnNotgood";
+            this.btnNotgood.Size = new System.Drawing.Size(139, 56);
+            this.btnNotgood.TabIndex = 10;
+            this.btnNotgood.TabStop = false;
+            this.btnNotgood.Text = "Not Good";
+            this.btnNotgood.UseVisualStyleBackColor = true;
+            this.btnNotgood.Click += new System.EventHandler(this.btnNotgood_Click);
+            // 
+            // lbl6
+            // 
+            this.lbl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl6.AutoSize = true;
+            this.lbl6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl6.Location = new System.Drawing.Point(653, 70);
+            this.lbl6.Name = "lbl6";
+            this.lbl6.Size = new System.Drawing.Size(94, 13);
+            this.lbl6.TabIndex = 160;
+            this.lbl6.Text = "6-Ghi chú 1/摘要:";
+            // 
+            // lbl10
+            // 
+            this.lbl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl10.AutoSize = true;
+            this.lbl10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl10.Location = new System.Drawing.Point(1175, 104);
+            this.lbl10.Name = "lbl10";
+            this.lbl10.Size = new System.Drawing.Size(141, 13);
+            this.lbl10.TabIndex = 167;
+            this.lbl10.Text = "10-Mã nơi GH/直送先コード";
+            // 
+            // lbl9
+            // 
+            this.lbl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl9.AutoSize = true;
+            this.lbl9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl9.Location = new System.Drawing.Point(995, 104);
+            this.lbl9.Name = "lbl9";
+            this.lbl9.Size = new System.Drawing.Size(113, 13);
+            this.lbl9.TabIndex = 166;
+            this.lbl9.Text = "9-Phân loại/直送区分";
+            // 
+            // lbl7
+            // 
+            this.lbl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl7.AutoSize = true;
+            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl7.Location = new System.Drawing.Point(813, 104);
+            this.lbl7.Name = "lbl7";
+            this.lbl7.Size = new System.Drawing.Size(145, 13);
+            this.lbl7.TabIndex = 165;
+            this.lbl7.Text = "7-Mã đặt hàng/仕入先コード";
+            // 
+            // lbl5
+            // 
+            this.lbl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl5.AutoSize = true;
+            this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5.Location = new System.Drawing.Point(653, 104);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(125, 13);
+            this.lbl5.TabIndex = 164;
+            this.lbl5.Text = "5-Thời gian/指定納品日";
+            // 
+            // lbl4
+            // 
+            this.lbl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl4.AutoSize = true;
+            this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4.Location = new System.Drawing.Point(973, 158);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(82, 13);
+            this.lbl4.TabIndex = 163;
+            this.lbl4.Text = "4-Đơn giá/単価";
+            // 
+            // lbl3
+            // 
+            this.lbl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl3.AutoSize = true;
+            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3.Location = new System.Drawing.Point(843, 157);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(87, 13);
+            this.lbl3.TabIndex = 162;
+            this.lbl3.Text = "3-Số lượng/数量";
+            // 
+            // lbl8
+            // 
+            this.lbl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl8.AutoSize = true;
+            this.lbl8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl8.Location = new System.Drawing.Point(1175, 157);
+            this.lbl8.Name = "lbl8";
+            this.lbl8.Size = new System.Drawing.Size(91, 13);
+            this.lbl8.TabIndex = 161;
+            this.lbl8.Text = "8-Ghi chú 2/備考";
+            // 
+            // lbl2
+            // 
+            this.lbl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.Location = new System.Drawing.Point(641, 157);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(170, 13);
+            this.lbl2.TabIndex = 159;
+            this.lbl2.Text = "2-Mã SP/品番/JANコード/商品名";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(846, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 171;
+            this.label3.Text = "Tên ảnh:";
+            // 
+            // lblsoluong
+            // 
+            this.lblsoluong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblsoluong.AutoSize = true;
+            this.lblsoluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsoluong.ForeColor = System.Drawing.Color.Blue;
+            this.lblsoluong.Location = new System.Drawing.Point(749, 19);
+            this.lblsoluong.Name = "lblsoluong";
+            this.lblsoluong.Size = new System.Drawing.Size(18, 20);
+            this.lblsoluong.TabIndex = 170;
+            this.lblsoluong.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(661, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 13);
+            this.label7.TabIndex = 169;
+            this.label7.Text = "Số lượng còn lại:";
+            // 
+            // lblpage
+            // 
+            this.lblpage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblpage.AutoSize = true;
+            this.lblpage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblpage.ForeColor = System.Drawing.Color.Blue;
+            this.lblpage.Location = new System.Drawing.Point(902, 20);
+            this.lblpage.Name = "lblpage";
+            this.lblpage.Size = new System.Drawing.Size(35, 18);
+            this.lblpage.TabIndex = 168;
+            this.lblpage.Text = "ảnh";
+            // 
+            // btnsop
+            // 
+            this.btnsop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnsop.Location = new System.Drawing.Point(1243, 13);
+            this.btnsop.Name = "btnsop";
+            this.btnsop.Size = new System.Drawing.Size(94, 34);
+            this.btnsop.TabIndex = 177;
+            this.btnsop.TabStop = false;
+            this.btnsop.Text = "SOP";
+            this.btnsop.UseVisualStyleBackColor = true;
+            this.btnsop.Click += new System.EventHandler(this.btnsop_Click);
+            // 
+            // txt5
+            // 
+            this.txt5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt5.Location = new System.Drawing.Point(630, 120);
+            this.txt5.Name = "txt5";
+            this.txt5.Size = new System.Drawing.Size(174, 29);
+            this.txt5.TabIndex = 1;
+            this.txt5.Visible = false;
+            // 
+            // txt7
+            // 
+            this.txt7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt7.Location = new System.Drawing.Point(810, 120);
+            this.txt7.Name = "txt7";
+            this.txt7.Size = new System.Drawing.Size(150, 29);
+            this.txt7.TabIndex = 2;
+            this.txt7.Visible = false;
+            // 
+            // txt9
+            // 
+            this.txt9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt9.Location = new System.Drawing.Point(966, 120);
+            this.txt9.Name = "txt9";
+            this.txt9.ReadOnly = true;
+            this.txt9.Size = new System.Drawing.Size(175, 29);
+            this.txt9.TabIndex = 3;
+            this.txt9.Visible = false;
+            // 
+            // txt10
+            // 
+            this.txt10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt10.Location = new System.Drawing.Point(1147, 120);
+            this.txt10.Name = "txt10";
+            this.txt10.Size = new System.Drawing.Size(190, 29);
+            this.txt10.TabIndex = 4;
+            this.txt10.Visible = false;
+            // 
+            // txt6
+            // 
+            this.txt6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt6.Location = new System.Drawing.Point(753, 62);
+            this.txt6.Name = "txt6";
+            this.txt6.Size = new System.Drawing.Size(584, 29);
+            this.txt6.TabIndex = 0;
+            this.txt6.Visible = false;
+            // 
+            // txt8
+            // 
+            this.txt8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt8.Buddy = null;
+            this.txt8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt8.Location = new System.Drawing.Point(1115, 175);
+            this.txt8.Multiline = true;
+            this.txt8.Name = "txt8";
+            this.txt8.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txt8.Size = new System.Drawing.Size(228, 489);
+            this.txt8.TabIndex = 8;
+            this.txt8.Visible = false;
+            this.txt8.TextChanged += new System.EventHandler(this.txt8_TextChanged);
+            this.txt8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt8_KeyDown);
+            // 
+            // txtlb8
+            // 
+            this.txtlb8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtlb8.Buddy = null;
+            this.txtlb8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlb8.Location = new System.Drawing.Point(1089, 175);
+            this.txtlb8.Multiline = true;
+            this.txtlb8.Name = "txtlb8";
+            this.txtlb8.ReadOnly = true;
+            this.txtlb8.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtlb8.Size = new System.Drawing.Size(45, 489);
+            this.txtlb8.TabIndex = 16;
+            this.txtlb8.TabStop = false;
+            // 
+            // txt4
+            // 
+            this.txt4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt4.Buddy = null;
+            this.txt4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt4.Location = new System.Drawing.Point(984, 175);
+            this.txt4.Multiline = true;
+            this.txt4.Name = "txt4";
+            this.txt4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txt4.Size = new System.Drawing.Size(98, 489);
+            this.txt4.TabIndex = 7;
+            this.txt4.Visible = false;
+            this.txt4.TextChanged += new System.EventHandler(this.txt4_TextChanged);
+            this.txt4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt4_KeyDown);
+            // 
+            // txtlb4
+            // 
+            this.txtlb4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtlb4.Buddy = null;
+            this.txtlb4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlb4.Location = new System.Drawing.Point(958, 175);
+            this.txtlb4.Multiline = true;
+            this.txtlb4.Name = "txtlb4";
+            this.txtlb4.ReadOnly = true;
+            this.txtlb4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtlb4.Size = new System.Drawing.Size(45, 489);
+            this.txtlb4.TabIndex = 14;
+            this.txtlb4.TabStop = false;
+            // 
+            // txt3
+            // 
+            this.txt3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt3.Buddy = null;
+            this.txt3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt3.Location = new System.Drawing.Point(855, 175);
+            this.txt3.Multiline = true;
+            this.txt3.Name = "txt3";
+            this.txt3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txt3.Size = new System.Drawing.Size(95, 489);
+            this.txt3.TabIndex = 6;
+            this.txt3.Visible = false;
+            this.txt3.TextChanged += new System.EventHandler(this.txt3_TextChanged);
+            this.txt3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt3_KeyDown);
+            // 
+            // txtlb3
+            // 
+            this.txtlb3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtlb3.Buddy = null;
+            this.txtlb3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlb3.Location = new System.Drawing.Point(829, 175);
+            this.txtlb3.Multiline = true;
+            this.txtlb3.Name = "txtlb3";
+            this.txtlb3.ReadOnly = true;
+            this.txtlb3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtlb3.Size = new System.Drawing.Size(45, 489);
+            this.txtlb3.TabIndex = 12;
+            this.txtlb3.TabStop = false;
+            // 
+            // txt2
+            // 
+            this.txt2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt2.Buddy = null;
+            this.txt2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt2.Location = new System.Drawing.Point(660, 175);
+            this.txt2.Multiline = true;
+            this.txt2.Name = "txt2";
+            this.txt2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txt2.Size = new System.Drawing.Size(163, 489);
+            this.txt2.TabIndex = 5;
+            this.txt2.Visible = false;
+            this.txt2.TextChanged += new System.EventHandler(this.txt2_TextChanged);
+            this.txt2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt2_KeyDown);
+            // 
+            // txtlb2
+            // 
+            this.txtlb2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtlb2.Buddy = null;
+            this.txtlb2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlb2.Location = new System.Drawing.Point(634, 175);
+            this.txtlb2.Multiline = true;
+            this.txtlb2.Name = "txtlb2";
+            this.txtlb2.ReadOnly = true;
+            this.txtlb2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtlb2.Size = new System.Drawing.Size(45, 489);
+            this.txtlb2.TabIndex = 2;
+            this.txtlb2.TabStop = false;
+            // 
+            // frmEntry
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1349, 738);
+            this.Controls.Add(this.txt6);
+            this.Controls.Add(this.txt10);
+            this.Controls.Add(this.txt9);
+            this.Controls.Add(this.txt7);
+            this.Controls.Add(this.txt5);
+            this.Controls.Add(this.btnsop);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblsoluong);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblpage);
+            this.Controls.Add(this.lbl6);
+            this.Controls.Add(this.lbl10);
+            this.Controls.Add(this.lbl9);
+            this.Controls.Add(this.lbl7);
+            this.Controls.Add(this.lbl5);
+            this.Controls.Add(this.lbl4);
+            this.Controls.Add(this.lbl3);
+            this.Controls.Add(this.lbl8);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.txt8);
+            this.Controls.Add(this.txtlb8);
+            this.Controls.Add(this.txt4);
+            this.Controls.Add(this.txtlb4);
+            this.Controls.Add(this.txt3);
+            this.Controls.Add(this.txtlb3);
+            this.Controls.Add(this.btnNotgood);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.txt2);
+            this.Controls.Add(this.txtlb2);
+            this.Controls.Add(this.view_Image_TN);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.Name = "frmEntry";
+            this.Text = "Entry";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEntry_FormClosing);
+            this.Load += new System.EventHandler(this.frmEntry_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmEntry_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmEntry_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmEntry_KeyUp);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Timer timergetimage;
+        private ImageViewerTR.ImageViewerTR view_Image_TN;
+        private SyncTextBox txt2;
+        private SyncTextBox txtlb2;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnNotgood;
+        private SyncTextBox txt3;
+        private SyncTextBox txtlb3;
+        private SyncTextBox txt4;
+        private SyncTextBox txtlb4;
+        private SyncTextBox txt8;
+        private SyncTextBox txtlb8;
+        private System.Windows.Forms.Label lbl6;
+        private System.Windows.Forms.Label lbl10;
+        private System.Windows.Forms.Label lbl9;
+        private System.Windows.Forms.Label lbl7;
+        private System.Windows.Forms.Label lbl5;
+        private System.Windows.Forms.Label lbl4;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Label lbl8;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblsoluong;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblpage;
+        private System.Windows.Forms.Button btnsop;
+        private System.Windows.Forms.TextBox txt5;
+        private System.Windows.Forms.TextBox txt7;
+        private System.Windows.Forms.TextBox txt9;
+        private System.Windows.Forms.TextBox txt10;
+        private System.Windows.Forms.TextBox txt6;
+    }
+}

@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net.Sockets;
+using System.Windows.Forms;
+
+namespace VCB_TEGAKI
+{
+    static class Program
+    {
+        public static string server = "";
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            try
+            {
+                string path_file_update = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Auto_Update_Plus.exe";
+                string path_excute = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\excute_plus.txt";
+                TcpClient tcp = new TcpClient();
+                var result = tcp.BeginConnect("192.168.1.7", 1433, null, null);
+                var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromMilliseconds(100));
+                if (success)
+                {
+                    server = "192.168.1.7";
+                }
+                else
+                {
+                    server = "49.156.54.120";
+                }
+                DB_Update db = new DB_Update();
+
+                if (File.Exists(path_file_update))
+                {
+                    if (db.active_App_Update("PLUS") == 1)
+                    {
+                        File.Delete(path_file_update);
+                        File.WriteAllBytes(path_file_update, db.get_app_auto_update("PLUS"));
+                    }
+                }
+                else
+                {
+                    File.WriteAllBytes(path_file_update, db.get_app_auto_update("PLUS"));
+                }
+                string nameApplication = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+                if (!db.check_update(nameApplication))
+                {
+                    File.WriteAllText(path_excute, Application.ExecutablePath);
+                    Process.Start(path_file_update);
+                    return;
+                }
+            }
+            catch { }
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new frmLogIn());
+        }
+    }
+}

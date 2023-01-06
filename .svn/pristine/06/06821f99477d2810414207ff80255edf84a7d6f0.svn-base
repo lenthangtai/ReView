@@ -1,0 +1,435 @@
+﻿using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace VCB_TEGAKI
+{
+    public partial class frmUpdateImage : Form
+    {
+        int countFinish = 0;
+        string[] pagesFilePath;
+        int pagesFilePathLength;
+        int pageUp = 0;
+        int[] arrIndex;
+        int getid;
+        int iturn = 0;
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\pathCrop.txt";
+        DBsql dbsql = new DBsql();
+        DataTable dt = new DataTable();
+        string batchname = "";
+        int batchid = 0;
+        ImageCodecInfo myImageCodecInfo;
+        System.Drawing.Imaging.Encoder myEncoder;
+        EncoderParameters myEncoderParameters;
+        EncoderParameter myEncoderParameter;
+        public frmUpdateImage()
+        {
+            InitializeComponent();
+            grThongkeV.IndicatorWidth = 50;
+        }
+
+        private void btnSourceDirectoryBrow_Click(object sender, EventArgs e)
+        {
+            string strPreferenceToRemember = @"C:\";
+            if (File.Exists(path))
+            {
+                strPreferenceToRemember = File.ReadAllText(path);
+            }
+            else
+            {
+                File.WriteAllText(path, strPreferenceToRemember);
+            }
+
+            FolderBrowserDialogEx fbd = new FolderBrowserDialogEx();
+            fbd.SelectedPath = strPreferenceToRemember;
+            if (DialogResult.OK == fbd.ShowDialog())
+            {
+                txtSourceDirectory.Text = fbd.SelectedPath;
+                File.WriteAllText(path, txtSourceDirectory.Text);   
+            }
+            else
+            {
+                return;
+            }
+            txtSourceDirectory.Text = fbd.SelectedPath;
+            //string[] ext = new string[4] { ".jpg", ".tif", ".png", ".tiff" };
+            //pagesFilePath = Directory.GetFiles(txtSourceDirectory.Text,"*.tif",SearchOption.AllDirectories).Where(s => ext.Any(vl => s.EndsWith(vl))).ToArray();
+            pagesFilePath = Directory.GetFiles(txtSourceDirectory.Text, "*.tif", SearchOption.AllDirectories);
+            Array.Sort(pagesFilePath);
+            pagesFilePathLength = pagesFilePath.Length;
+            lblPage.Text = pagesFilePathLength.ToString(); 
+        }
+        #region Turn
+        public void Turnup(string ImgName)
+        {
+            iturn = 0;
+            DateTime now = DateTime.Now;
+            int ithang = Convert.ToInt32(ImgName.Substring(4, 2));
+            int nthang = Convert.ToInt32(now.Month);
+            int ingay = Convert.ToInt32(ImgName.Substring(6, 2));
+            int nngay = Convert.ToInt32(now.Day);
+            int igio = Convert.ToInt32(ImgName.Substring(8, 2));
+            if (ithang < nthang)
+            {
+                iturn = 1;
+            }
+            else if (ithang == nthang)
+            {
+                if (ingay < nngay)
+                {
+                    iturn = 1;
+                }
+                else if (ingay == nngay)
+                {
+                    if (igio < 10 || igio >=16)
+                    {
+                        iturn = 1;
+                    }
+                    else if (igio >= 10 && igio < 11)
+                    {
+                        iturn = 2;
+                    }
+                    else if (igio >= 11 && igio < 13)
+                    {
+                        iturn = 3;
+                    }
+                    else if (igio >= 13 && igio < 16)
+                    {
+                        iturn = 4;
+                    }
+                }
+            }
+        }
+#endregion
+        private void bgw1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            countFinish++;
+            if (countFinish > 9)
+            {
+                bgrImage.RunWorkerAsync();
+            }
+            else if (pagesFilePath.Length  <= 9)
+            {
+                bgrImage.RunWorkerAsync();
+            }
+        }
+
+        private void bgw1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblUp.Text = (pageUp).ToString();
+            prbUpImage.Value = pageUp;
+        }
+
+        private void btnUpImage_Click(object sender, EventArgs e)
+        {
+            if (pagesFilePath.Length > 0)
+            {
+                pageUp = 0;
+                countFinish = 0;
+                arrIndex = clValue.value(pagesFilePath.Length);
+                btnUpImage.Enabled = false;
+                btnSourceDirectoryBrow.Enabled = false;
+                prbUpImage.Value = 0;
+                prbUpImage.Maximum = pagesFilePath.Length;
+                if (pagesFilePath.Length > 9)
+                {
+                    bgw1.RunWorkerAsync();
+                    bgw2.RunWorkerAsync();
+                    bgw3.RunWorkerAsync();
+                    bgw4.RunWorkerAsync();
+                    bgw5.RunWorkerAsync();
+                    bgw6.RunWorkerAsync();
+                    bgw7.RunWorkerAsync();
+                    bgw8.RunWorkerAsync();
+                    bgw9.RunWorkerAsync();
+                    bgw10.RunWorkerAsync();
+                }
+                else
+                {
+                    bgw1.RunWorkerAsync();
+                }
+            }        
+        }
+
+        private void bgw1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = 0; i < arrIndex[0]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);                
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[0]; i < arrIndex[1]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw3_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[1]; i < arrIndex[2]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw4_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[2]; i < arrIndex[3]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw5_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[3]; i < arrIndex[4]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw6_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[4]; i < arrIndex[5]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw7_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[5]; i < arrIndex[6]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw8_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[6]; i < arrIndex[7]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                //getid = dbsql.GetId_AllImage(Common.filename(pagesFilePath[i].ToString()));
+                //dbsql.Insert_ImageContent(getid);
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw9_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[7]; i < arrIndex[8]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void bgw10_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for (int i = arrIndex[8]; i < arrIndex[9]; i++)
+            {
+                Bitmap imagepage = new Bitmap(pagesFilePath[i]);
+                dbsql.InsertImageToServer(Path.GetFileName(pagesFilePath[i]), imageToByteArray(imagepage));
+                pageUp = pageUp + 1;
+                // report progress.
+                worker.ReportProgress(pageUp);
+            }
+        }
+
+        private void grThongkeV_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            DevExpress.XtraGrid.Views.Grid.GridView view = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        private void frmUpdateImage_Load(object sender, EventArgs e)
+        {
+            myImageCodecInfo = GetEncoderInfo("image/tiff");
+            myEncoder = System.Drawing.Imaging.Encoder.Compression;
+            myEncoderParameters = new EncoderParameters(1);
+            myEncoderParameter = new EncoderParameter(myEncoder, (long)EncoderValue.CompressionCCITT4);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+            dt = dbsql.GetImageOnServer();
+            grThongke.DataSource = dt;
+            grThongkeV.Columns[0].Visible = false;
+        }
+
+        private void grThongkeV_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {   //click event
+                //MessageBox.Show("you got it!");
+                ContextMenu contextMenu = new System.Windows.Forms.ContextMenu();
+                MenuItem menuItem = new MenuItem("Delete");
+                menuItem.Click += new EventHandler(DeleteAction);
+                contextMenu.MenuItems.Add(menuItem);
+                grThongke.ContextMenu = contextMenu;
+            }
+        }
+        void DeleteAction(object sender, EventArgs e)
+        {
+            ColumnView View = (ColumnView)grThongke.FocusedView;
+            GridColumn column = View.Columns[grThongkeV.FocusedColumn.FieldName];
+            if (grThongkeV.SelectedRowsCount == 0)
+            {
+                return;
+            }
+            else if (grThongkeV.SelectedRowsCount > 1)
+            {
+                for (int i = grThongkeV.SelectedRowsCount - 1; i >= 0; i--)
+                {
+                    int rw = grThongkeV.GetSelectedRows()[i];
+                    string batchName = dt.Rows[rw]["NameImage"].ToString();
+                    string id = dt.Rows[rw]["ID"].ToString();
+                    dbsql.DeleteBatch(id, batchName);
+                    dt.Rows.RemoveAt(rw);
+                }
+                grThongke.DataSource = null;
+            }
+            else
+            {
+                int rw = grThongkeV.GetSelectedRows()[0];
+                string batchName = dt.Rows[rw]["NameImage"].ToString();
+                string id = dt.Rows[rw]["ID"].ToString();
+                dbsql.DeleteBatch(id, batchName);
+                dt.Rows.RemoveAt(rw);
+                grThongke.DataSource = null;
+            }
+            dt.Rows.Clear();
+            dt = dbsql.GetImageOnServer();
+            grThongke.DataSource = dt;
+            grThongkeV.Columns[0].Visible = false;
+            MessageBox.Show("Completed!");
+        }
+
+        private void bgrImage_DoWork(object sender, DoWorkEventArgs e)
+        {          
+            for (int i = 0; i < pagesFilePath.Length; i++)
+            {
+                Turnup(Path.GetFileName(pagesFilePath[i]));
+                dbsql.InsertImage(Path.GetFileName(pagesFilePath[i]),iturn);              
+            }
+        }
+
+        private void bgrImage_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+           
+        }
+
+        private void bgrImage_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblUp.Text = dbsql.countImage();
+            btnUpImage.Enabled = true;
+            btnSourceDirectoryBrow.Enabled = true;
+            prbUpImage.Value = pagesFilePathLength;
+            grThongke.DataSource = null;
+            dt = dbsql.GetImageOnServer();
+            grThongke.DataSource = dt;
+            grThongkeV.Columns[0].Visible = false;
+            MessageBox.Show("Completed!");
+        }
+
+        private void btnDeleteall_Click(object sender, EventArgs e)
+        {
+                if (MessageBox.Show("Bạn có muốn xóa hết batch không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    dbsql.Delete_AllBatch();
+                }
+                grThongke.DataSource = null;
+                dt.Clear();
+                dt = dbsql.GetBatch();
+                grThongke.DataSource = dt;
+        }
+        private static ImageCodecInfo GetEncoderInfo(String mimeType)
+        {
+            int j;
+            ImageCodecInfo[] encoders;
+            encoders = ImageCodecInfo.GetImageEncoders();
+            for (j = 0; j < encoders.Length; ++j)
+            {
+                if (encoders[j].MimeType == mimeType)
+                    return encoders[j];
+            }
+            return null;
+        }
+        private byte[] imageToByteArray(Bitmap imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                try
+                {
+                    imageIn.Save(ms, myImageCodecInfo, myEncoderParameters);
+                    return ms.ToArray();                    
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
+        private void frmUpdateImage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            return;
+        }
+    }
+}

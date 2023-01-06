@@ -1,0 +1,539 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+using System.Configuration;
+using System.Text.RegularExpressions;
+using System.Drawing.Imaging;
+namespace VCB_TEGAKI
+{
+    public partial class FrmEntryP : Form
+    {
+        public static bool selecthitpoint = true;    
+        public int batchId;
+        public int userId;
+        public int pair;
+        public int ImgId;
+        int idreturn;
+        private double scale = 1;
+        public string userName;
+        public string batchName;
+        DataTable dtimage = new DataTable();
+        DataTable dtbinary = new DataTable();
+        byte[] getbinary;
+        DataTable dtbinary2;
+        string tenanh;
+        DataTable get_lstimage = new DataTable();
+        DataTable get_lstimage2 = new DataTable();
+        Bitmap imageSource;
+        Image Image;
+        Image Image2;
+        Image Image3;
+        bool getanh = false;
+        List<BOImage_Entry> listImage ;     
+        private DAEntry_Entry dAEntry = new DAEntry_Entry();
+        private BOImage_Entry img = new BOImage_Entry();
+        private bool finish = false;
+        DataTable dtall = new DataTable();
+        string x2, x3, x4, x5;
+        private int zoomLevel;
+        bool check = false;
+        bool zoom = false;
+        int tbindex = 0;
+        int[] INFImage;
+        int limitTime = 0;
+        //var 140716
+        int zom = 20;
+        double tyle;
+        double tyleImageNew = 1;
+        Bitmap bm_out;
+        List<TextBox> lsttxt = new List<TextBox>();
+        string chuoi;
+        int IdImage;
+        string[] arrsave = new string[2];
+        string[] arrsh = new string[0];
+        string[] arrsl = new string[0];
+        string[] arrgm = new string[0];
+        string[] arrgb = new string[0];
+        DateTime dtimeBefore = new DateTime();
+        public FrmEntryP()
+        {
+            InitializeComponent();
+        }
+
+        private void frmEntry_Load(object sender, EventArgs e)
+        {
+
+            listImage = new List<BOImage_Entry>();
+
+            // hiển thị thông tin user
+            this.Text = "Entry" + "                     UserName: " + userName;
+            lblusername.Text = userName;
+            lblbatchname.Text = batchName;
+            dtall = dAEntry.Get_AllTemplate();
+            grTemp.DataSource = dtall;
+            grTempV.RowCellClick += gridView1_RowCellClick;
+            grTempV.Columns[0].Visible = false;
+            //userid
+            //int uID = userId;
+
+            //// hien thi giua man hinh
+            //this.CenterToScreen();          
+            int idimg = dAEntry.GetIDImage(pair);
+            if (idimg == 0)
+            {               
+                btnNotgood.Enabled = false;
+                finish = true;
+                MessageBox.Show("Batch đã hoàn thành");
+                this.Close();
+                return;
+            }
+            else
+            {
+                try
+                {
+                    tenanh = dAEntry.Get_imgname(idimg);
+                    imageSource = new Bitmap(Io_Entry.byteArrayToImage(dAEntry.getImageOnServer(tenanh)));
+                    view_Image_TN.Image = imageSource;
+                    view_Image_TN.CurrentZoom = 0.2f;                   
+                    lblpage.Text = tenanh;
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Server chưa có ảnh");
+                    this.Close();
+                    return;
+                }
+            }
+            idreturn = idimg;
+            dtimeBefore = DateTime.Now;
+            timergetanh.Start();
+            txtTemp.Focus();
+        }
+        void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {           
+            if (e.Clicks == 1)
+            {                
+                chuoi = grTempV.GetRowCellValue(e.RowHandle, "TemplateName").ToString();
+                if (chuoi.Length > 0)
+                {
+                    txtText.Text = chuoi.Substring(4);
+                }
+            }
+        }
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmEntry_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timergetanh.Stop();
+            try
+            {
+                if (!finish)
+                {
+                    dAEntry.Return_HitpointP(idreturn, pair);
+                    dAEntry.Return_HitpointP(img.Id, pair);
+                    //    e.Cancel = true;
+                    //dAEntry.ReturnPairANDHitpointEntry(img.Id, userId);
+                    //// unlock image       
+                    for (int i = 0; i < listImage.Count; i++)
+                    {
+                        dAEntry.Return_HitpointP(listImage[i].Id, pair);
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch { }
+            return;
+        }
+      
+        private void btnRR_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnRL_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void frmEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.N)
+            {
+                btnNotgood_Click_1(sender, e);
+            }         
+            else if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+            if (e.Control)
+            {
+                if (e.KeyCode == Keys.Up)
+                {
+                    view_Image_TN.CurrentZoom = view_Image_TN.CurrentZoom + 0.1f;
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.Down)
+                {
+                    view_Image_TN.CurrentZoom = view_Image_TN.CurrentZoom <= 0.1f ? 0.1f : view_Image_TN.CurrentZoom - 0.1f;
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.Right)
+                {
+                    view_Image_TN.RotateImage("270");
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.Left)
+                {
+                    view_Image_TN.RotateImage("90");
+                    e.Handled = true;
+                }
+                else if (e.KeyCode == Keys.F)
+                {
+                    view_Image_TN.CurrentZoom = 0.2f;
+                    e.Handled = true;
+                }
+            }
+
+        }
+
+        private void frmEntry_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if (e.KeyChar == 43)
+                    e.Handled = true;
+                if (e.KeyChar == 110)
+                    e.Handled = true;
+        }
+
+        private void frmEntry_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+        private void btnFullImage_Click(object sender, EventArgs e)
+        {
+          
+        }      
+       
+        private void btnzoomout_Click(object sender, EventArgs e)
+        {
+          
+        }
+        private void btnzoomin_Click(object sender, EventArgs e)
+        {
+           
+        }
+        private void bgwGetImage1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //while (ListImage.Count < 2)
+            //{
+            //    get_lstimage = dAEntry.Get_Binary(dtimage.Rows[0][0].ToString(), Convert.ToInt32(dtimage.Rows[0][0]), pair);
+            //    if (get_lstimage.Rows.Count > 0)
+            //    {
+            //        BOImage_Entry img2 = dAEntry.GetImage(Convert.ToInt32(get_lstimage.Rows[0][1]));
+            //        try
+            //        {
+            //            img2.Imagesource = new Bitmap(Io_Entry.byteArrayToImage(dAEntry.getImageOnServer(img2.PageUrl, batchName)));
+            //        }
+            //        catch { img2.Imagesource = null; }
+            //        ListImage.Add(img2);
+            //    }
+            //    else
+            //        break;
+            //}
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (chuoi == null)
+            {
+                if (MessageBox.Show("Mã số trống, bạn có báo Notgood không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    btnNotgood_Click_1(sender, e);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            chuoi = chuoi.Substring(4);
+            TimeSpan span = DateTime.Now - dtimeBefore;
+            int ms = (int)span.TotalMilliseconds;
+            if (idreturn != 0)
+            {
+                if (pair == 3)
+                {
+                    dAEntry.AddImageContentP1(idreturn, chuoi.ToString(), userId, ms);
+                }
+                if (pair == 4)
+                {
+                    dAEntry.AddImageContentP2(idreturn, chuoi.ToString(), userId, ms);
+                }
+            }
+            else
+            {
+                if (pair == 3)
+                {
+                    dAEntry.AddImageContentP1(img.Id, chuoi.ToString(), userId, ms);
+                }
+                if (pair == 4)
+                {
+                    dAEntry.AddImageContentP2(img.Id, chuoi.ToString(), userId, ms);
+                }
+            }
+            view_Image_TN.Dispose();                
+            imageSource = null;
+            idreturn = 0;
+            if (listImage.Count > 0)
+            {
+                img = listImage[0];
+                listImage.RemoveAt(0);
+            }
+            else
+            {
+                if (getanh)
+                {
+                    finish = true;
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    while (listImage.Count == 0)
+                    {                     
+                        btnNotgood.Enabled = false;
+                        finish = true;
+                        MessageBox.Show("Batch đã hoàn thành");
+                        this.Close();
+                        return;
+                    }
+                    img = listImage[0];
+                    listImage.RemoveAt(0);
+                }
+            }
+            try
+            {
+                //Get Image
+                imageSource = (Bitmap)img.Imagesource.Clone();          
+                view_Image_TN.Image = imageSource;
+                view_Image_TN.CurrentZoom = 0.2f;                   
+            }
+            catch
+            {
+                MessageBox.Show("Không load được ảnh: " + img.PageUrl, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }           
+                dtimeBefore = DateTime.Now;
+                dtall = dAEntry.Get_AllTemplate();
+                grTemp.DataSource = dtall;
+                chuoi = "";
+                txtTemp.Text = "";
+                lblpage.Text = img.PageUrl;
+                txtText.Text = "";
+                txtTemp.Focus();
+            }
+
+        private void btnNotgood_Click_1(object sender, EventArgs e)
+        {
+            TimeSpan span = DateTime.Now - dtimeBefore;
+            int ms = (int)span.TotalMilliseconds;
+            if (idreturn != 0)
+            {
+                if (pair == 3)
+                {
+                    dAEntry.AddImageContentNGP1(idreturn, userId, ms);
+                }
+                if (pair == 4)
+                {
+                    dAEntry.AddImageContentNGP2(idreturn, userId, ms);
+                }
+            }
+            else
+            {
+                if (pair == 3)
+                {
+                    dAEntry.AddImageContentNGP1(img.Id, userId, ms);
+                }
+                if (pair == 4)
+                {
+                    dAEntry.AddImageContentNGP2(img.Id, userId, ms);
+                }
+            }
+            view_Image_TN.Dispose();              
+            imageSource = null;
+            idreturn = 0;
+            if (listImage.Count > 0)
+            {
+                img = listImage[0];
+                listImage.RemoveAt(0);
+            }
+            else
+            {
+                    while (listImage.Count == 0)
+                    {                      
+                        btnNotgood.Enabled = false;
+                        finish = true;
+                        MessageBox.Show("Batch đã hoàn thành");
+                        this.Close();
+                        return;
+                    }
+                    img = listImage[0];
+                    listImage.RemoveAt(0);
+            }
+
+            try
+            {
+                //Get Image
+                imageSource = (Bitmap)img.Imagesource.Clone();
+                view_Image_TN.Image = imageSource;
+                view_Image_TN.CurrentZoom = 0.2f;                   
+            }
+            catch
+            {
+                MessageBox.Show("Không load được ảnh: " + img.PageUrl, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+            dtimeBefore = DateTime.Now;
+            dtall = dAEntry.Get_AllTemplate();
+            grTemp.DataSource = dtall;
+            lblpage.Text = img.PageUrl;
+            txtTemp.Text = "";
+            txtText.Text = "";
+            txtTemp.Focus();
+        }
+
+        private void txtTemp_TextChanged(object sender, EventArgs e)
+        {            
+            grTempV.FindFilterText = txtTemp.Text;
+            if (grTempV.RowCount > 0)
+            {
+                chuoi = grTempV.GetRowCellValue(0, "TemplateName").ToString();
+            }
+            if (grTempV.RowCount == 0)
+            {
+                chuoi = "";
+            }
+        }
+
+        private void btnRtR_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.RotateImage("270");
+        }
+
+        private void btnRtL_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.RotateImage("90");
+        }
+
+        private void btnFull_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.CurrentZoom = 0.2f;
+        }       
+
+        private void timergetanh_Tick(object sender, EventArgs e)
+        {
+            if (listImage.Count < 2)
+            {
+                try
+                {
+                    int id = dAEntry.GetIDImage(pair);
+                    if (id > 0)
+                    {
+                        BOImage_Entry img2 = new BOImage_Entry();
+                        img2.PageUrl = dAEntry.Get_imgname(id);
+                        img2.Id = id;
+                        img2.Imagesource = new Bitmap(Io_Entry.byteArrayToImage(dAEntry.getImageOnServer(img2.PageUrl)));
+                        listImage.Add(img2);
+                        //if (listImage.Count == 0)
+                        //{
+                        //    getanh = true;
+                        //}
+                    }
+                }
+                catch
+                {
+                }
+            }
+            lblsoluong.Text = (dAEntry.ImageExistP(pair) + listImage.Count).ToString();
+        }
+
+        private void grTempV_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            //int r = e.RowHandle;
+            //if (r > -1)
+            //{
+            //    try
+            //    {
+            //        string color = "";
+            //        for (int i = 0; i < dtall.Rows.Count; i++)
+            //        {
+            //            color = dtall.Rows[i][1].ToString().Substring(1,1);
+            //            if (Convert.ToInt32(color) % 2 == 0)
+            //            {
+            //                e.Appearance.BackColor = Color.DeepSkyBlue;
+            //                e.Appearance.BackColor2 = Color.LightCyan;
+            //            }
+            //            else
+            //            {
+            //                e.Appearance.BackColor = Color.White;
+            //            }
+            //        }
+            //    }
+            //    catch
+            //    {
+            //    }
+            //}
+        }
+
+        private void grTempV_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            int r = e.RowHandle;
+            var cl = e.Column;
+            string vl = e.CellValue.ToString();
+            if (r > -1)
+            {
+                try
+                {
+                    if (cl.FieldName == "TemplateName")
+                    {
+                        string color = "";
+                        color = vl.Substring(0, 4).Trim();
+                        if (Convert.ToInt32(color) % 2 == 0)
+                        {
+                            e.Appearance.BackColor = Color.PowderBlue;
+                        }
+                        else
+                        {
+                            e.Appearance.BackColor = Color.White;
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        private void btnZI_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.CurrentZoom = view_Image_TN.CurrentZoom + 0.1f;
+        }
+
+        private void btnZO_Click(object sender, EventArgs e)
+        {
+            view_Image_TN.CurrentZoom = view_Image_TN.CurrentZoom <= 0.1f ? 0.1f : view_Image_TN.CurrentZoom - 0.1f;
+        }
+    }
+}

@@ -1,0 +1,184 @@
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.BonusSkins.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Data.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Office.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Pdf.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Printing.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.RichEdit.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Utils.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraBars.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraEditors.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraGrid.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraLayout.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraNavBar.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraPrinting.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraRichEdit.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ImageProcessor.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Pdf.v16.1.Drawing.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Sparkline.v16.1.Core.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraTreeList.v16.1.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Data.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Office.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Pdf.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Printing.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.RichEdit.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Utils.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraBars.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraEditors.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraPrinting.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraGrid.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraLayout.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraNavBar.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraRichEdit.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ImageProcessor.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Pdf.v16.1.Drawing.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.Sparkline.v16.1.Core.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\DevExpress.XtraTreeList.v16.1.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.Office.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.Pdf.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.Printing.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.Printing.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.Printing.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.Printing.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.RichEdit.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.Utils.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.Utils.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.Utils.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.Utils.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.XtraBars.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.XtraBars.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.XtraBars.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.XtraBars.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.XtraEditors.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.XtraEditors.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.XtraEditors.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.XtraEditors.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.XtraPrinting.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.XtraGrid.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.XtraGrid.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.XtraGrid.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.XtraGrid.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.XtraLayout.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.XtraLayout.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.XtraLayout.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.XtraLayout.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.XtraNavBar.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.XtraRichEdit.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.Sparkline.v16.1.Core.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\de\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\es\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ja\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\ru\DevExpress.XtraTreeList.v16.1.resources.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_PLUS_NNC.csproj.ResolveComReference.cache
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Admin.Form_Crop.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmdetails.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmCheck.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmEntry.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.FB_NEW_2708.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.FindForm.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Lastcheck.Up_Master.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Properties.Resources.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.UpdateTool.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\AIOCR.WaitForm4.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_PLUS_NNC.csproj.GenerateResource.Cache
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.LC_Level.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Lastcheck.LC_New_plus_nnc.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Lastcheck.frm_table_export.resources
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\PdfiumViewer.dll
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.8.exe.config
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.8.exe.manifest
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.8.application
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.8.exe
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.8.pdb
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.8.exe.licenses
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.8.TrustInfo.xml
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.8.exe.manifest
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.8.application
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.8.exe
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.8.pdb
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_PLUS_NNC.csprojResolveAssemblyReference.cache
+D:\BACKUP\DATA\DU AN\___TOOL\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.WaitForm4.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_PLUS_NNC.csproj.ResolveComReference.cache
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\ImageProcessor.dll
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\ImageProcessor.xml
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Admin.Form_Crop.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmAdmin.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmdetails.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmCheck.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmCheckQC.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.FrmCheckP.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmUpdateImage.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.FrmEntryP.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmEntry.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.FB_NEW_2708.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmChangePassword.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmLogIn.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.FrmSOP.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.FindForm.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmLastCheck.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmCalculator.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Lastcheck.frm_table_export.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.LC_Level.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Lastcheck.LC_New_plus_NNC.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\Nik.UserControls.RicherTextBox2.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Lastcheck.Up_Master.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.Properties.Resources.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.SoftwareInfo.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_Entry.UpdateTool.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.WaitForm4.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_PLUS_NNC.csproj.GenerateResource.Cache
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_TEGAKI.frmUpdateImage_BK.resources
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\mscorlib.dll
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\normidna.nlp
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\normnfc.nlp
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\normnfd.nlp
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\normnfkc.nlp
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\normnfkd.nlp
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.22.exe.config
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.22.exe.manifest
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.22.application
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.22.exe
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\bin\Debug\VCB_NNC_2021_V1.0.22.pdb
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.22.exe.licenses
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.22.TrustInfo.xml
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.22.exe.manifest
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.22.application
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.22.exe
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_NNC_2021_V1.0.22.pdb
+D:\C#\HaiPM\BACKUP\VCB_PLUS_NNC_2021\obj\Debug\VCB_PLUS_NNC.csprojResolveAssemblyReference.cache

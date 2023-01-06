@@ -1,0 +1,1609 @@
+﻿namespace VCB_TEGAKI
+{
+    partial class frmAdmin
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        // Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            this.quanlyuer = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveFD = new System.Windows.Forms.SaveFileDialog();
+            this.Status = new System.Windows.Forms.TabControl();
+            this.tabUser = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtsearch = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.grdUsers = new DevExpress.XtraGrid.GridControl();
+            this.grvUsers = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.UserId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Role = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.User = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Fullname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Group = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MSNV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btndel = new System.Windows.Forms.Button();
+            this.btnedit = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.cboGroup = new System.Windows.Forms.ComboBox();
+            this.lblGroup = new System.Windows.Forms.Label();
+            this.cboPair = new System.Windows.Forms.ComboBox();
+            this.lblPair = new System.Windows.Forms.Label();
+            this.cboLevel = new System.Windows.Forms.ComboBox();
+            this.lblLevel = new System.Windows.Forms.Label();
+            this.cboRole = new System.Windows.Forms.ComboBox();
+            this.lblRole = new System.Windows.Forms.Label();
+            this.lblFulname = new System.Windows.Forms.Label();
+            this.txtFullname = new System.Windows.Forms.TextBox();
+            this.lblMSNV = new System.Windows.Forms.Label();
+            this.txtMSNV = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tabPerformance = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.cboBatchPFM = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboTrungTam = new System.Windows.Forms.ComboBox();
+            this.lbltrungtam = new System.Windows.Forms.Label();
+            this.prgbExcel = new System.Windows.Forms.ProgressBar();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rdbcheckp = new System.Windows.Forms.RadioButton();
+            this.rdbeP = new System.Windows.Forms.RadioButton();
+            this.rdbEntry = new System.Windows.Forms.RadioButton();
+            this.rdbCheck = new System.Windows.Forms.RadioButton();
+            this.rdbLastCheck = new System.Windows.Forms.RadioButton();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
+            this.grcPerformance = new DevExpress.XtraGrid.GridControl();
+            this.grvPerformance = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.tabFeedback = new System.Windows.Forms.TabPage();
+            this.cboDot = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.cboBatchFB = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.lblInformation = new System.Windows.Forms.Label();
+            this.prgExcel = new System.Windows.Forms.ProgressBar();
+            this.btnExportQC = new System.Windows.Forms.Button();
+            this.btnExportCheck = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.tabstatus = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cbosttus = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboBatchStatus = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.btnviewstt = new System.Windows.Forms.Button();
+            this.grdstatus = new DevExpress.XtraGrid.GridControl();
+            this.grvstatus = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.rtxtGrid = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
+            this.tabInsert = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCodeNumber = new System.Windows.Forms.TextBox();
+            this.btndelsop = new System.Windows.Forms.Button();
+            this.btneditsop = new System.Windows.Forms.Button();
+            this.btnistemp = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtsoprule = new System.Windows.Forms.TextBox();
+            this.txtsoptem = new System.Windows.Forms.TextBox();
+            this.btnclearsop = new System.Windows.Forms.Button();
+            this.grTemp = new DevExpress.XtraGrid.GridControl();
+            this.grTempV = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnUpsop = new System.Windows.Forms.Button();
+            this.txtSOP = new System.Windows.Forms.TextBox();
+            this.btnbrows = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.bwExportExcel = new System.ComponentModel.BackgroundWorker();
+            this.bwExportExcelQC = new System.ComponentModel.BackgroundWorker();
+            this.bgwXem = new System.ComponentModel.BackgroundWorker();
+            this.Status.SuspendLayout();
+            this.tabUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.tabPerformance.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grcPerformance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPerformance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
+            this.tabFeedback.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDot.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboBatchFB.Properties)).BeginInit();
+            this.tabstatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboBatchStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdstatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvstatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rtxtGrid)).BeginInit();
+            this.tabInsert.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grTemp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grTempV)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // quanlyuer
+            // 
+            this.quanlyuer.Name = "quanlyuer";
+            this.quanlyuer.Size = new System.Drawing.Size(32, 19);
+            // 
+            // Status
+            // 
+            this.Status.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Status.Controls.Add(this.tabUser);
+            this.Status.Controls.Add(this.tabPerformance);
+            this.Status.Controls.Add(this.tabFeedback);
+            this.Status.Controls.Add(this.tabstatus);
+            this.Status.Controls.Add(this.tabInsert);
+            this.Status.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Status.Location = new System.Drawing.Point(3, 1);
+            this.Status.Name = "Status";
+            this.Status.SelectedIndex = 0;
+            this.Status.Size = new System.Drawing.Size(1143, 645);
+            this.Status.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.Status.TabIndex = 0;
+            this.Status.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlAdmin_Selecting);
+            // 
+            // tabUser
+            // 
+            this.tabUser.Controls.Add(this.splitContainer1);
+            this.tabUser.Location = new System.Drawing.Point(4, 22);
+            this.tabUser.Name = "tabUser";
+            this.tabUser.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUser.Size = new System.Drawing.Size(1135, 619);
+            this.tabUser.TabIndex = 2;
+            this.tabUser.Text = "User managerment";
+            this.tabUser.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.White;
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer4);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer1.Panel2.Controls.Add(this.lblID);
+            this.splitContainer1.Panel2.Controls.Add(this.lblTitle);
+            this.splitContainer1.Panel2.Controls.Add(this.btndel);
+            this.splitContainer1.Panel2.Controls.Add(this.btnedit);
+            this.splitContainer1.Panel2.Controls.Add(this.btnadd);
+            this.splitContainer1.Panel2.Controls.Add(this.lblError);
+            this.splitContainer1.Panel2.Controls.Add(this.btnOk);
+            this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
+            this.splitContainer1.Panel2.Controls.Add(this.lblEmail);
+            this.splitContainer1.Panel2.Controls.Add(this.txtEmail);
+            this.splitContainer1.Panel2.Controls.Add(this.cboGroup);
+            this.splitContainer1.Panel2.Controls.Add(this.lblGroup);
+            this.splitContainer1.Panel2.Controls.Add(this.cboPair);
+            this.splitContainer1.Panel2.Controls.Add(this.lblPair);
+            this.splitContainer1.Panel2.Controls.Add(this.cboLevel);
+            this.splitContainer1.Panel2.Controls.Add(this.lblLevel);
+            this.splitContainer1.Panel2.Controls.Add(this.cboRole);
+            this.splitContainer1.Panel2.Controls.Add(this.lblRole);
+            this.splitContainer1.Panel2.Controls.Add(this.lblFulname);
+            this.splitContainer1.Panel2.Controls.Add(this.txtFullname);
+            this.splitContainer1.Panel2.Controls.Add(this.lblMSNV);
+            this.splitContainer1.Panel2.Controls.Add(this.txtMSNV);
+            this.splitContainer1.Panel2.Controls.Add(this.lblUsername);
+            this.splitContainer1.Panel2.Controls.Add(this.txtUsername);
+            this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
+            this.splitContainer1.Size = new System.Drawing.Size(1129, 613);
+            this.splitContainer1.SplitterDistance = 674;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.panel2);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.grdUsers);
+            this.splitContainer4.Size = new System.Drawing.Size(674, 613);
+            this.splitContainer4.SplitterDistance = 25;
+            this.splitContainer4.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel2.Controls.Add(this.txtsearch);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(674, 25);
+            this.panel2.TabIndex = 0;
+            // 
+            // txtsearch
+            // 
+            this.txtsearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtsearch.Location = new System.Drawing.Point(63, 2);
+            this.txtsearch.Name = "txtsearch";
+            this.txtsearch.Size = new System.Drawing.Size(608, 20);
+            this.txtsearch.TabIndex = 30;
+            this.txtsearch.TextChanged += new System.EventHandler(this.txtsearch_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Search:";
+            // 
+            // grdUsers
+            // 
+            this.grdUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdUsers.Location = new System.Drawing.Point(0, 0);
+            this.grdUsers.MainView = this.grvUsers;
+            this.grdUsers.Name = "grdUsers";
+            this.grdUsers.Size = new System.Drawing.Size(674, 584);
+            this.grdUsers.TabIndex = 1;
+            this.grdUsers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvUsers,
+            this.gridView1});
+            // 
+            // grvUsers
+            // 
+            this.grvUsers.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grvUsers.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvUsers.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.grvUsers.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grvUsers.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.grvUsers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.UserId,
+            this.Role,
+            this.User,
+            this.Fullname,
+            this.Group,
+            this.MSNV});
+            this.grvUsers.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.grvUsers.GridControl = this.grdUsers;
+            this.grvUsers.IndicatorWidth = 42;
+            this.grvUsers.Name = "grvUsers";
+            this.grvUsers.OptionsBehavior.ReadOnly = true;
+            this.grvUsers.OptionsCustomization.AllowColumnMoving = false;
+            this.grvUsers.OptionsCustomization.AllowColumnResizing = false;
+            this.grvUsers.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.grvUsers.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.grvUsers.OptionsSelection.EnableAppearanceHideSelection = false;
+            this.grvUsers.OptionsSelection.InvertSelection = true;
+            this.grvUsers.OptionsSelection.MultiSelect = true;
+            this.grvUsers.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
+            this.grvUsers.OptionsSelection.UseIndicatorForSelection = false;
+            this.grvUsers.OptionsView.ShowGroupPanel = false;
+            this.grvUsers.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvUsers_CustomDrawRowIndicator_1);
+            // 
+            // UserId
+            // 
+            this.UserId.Caption = "Id";
+            this.UserId.FieldName = "Id";
+            this.UserId.Name = "UserId";
+            this.UserId.Visible = true;
+            this.UserId.VisibleIndex = 0;
+            // 
+            // Role
+            // 
+            this.Role.Caption = "Vai Trò";
+            this.Role.FieldName = "role";
+            this.Role.Name = "Role";
+            this.Role.Visible = true;
+            this.Role.VisibleIndex = 1;
+            // 
+            // User
+            // 
+            this.User.Caption = "User";
+            this.User.FieldName = "User";
+            this.User.Name = "User";
+            this.User.Visible = true;
+            this.User.VisibleIndex = 2;
+            // 
+            // Fullname
+            // 
+            this.Fullname.Caption = "Fullname";
+            this.Fullname.FieldName = "Fullname";
+            this.Fullname.Name = "Fullname";
+            this.Fullname.Visible = true;
+            this.Fullname.VisibleIndex = 3;
+            // 
+            // Group
+            // 
+            this.Group.Caption = "Trungtam";
+            this.Group.FieldName = "Group";
+            this.Group.Name = "Group";
+            this.Group.Visible = true;
+            this.Group.VisibleIndex = 4;
+            // 
+            // MSNV
+            // 
+            this.MSNV.Caption = "MSNV";
+            this.MSNV.FieldName = "MSNV";
+            this.MSNV.Name = "MSNV";
+            this.MSNV.Visible = true;
+            this.MSNV.VisibleIndex = 5;
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.grdUsers;
+            this.gridView1.Name = "gridView1";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Enabled = false;
+            this.lblID.Location = new System.Drawing.Point(407, 6);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 13);
+            this.lblID.TabIndex = 29;
+            this.lblID.Visible = false;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblTitle.Location = new System.Drawing.Point(3, 114);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(451, 23);
+            this.lblTitle.TabIndex = 28;
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btndel
+            // 
+            this.btndel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btndel.BackgroundImage")));
+            this.btndel.Location = new System.Drawing.Point(306, 26);
+            this.btndel.Name = "btndel";
+            this.btndel.Size = new System.Drawing.Size(70, 70);
+            this.btndel.TabIndex = 26;
+            this.btndel.UseVisualStyleBackColor = true;
+            this.btndel.Click += new System.EventHandler(this.btndel_Click);
+            // 
+            // btnedit
+            // 
+            this.btnedit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnedit.BackgroundImage")));
+            this.btnedit.Location = new System.Drawing.Point(201, 26);
+            this.btnedit.Name = "btnedit";
+            this.btnedit.Size = new System.Drawing.Size(70, 70);
+            this.btnedit.TabIndex = 25;
+            this.btnedit.UseVisualStyleBackColor = true;
+            this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
+            // 
+            // btnadd
+            // 
+            this.btnadd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnadd.BackgroundImage")));
+            this.btnadd.Location = new System.Drawing.Point(91, 26);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(70, 70);
+            this.btnadd.TabIndex = 24;
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(103, 469);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 21);
+            this.lblError.TabIndex = 21;
+            // 
+            // btnOk
+            // 
+            this.btnOk.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Location = new System.Drawing.Point(126, 503);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(87, 51);
+            this.btnOk.TabIndex = 9;
+            this.btnOk.Text = "Ok";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Visible = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(335, 503);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(87, 51);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(75, 308);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(42, 16);
+            this.lblEmail.TabIndex = 18;
+            this.lblEmail.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(159, 305);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(263, 22);
+            this.txtEmail.TabIndex = 4;
+            // 
+            // cboGroup
+            // 
+            this.cboGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGroup.Enabled = false;
+            this.cboGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGroup.FormattingEnabled = true;
+            this.cboGroup.Items.AddRange(new object[] {
+            "DN",
+            "PY",
+            "HUE",
+            "DL"});
+            this.cboGroup.Location = new System.Drawing.Point(321, 423);
+            this.cboGroup.Name = "cboGroup";
+            this.cboGroup.Size = new System.Drawing.Size(121, 24);
+            this.cboGroup.TabIndex = 8;
+            this.cboGroup.SelectedValueChanged += new System.EventHandler(this.cboGroup_SelectedValueChanged);
+            // 
+            // lblGroup
+            // 
+            this.lblGroup.AutoSize = true;
+            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(274, 426);
+            this.lblGroup.Name = "lblGroup";
+            this.lblGroup.Size = new System.Drawing.Size(45, 16);
+            this.lblGroup.TabIndex = 15;
+            this.lblGroup.Text = "Group";
+            // 
+            // cboPair
+            // 
+            this.cboPair.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboPair.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboPair.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPair.Enabled = false;
+            this.cboPair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPair.FormattingEnabled = true;
+            this.cboPair.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.cboPair.Location = new System.Drawing.Point(110, 426);
+            this.cboPair.Name = "cboPair";
+            this.cboPair.Size = new System.Drawing.Size(121, 24);
+            this.cboPair.TabIndex = 7;
+            this.cboPair.SelectedValueChanged += new System.EventHandler(this.cboPair_SelectedValueChanged);
+            // 
+            // lblPair
+            // 
+            this.lblPair.AutoSize = true;
+            this.lblPair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPair.Location = new System.Drawing.Point(67, 429);
+            this.lblPair.Name = "lblPair";
+            this.lblPair.Size = new System.Drawing.Size(32, 16);
+            this.lblPair.TabIndex = 13;
+            this.lblPair.Text = "Pair";
+            // 
+            // cboLevel
+            // 
+            this.cboLevel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboLevel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLevel.Enabled = false;
+            this.cboLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLevel.FormattingEnabled = true;
+            this.cboLevel.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.cboLevel.Location = new System.Drawing.Point(321, 370);
+            this.cboLevel.Name = "cboLevel";
+            this.cboLevel.Size = new System.Drawing.Size(121, 24);
+            this.cboLevel.TabIndex = 6;
+            this.cboLevel.SelectedValueChanged += new System.EventHandler(this.cboLevel_SelectedValueChanged);
+            // 
+            // lblLevel
+            // 
+            this.lblLevel.AutoSize = true;
+            this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.Location = new System.Drawing.Point(274, 373);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(41, 16);
+            this.lblLevel.TabIndex = 11;
+            this.lblLevel.Text = "Level";
+            // 
+            // cboRole
+            // 
+            this.cboRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRole.Enabled = false;
+            this.cboRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboRole.FormattingEnabled = true;
+            this.cboRole.Items.AddRange(new object[] {
+            "ENTRY",
+            "CHECK",
+            "LASTCHECK",
+            "CROP",
+            "ADMIN"});
+            this.cboRole.Location = new System.Drawing.Point(110, 370);
+            this.cboRole.Name = "cboRole";
+            this.cboRole.Size = new System.Drawing.Size(121, 24);
+            this.cboRole.TabIndex = 5;
+            this.cboRole.SelectedValueChanged += new System.EventHandler(this.cboRole_SelectedValueChanged);
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRole.Location = new System.Drawing.Point(67, 373);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(37, 16);
+            this.lblRole.TabIndex = 9;
+            this.lblRole.Text = "Role";
+            // 
+            // lblFulname
+            // 
+            this.lblFulname.AutoSize = true;
+            this.lblFulname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFulname.Location = new System.Drawing.Point(75, 256);
+            this.lblFulname.Name = "lblFulname";
+            this.lblFulname.Size = new System.Drawing.Size(63, 16);
+            this.lblFulname.TabIndex = 8;
+            this.lblFulname.Text = "Fullname";
+            // 
+            // txtFullname
+            // 
+            this.txtFullname.Enabled = false;
+            this.txtFullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFullname.Location = new System.Drawing.Point(159, 253);
+            this.txtFullname.Name = "txtFullname";
+            this.txtFullname.Size = new System.Drawing.Size(263, 22);
+            this.txtFullname.TabIndex = 3;
+            // 
+            // lblMSNV
+            // 
+            this.lblMSNV.AutoSize = true;
+            this.lblMSNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMSNV.Location = new System.Drawing.Point(75, 202);
+            this.lblMSNV.Name = "lblMSNV";
+            this.lblMSNV.Size = new System.Drawing.Size(47, 16);
+            this.lblMSNV.TabIndex = 6;
+            this.lblMSNV.Text = "MSNV";
+            // 
+            // txtMSNV
+            // 
+            this.txtMSNV.Enabled = false;
+            this.txtMSNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMSNV.Location = new System.Drawing.Point(159, 199);
+            this.txtMSNV.Name = "txtMSNV";
+            this.txtMSNV.Size = new System.Drawing.Size(263, 22);
+            this.txtMSNV.TabIndex = 2;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(75, 147);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(71, 16);
+            this.lblUsername.TabIndex = 3;
+            this.lblUsername.Text = "Username";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(159, 144);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(263, 22);
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 591);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(451, 22);
+            this.statusStrip1.TabIndex = 23;
+            // 
+            // tabPerformance
+            // 
+            this.tabPerformance.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPerformance.Controls.Add(this.splitContainer2);
+            this.tabPerformance.Location = new System.Drawing.Point(4, 22);
+            this.tabPerformance.Name = "tabPerformance";
+            this.tabPerformance.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPerformance.Size = new System.Drawing.Size(1135, 619);
+            this.tabPerformance.TabIndex = 3;
+            this.tabPerformance.Text = "Performance";
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.cboBatchPFM);
+            this.splitContainer2.Panel1.Controls.Add(this.label5);
+            this.splitContainer2.Panel1.Controls.Add(this.cboTrungTam);
+            this.splitContainer2.Panel1.Controls.Add(this.lbltrungtam);
+            this.splitContainer2.Panel1.Controls.Add(this.prgbExcel);
+            this.splitContainer2.Panel1.Controls.Add(this.panel1);
+            this.splitContainer2.Panel1.Controls.Add(this.btnSave);
+            this.splitContainer2.Panel1.Controls.Add(this.btnView);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.grcPerformance);
+            this.splitContainer2.Size = new System.Drawing.Size(1129, 613);
+            this.splitContainer2.SplitterDistance = 138;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // cboBatchPFM
+            // 
+            this.cboBatchPFM.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cboBatchPFM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBatchPFM.FormattingEnabled = true;
+            this.cboBatchPFM.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "All"});
+            this.cboBatchPFM.Location = new System.Drawing.Point(173, 35);
+            this.cboBatchPFM.Name = "cboBatchPFM";
+            this.cboBatchPFM.Size = new System.Drawing.Size(302, 28);
+            this.cboBatchPFM.TabIndex = 62;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(140, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.TabIndex = 61;
+            this.label5.Text = "Đợt:";
+            // 
+            // cboTrungTam
+            // 
+            this.cboTrungTam.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cboTrungTam.DisplayMember = "trungtam";
+            this.cboTrungTam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTrungTam.FormattingEnabled = true;
+            this.cboTrungTam.Location = new System.Drawing.Point(568, 35);
+            this.cboTrungTam.Name = "cboTrungTam";
+            this.cboTrungTam.Size = new System.Drawing.Size(121, 28);
+            this.cboTrungTam.TabIndex = 60;
+            // 
+            // lbltrungtam
+            // 
+            this.lbltrungtam.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbltrungtam.AutoSize = true;
+            this.lbltrungtam.Location = new System.Drawing.Point(502, 43);
+            this.lbltrungtam.Name = "lbltrungtam";
+            this.lbltrungtam.Size = new System.Drawing.Size(58, 13);
+            this.lbltrungtam.TabIndex = 59;
+            this.lbltrungtam.Text = "Trung tâm:";
+            // 
+            // prgbExcel
+            // 
+            this.prgbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.prgbExcel.Location = new System.Drawing.Point(128, 103);
+            this.prgbExcel.Name = "prgbExcel";
+            this.prgbExcel.Size = new System.Drawing.Size(994, 28);
+            this.prgbExcel.TabIndex = 42;
+            this.prgbExcel.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.rdbcheckp);
+            this.panel1.Controls.Add(this.rdbeP);
+            this.panel1.Controls.Add(this.rdbEntry);
+            this.panel1.Controls.Add(this.rdbCheck);
+            this.panel1.Controls.Add(this.rdbLastCheck);
+            this.panel1.Location = new System.Drawing.Point(7, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(115, 123);
+            this.panel1.TabIndex = 38;
+            // 
+            // rdbcheckp
+            // 
+            this.rdbcheckp.AutoSize = true;
+            this.rdbcheckp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.rdbcheckp.Location = new System.Drawing.Point(3, 26);
+            this.rdbcheckp.Name = "rdbcheckp";
+            this.rdbcheckp.Size = new System.Drawing.Size(63, 17);
+            this.rdbcheckp.TabIndex = 6;
+            this.rdbcheckp.Text = "CheckP";
+            this.rdbcheckp.UseVisualStyleBackColor = true;
+            this.rdbcheckp.CheckedChanged += new System.EventHandler(this.rdbcheckp_CheckedChanged);
+            // 
+            // rdbeP
+            // 
+            this.rdbeP.AutoSize = true;
+            this.rdbeP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.rdbeP.Checked = true;
+            this.rdbeP.Location = new System.Drawing.Point(3, 3);
+            this.rdbeP.Name = "rdbeP";
+            this.rdbeP.Size = new System.Drawing.Size(56, 17);
+            this.rdbeP.TabIndex = 5;
+            this.rdbeP.TabStop = true;
+            this.rdbeP.Text = "EntryP";
+            this.rdbeP.UseVisualStyleBackColor = true;
+            this.rdbeP.CheckedChanged += new System.EventHandler(this.rdbeP_CheckedChanged);
+            // 
+            // rdbEntry
+            // 
+            this.rdbEntry.AutoSize = true;
+            this.rdbEntry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.rdbEntry.Location = new System.Drawing.Point(3, 49);
+            this.rdbEntry.Name = "rdbEntry";
+            this.rdbEntry.Size = new System.Drawing.Size(49, 17);
+            this.rdbEntry.TabIndex = 2;
+            this.rdbEntry.Text = "Entry";
+            this.rdbEntry.UseVisualStyleBackColor = true;
+            this.rdbEntry.CheckedChanged += new System.EventHandler(this.rdbEntry_CheckedChanged);
+            // 
+            // rdbCheck
+            // 
+            this.rdbCheck.AutoSize = true;
+            this.rdbCheck.Location = new System.Drawing.Point(3, 72);
+            this.rdbCheck.Name = "rdbCheck";
+            this.rdbCheck.Size = new System.Drawing.Size(56, 17);
+            this.rdbCheck.TabIndex = 3;
+            this.rdbCheck.Text = "Check";
+            this.rdbCheck.UseVisualStyleBackColor = true;
+            this.rdbCheck.CheckedChanged += new System.EventHandler(this.rdbCheck_CheckedChanged);
+            // 
+            // rdbLastCheck
+            // 
+            this.rdbLastCheck.AutoSize = true;
+            this.rdbLastCheck.Location = new System.Drawing.Point(3, 95);
+            this.rdbLastCheck.Name = "rdbLastCheck";
+            this.rdbLastCheck.Size = new System.Drawing.Size(75, 17);
+            this.rdbLastCheck.TabIndex = 4;
+            this.rdbLastCheck.Text = "Lastcheck";
+            this.rdbLastCheck.UseVisualStyleBackColor = true;
+            this.rdbLastCheck.CheckedChanged += new System.EventHandler(this.rdbLastCheck_CheckedChanged);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSave.Location = new System.Drawing.Point(1008, 10);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(114, 87);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnView
+            // 
+            this.btnView.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Location = new System.Drawing.Point(751, 12);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(153, 85);
+            this.btnView.TabIndex = 0;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // grcPerformance
+            // 
+            this.grcPerformance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            gridLevelNode1.RelationName = "Level1";
+            this.grcPerformance.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
+            this.grcPerformance.Location = new System.Drawing.Point(5, 5);
+            this.grcPerformance.MainView = this.grvPerformance;
+            this.grcPerformance.Name = "grcPerformance";
+            this.grcPerformance.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemComboBox1,
+            this.repositoryItemComboBox2});
+            this.grcPerformance.Size = new System.Drawing.Size(1117, 459);
+            this.grcPerformance.TabIndex = 1;
+            this.grcPerformance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvPerformance});
+            // 
+            // grvPerformance
+            // 
+            this.grvPerformance.GridControl = this.grcPerformance;
+            this.grvPerformance.Name = "grvPerformance";
+            this.grvPerformance.OptionsFilter.DefaultFilterEditorView = DevExpress.XtraEditors.FilterEditorViewMode.VisualAndText;
+            this.grvPerformance.OptionsFilter.ShowAllTableValuesInFilterPopup = true;
+            this.grvPerformance.OptionsFilter.UseNewCustomFilterDialog = true;
+            this.grvPerformance.OptionsSelection.MultiSelect = true;
+            this.grvPerformance.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
+            this.grvPerformance.OptionsView.ShowGroupPanel = false;
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
+            // 
+            // tabFeedback
+            // 
+            this.tabFeedback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabFeedback.Controls.Add(this.cboDot);
+            this.tabFeedback.Controls.Add(this.cboBatchFB);
+            this.tabFeedback.Controls.Add(this.lblInformation);
+            this.tabFeedback.Controls.Add(this.prgExcel);
+            this.tabFeedback.Controls.Add(this.btnExportQC);
+            this.tabFeedback.Controls.Add(this.btnExportCheck);
+            this.tabFeedback.Controls.Add(this.label28);
+            this.tabFeedback.Location = new System.Drawing.Point(4, 22);
+            this.tabFeedback.Name = "tabFeedback";
+            this.tabFeedback.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFeedback.Size = new System.Drawing.Size(1135, 619);
+            this.tabFeedback.TabIndex = 4;
+            this.tabFeedback.Text = "Feedback";
+            // 
+            // cboDot
+            // 
+            this.cboDot.EditValue = "";
+            this.cboDot.Location = new System.Drawing.Point(425, 63);
+            this.cboDot.Name = "cboDot";
+            this.cboDot.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDot.Properties.Appearance.Options.UseFont = true;
+            this.cboDot.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboDot.Properties.DropDownRows = 100;
+            this.cboDot.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "1"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "2"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "3"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "4")});
+            this.cboDot.Size = new System.Drawing.Size(386, 38);
+            this.cboDot.TabIndex = 59;
+            // 
+            // cboBatchFB
+            // 
+            this.cboBatchFB.Location = new System.Drawing.Point(425, 63);
+            this.cboBatchFB.Name = "cboBatchFB";
+            this.cboBatchFB.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboBatchFB.Properties.DropDownRows = 100;
+            this.cboBatchFB.Size = new System.Drawing.Size(200, 20);
+            this.cboBatchFB.TabIndex = 58;
+            this.cboBatchFB.Visible = false;
+            // 
+            // lblInformation
+            // 
+            this.lblInformation.AutoSize = true;
+            this.lblInformation.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformation.ForeColor = System.Drawing.Color.Red;
+            this.lblInformation.Location = new System.Drawing.Point(530, 545);
+            this.lblInformation.Name = "lblInformation";
+            this.lblInformation.Size = new System.Drawing.Size(0, 22);
+            this.lblInformation.TabIndex = 39;
+            // 
+            // prgExcel
+            // 
+            this.prgExcel.Location = new System.Drawing.Point(310, 422);
+            this.prgExcel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.prgExcel.Name = "prgExcel";
+            this.prgExcel.Size = new System.Drawing.Size(603, 44);
+            this.prgExcel.TabIndex = 38;
+            this.prgExcel.Visible = false;
+            // 
+            // btnExportQC
+            // 
+            this.btnExportQC.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnExportQC.Location = new System.Drawing.Point(660, 295);
+            this.btnExportQC.Name = "btnExportQC";
+            this.btnExportQC.Size = new System.Drawing.Size(151, 103);
+            this.btnExportQC.TabIndex = 37;
+            this.btnExportQC.Text = "Export QC";
+            this.btnExportQC.UseVisualStyleBackColor = true;
+            this.btnExportQC.Click += new System.EventHandler(this.btnExportQC_Click);
+            // 
+            // btnExportCheck
+            // 
+            this.btnExportCheck.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnExportCheck.Location = new System.Drawing.Point(425, 295);
+            this.btnExportCheck.Name = "btnExportCheck";
+            this.btnExportCheck.Size = new System.Drawing.Size(149, 103);
+            this.btnExportCheck.TabIndex = 36;
+            this.btnExportCheck.Text = "Export Check";
+            this.btnExportCheck.UseVisualStyleBackColor = true;
+            this.btnExportCheck.Click += new System.EventHandler(this.btnExportCheck_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(419, 18);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(129, 31);
+            this.label28.TabIndex = 35;
+            this.label28.Text = "Chọn Ca:";
+            // 
+            // tabstatus
+            // 
+            this.tabstatus.Controls.Add(this.splitContainer3);
+            this.tabstatus.Location = new System.Drawing.Point(4, 22);
+            this.tabstatus.Name = "tabstatus";
+            this.tabstatus.Padding = new System.Windows.Forms.Padding(3);
+            this.tabstatus.Size = new System.Drawing.Size(1135, 619);
+            this.tabstatus.TabIndex = 5;
+            this.tabstatus.Text = "Status";
+            this.tabstatus.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.panel3);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.grdstatus);
+            this.splitContainer3.Size = new System.Drawing.Size(1129, 613);
+            this.splitContainer3.SplitterDistance = 43;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoSize = true;
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.cbosttus);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.cboBatchStatus);
+            this.panel3.Controls.Add(this.btnviewstt);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1129, 43);
+            this.panel3.TabIndex = 0;
+            // 
+            // cbosttus
+            // 
+            this.cbosttus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbosttus.FormattingEnabled = true;
+            this.cbosttus.Items.AddRange(new object[] {
+            "Đợt 1",
+            "Đợt 2",
+            "Đợt 3",
+            "Đợt 4",
+            "All"});
+            this.cbosttus.Location = new System.Drawing.Point(106, 6);
+            this.cbosttus.Name = "cbosttus";
+            this.cbosttus.Size = new System.Drawing.Size(238, 28);
+            this.cbosttus.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(47, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 19);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Batch:";
+            // 
+            // cboBatchStatus
+            // 
+            this.cboBatchStatus.EditValue = "";
+            this.cboBatchStatus.Location = new System.Drawing.Point(643, 8);
+            this.cboBatchStatus.Name = "cboBatchStatus";
+            this.cboBatchStatus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBatchStatus.Properties.Appearance.Options.UseFont = true;
+            this.cboBatchStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboBatchStatus.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Đợt 1")});
+            this.cboBatchStatus.Size = new System.Drawing.Size(238, 22);
+            this.cboBatchStatus.TabIndex = 1;
+            this.cboBatchStatus.Visible = false;
+            // 
+            // btnviewstt
+            // 
+            this.btnviewstt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnviewstt.Location = new System.Drawing.Point(350, 4);
+            this.btnviewstt.Name = "btnviewstt";
+            this.btnviewstt.Size = new System.Drawing.Size(90, 32);
+            this.btnviewstt.TabIndex = 0;
+            this.btnviewstt.Text = "View";
+            this.btnviewstt.UseVisualStyleBackColor = true;
+            this.btnviewstt.Click += new System.EventHandler(this.btnviewstt_Click);
+            // 
+            // grdstatus
+            // 
+            this.grdstatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdstatus.Location = new System.Drawing.Point(0, 0);
+            this.grdstatus.MainView = this.grvstatus;
+            this.grdstatus.Name = "grdstatus";
+            this.grdstatus.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rtxtGrid});
+            this.grdstatus.Size = new System.Drawing.Size(1129, 566);
+            this.grdstatus.TabIndex = 1;
+            this.grdstatus.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvstatus});
+            // 
+            // grvstatus
+            // 
+            this.grvstatus.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.grvstatus.Appearance.HeaderPanel.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvstatus.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.grvstatus.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.grvstatus.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvstatus.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.grvstatus.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.grvstatus.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grvstatus.GridControl = this.grdstatus;
+            this.grvstatus.IndicatorWidth = 30;
+            this.grvstatus.Name = "grvstatus";
+            this.grvstatus.OptionsBehavior.Editable = false;
+            this.grvstatus.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.grvstatus.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.grvstatus.OptionsSelection.EnableAppearanceHideSelection = false;
+            this.grvstatus.OptionsSelection.MultiSelect = true;
+            this.grvstatus.OptionsView.RowAutoHeight = true;
+            this.grvstatus.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.grvstatus.OptionsView.ShowFooter = true;
+            this.grvstatus.OptionsView.ShowGroupPanel = false;
+            this.grvstatus.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.grvstatus_RowCellClick);
+            this.grvstatus.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.grvstatus_RowCellStyle);
+            // 
+            // rtxtGrid
+            // 
+            this.rtxtGrid.Name = "rtxtGrid";
+            this.rtxtGrid.ShowCaretInReadOnly = false;
+            // 
+            // tabInsert
+            // 
+            this.tabInsert.Controls.Add(this.panel4);
+            this.tabInsert.Location = new System.Drawing.Point(4, 22);
+            this.tabInsert.Name = "tabInsert";
+            this.tabInsert.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInsert.Size = new System.Drawing.Size(1135, 619);
+            this.tabInsert.TabIndex = 6;
+            this.tabInsert.Text = "tabInsert";
+            this.tabInsert.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.txtCodeNumber);
+            this.panel4.Controls.Add(this.btndelsop);
+            this.panel4.Controls.Add(this.btneditsop);
+            this.panel4.Controls.Add(this.btnistemp);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.txtsoprule);
+            this.panel4.Controls.Add(this.txtsoptem);
+            this.panel4.Controls.Add(this.btnclearsop);
+            this.panel4.Controls.Add(this.grTemp);
+            this.panel4.Controls.Add(this.btnUpsop);
+            this.panel4.Controls.Add(this.txtSOP);
+            this.panel4.Controls.Add(this.btnbrows);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1129, 613);
+            this.panel4.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Crimson;
+            this.label1.Location = new System.Drawing.Point(757, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 20);
+            this.label1.TabIndex = 117;
+            this.label1.Text = "Code Number:";
+            // 
+            // txtCodeNumber
+            // 
+            this.txtCodeNumber.Enabled = false;
+            this.txtCodeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodeNumber.Location = new System.Drawing.Point(741, 77);
+            this.txtCodeNumber.Name = "txtCodeNumber";
+            this.txtCodeNumber.Size = new System.Drawing.Size(157, 29);
+            this.txtCodeNumber.TabIndex = 3;
+            // 
+            // btndelsop
+            // 
+            this.btndelsop.Image = global::VCB_Entry.Properties.Resources.delete1;
+            this.btndelsop.Location = new System.Drawing.Point(498, 14);
+            this.btndelsop.Name = "btndelsop";
+            this.btndelsop.Size = new System.Drawing.Size(72, 51);
+            this.btndelsop.TabIndex = 115;
+            this.btndelsop.TabStop = false;
+            this.btndelsop.UseVisualStyleBackColor = true;
+            this.btndelsop.Click += new System.EventHandler(this.btndelsop_Click);
+            // 
+            // btneditsop
+            // 
+            this.btneditsop.Image = ((System.Drawing.Image)(resources.GetObject("btneditsop.Image")));
+            this.btneditsop.Location = new System.Drawing.Point(303, 11);
+            this.btneditsop.Name = "btneditsop";
+            this.btneditsop.Size = new System.Drawing.Size(72, 51);
+            this.btneditsop.TabIndex = 114;
+            this.btneditsop.TabStop = false;
+            this.btneditsop.UseVisualStyleBackColor = true;
+            this.btneditsop.Click += new System.EventHandler(this.btneditsop_Click);
+            // 
+            // btnistemp
+            // 
+            this.btnistemp.Image = global::VCB_Entry.Properties.Resources._new;
+            this.btnistemp.Location = new System.Drawing.Point(113, 11);
+            this.btnistemp.Name = "btnistemp";
+            this.btnistemp.Size = new System.Drawing.Size(72, 51);
+            this.btnistemp.TabIndex = 113;
+            this.btnistemp.TabStop = false;
+            this.btnistemp.UseVisualStyleBackColor = true;
+            this.btnistemp.Click += new System.EventHandler(this.btnistemp_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Crimson;
+            this.label8.Location = new System.Drawing.Point(619, 54);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 20);
+            this.label8.TabIndex = 112;
+            this.label8.Text = "Rules:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Crimson;
+            this.label7.Location = new System.Drawing.Point(13, 139);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 20);
+            this.label7.TabIndex = 111;
+            this.label7.Text = "URL SOP:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Crimson;
+            this.label6.Location = new System.Drawing.Point(0, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 20);
+            this.label6.TabIndex = 110;
+            this.label6.Text = "TempName:";
+            // 
+            // txtsoprule
+            // 
+            this.txtsoprule.Enabled = false;
+            this.txtsoprule.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsoprule.Location = new System.Drawing.Point(576, 77);
+            this.txtsoprule.Name = "txtsoprule";
+            this.txtsoprule.Size = new System.Drawing.Size(157, 29);
+            this.txtsoprule.TabIndex = 2;
+            // 
+            // txtsoptem
+            // 
+            this.txtsoptem.Enabled = false;
+            this.txtsoptem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsoptem.Location = new System.Drawing.Point(113, 77);
+            this.txtsoptem.Name = "txtsoptem";
+            this.txtsoptem.Size = new System.Drawing.Size(457, 29);
+            this.txtsoptem.TabIndex = 1;
+            // 
+            // btnclearsop
+            // 
+            this.btnclearsop.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclearsop.ForeColor = System.Drawing.Color.Tomato;
+            this.btnclearsop.Location = new System.Drawing.Point(766, 123);
+            this.btnclearsop.Name = "btnclearsop";
+            this.btnclearsop.Size = new System.Drawing.Size(103, 40);
+            this.btnclearsop.TabIndex = 106;
+            this.btnclearsop.TabStop = false;
+            this.btnclearsop.Text = "Clear";
+            this.btnclearsop.UseVisualStyleBackColor = true;
+            // 
+            // grTemp
+            // 
+            this.grTemp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            gridLevelNode2.RelationName = "Level1";
+            this.grTemp.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
+            this.grTemp.Location = new System.Drawing.Point(17, 169);
+            this.grTemp.MainView = this.grTempV;
+            this.grTemp.Name = "grTemp";
+            this.grTemp.Size = new System.Drawing.Size(1098, 429);
+            this.grTemp.TabIndex = 105;
+            this.grTemp.TabStop = false;
+            this.grTemp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grTempV});
+            this.grTemp.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.grTemp_ProcessGridKey);
+            this.grTemp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grTemp_KeyDown);
+            // 
+            // grTempV
+            // 
+            this.grTempV.Appearance.ColumnFilterButton.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grTempV.Appearance.ColumnFilterButton.Options.UseFont = true;
+            this.grTempV.Appearance.ColumnFilterButtonActive.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grTempV.Appearance.ColumnFilterButtonActive.Options.UseFont = true;
+            this.grTempV.Appearance.FocusedCell.BorderColor = System.Drawing.Color.Red;
+            this.grTempV.Appearance.FocusedCell.Options.UseBorderColor = true;
+            this.grTempV.Appearance.FocusedRow.BorderColor = System.Drawing.Color.Red;
+            this.grTempV.Appearance.FocusedRow.Options.UseBorderColor = true;
+            this.grTempV.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grTempV.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.grTempV.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grTempV.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.grTempV.Appearance.Row.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grTempV.Appearance.Row.Options.UseFont = true;
+            this.grTempV.Appearance.SelectedRow.BorderColor = System.Drawing.Color.Red;
+            this.grTempV.Appearance.SelectedRow.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grTempV.Appearance.SelectedRow.ForeColor = System.Drawing.Color.Black;
+            this.grTempV.Appearance.SelectedRow.Options.UseBorderColor = true;
+            this.grTempV.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.grTempV.GridControl = this.grTemp;
+            this.grTempV.IndicatorWidth = 50;
+            this.grTempV.Name = "grTempV";
+            this.grTempV.OptionsBehavior.Editable = false;
+            this.grTempV.OptionsCustomization.AllowFilter = false;
+            this.grTempV.OptionsCustomization.AllowGroup = false;
+            this.grTempV.OptionsCustomization.AllowSort = false;
+            this.grTempV.OptionsFilter.AllowFilterEditor = false;
+            this.grTempV.OptionsFilter.AllowFilterIncrementalSearch = false;
+            this.grTempV.OptionsFilter.DefaultFilterEditorView = DevExpress.XtraEditors.FilterEditorViewMode.VisualAndText;
+            this.grTempV.OptionsFilter.ShowAllTableValuesInFilterPopup = true;
+            this.grTempV.OptionsFilter.UseNewCustomFilterDialog = true;
+            this.grTempV.OptionsSelection.MultiSelect = true;
+            this.grTempV.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
+            this.grTempV.OptionsView.ShowGroupPanel = false;
+            this.grTempV.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grTempV_CustomDrawRowIndicator);
+            // 
+            // btnUpsop
+            // 
+            this.btnUpsop.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpsop.ForeColor = System.Drawing.Color.Tomato;
+            this.btnUpsop.Location = new System.Drawing.Point(607, 123);
+            this.btnUpsop.Name = "btnUpsop";
+            this.btnUpsop.Size = new System.Drawing.Size(103, 40);
+            this.btnUpsop.TabIndex = 2;
+            this.btnUpsop.TabStop = false;
+            this.btnUpsop.Text = "Save";
+            this.btnUpsop.UseVisualStyleBackColor = true;
+            this.btnUpsop.Click += new System.EventHandler(this.btnUpsop_Click);
+            // 
+            // txtSOP
+            // 
+            this.txtSOP.Enabled = false;
+            this.txtSOP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSOP.Location = new System.Drawing.Point(113, 133);
+            this.txtSOP.Name = "txtSOP";
+            this.txtSOP.Size = new System.Drawing.Size(398, 29);
+            this.txtSOP.TabIndex = 1;
+            this.txtSOP.TabStop = false;
+            // 
+            // btnbrows
+            // 
+            this.btnbrows.Location = new System.Drawing.Point(517, 133);
+            this.btnbrows.Name = "btnbrows";
+            this.btnbrows.Size = new System.Drawing.Size(53, 30);
+            this.btnbrows.TabIndex = 4;
+            this.btnbrows.Text = "...";
+            this.btnbrows.UseVisualStyleBackColor = true;
+            this.btnbrows.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "ADMIN.png");
+            this.imageList1.Images.SetKeyName(1, "CHECK.png");
+            this.imageList1.Images.SetKeyName(2, "ENTRY.png");
+            this.imageList1.Images.SetKeyName(3, "LC.png");
+            this.imageList1.Images.SetKeyName(4, "CROP.png");
+            // 
+            // bwExportExcel
+            // 
+            this.bwExportExcel.WorkerReportsProgress = true;
+            this.bwExportExcel.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwExportExcel_DoWork);
+            this.bwExportExcel.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwExportExcel_ProgressChanged);
+            this.bwExportExcel.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwExportExcel_RunWorkerCompleted);
+            // 
+            // bwExportExcelQC
+            // 
+            this.bwExportExcelQC.WorkerReportsProgress = true;
+            this.bwExportExcelQC.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwExportExcelQC_DoWork);
+            this.bwExportExcelQC.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwExportExcel_ProgressChanged);
+            this.bwExportExcelQC.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwExportExcel_RunWorkerCompleted);
+            // 
+            // bgwXem
+            // 
+            this.bgwXem.WorkerReportsProgress = true;
+            this.bgwXem.WorkerSupportsCancellation = true;
+            this.bgwXem.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwXem_DoWork);
+            this.bgwXem.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgwXem_ProgressChanged);
+            this.bgwXem.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwXem_RunWorkerCompleted);
+            // 
+            // frmAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1147, 647);
+            this.Controls.Add(this.Status);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.Name = "frmAdmin";
+            this.Text = "VCB Admin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VCB_Admin_FormClosing);
+            this.Load += new System.EventHandler(this.VCB_Admin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAdmin_KeyDown);
+            this.Status.ResumeLayout(false);
+            this.tabUser.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.tabPerformance.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grcPerformance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPerformance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
+            this.tabFeedback.ResumeLayout(false);
+            this.tabFeedback.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDot.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboBatchFB.Properties)).EndInit();
+            this.tabstatus.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cboBatchStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdstatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvstatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rtxtGrid)).EndInit();
+            this.tabInsert.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grTemp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grTempV)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ToolStripMenuItem quanlyuer;
+        private System.Windows.Forms.SaveFileDialog SaveFD;
+        private System.Windows.Forms.TabControl Status;
+        private System.Windows.Forms.TabPage tabUser;
+        private System.Windows.Forms.TabPage tabPerformance;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label lblMSNV;
+        private System.Windows.Forms.TextBox txtMSNV;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.ComboBox cboGroup;
+        private System.Windows.Forms.Label lblGroup;
+        private System.Windows.Forms.ComboBox cboPair;
+        private System.Windows.Forms.Label lblPair;
+        private System.Windows.Forms.ComboBox cboLevel;
+        private System.Windows.Forms.Label lblLevel;
+        private System.Windows.Forms.ComboBox cboRole;
+        private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Label lblFulname;
+        private System.Windows.Forms.TextBox txtFullname;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TabPage tabFeedback;
+        private System.Windows.Forms.ProgressBar prgExcel;
+        private System.Windows.Forms.Button btnExportQC;
+        private System.Windows.Forms.Button btnExportCheck;
+        private System.Windows.Forms.Label label28;
+        private System.ComponentModel.BackgroundWorker bwExportExcel;
+        private System.ComponentModel.BackgroundWorker bwExportExcelQC;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.RadioButton rdbLastCheck;
+        private System.Windows.Forms.RadioButton rdbCheck;
+        private System.Windows.Forms.RadioButton rdbEntry;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnView;
+        private DevExpress.XtraGrid.GridControl grcPerformance;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvPerformance;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ProgressBar prgbExcel;
+        private System.ComponentModel.BackgroundWorker bgwXem;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TabPage tabstatus;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit cboBatchStatus;
+        private System.Windows.Forms.Button btnviewstt;
+        private DevExpress.XtraGrid.GridControl grdstatus;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvstatus;
+        private System.Windows.Forms.Label lbltrungtam;       
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboTrungTam;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit cboBatchFB;
+        private System.Windows.Forms.Button btndel;
+        private System.Windows.Forms.Button btnedit;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.Panel panel2;
+        private DevExpress.XtraGrid.GridControl grdUsers;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvUsers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.TextBox txtsearch;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraGrid.Columns.GridColumn UserId;
+        private DevExpress.XtraGrid.Columns.GridColumn Role;
+        private DevExpress.XtraGrid.Columns.GridColumn User;
+        private DevExpress.XtraGrid.Columns.GridColumn Fullname;
+        private DevExpress.XtraGrid.Columns.GridColumn Group;
+        private DevExpress.XtraGrid.Columns.GridColumn MSNV;
+        private System.Windows.Forms.Label lblID;
+        private DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit rtxtGrid;
+        private System.Windows.Forms.Label lblInformation;
+        private System.Windows.Forms.TabPage tabInsert;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnUpsop;
+        private System.Windows.Forms.TextBox txtSOP;
+        private System.Windows.Forms.Button btnbrows;
+        private System.Windows.Forms.ComboBox cbosttus;
+        private System.Windows.Forms.RadioButton rdbcheckp;
+        private System.Windows.Forms.RadioButton rdbeP;
+        private System.Windows.Forms.ComboBox cboBatchPFM;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtsoprule;
+        private System.Windows.Forms.TextBox txtsoptem;
+        private System.Windows.Forms.Button btnclearsop;
+        private DevExpress.XtraGrid.GridControl grTemp;
+        private DevExpress.XtraGrid.Views.Grid.GridView grTempV;
+        private System.Windows.Forms.Button btndelsop;
+        private System.Windows.Forms.Button btneditsop;
+        private System.Windows.Forms.Button btnistemp;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCodeNumber;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit cboDot;
+
+    }
+}
+

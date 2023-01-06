@@ -1,0 +1,125 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace VCB_TEGAKI   
+{
+    public partial class frmdetails : Form
+    {
+        public frmdetails()
+        {
+            InitializeComponent();
+        }
+        public int iddt;
+        WorkDB_Admin workdb = new WorkDB_Admin();
+        System.Data.DataTable dtAlldetails;
+        private void frmdetails_Load(object sender, EventArgs e)
+        {  
+            dtAlldetails = workdb.Get_alldetails(iddt);
+            txtctcp.Text = dtAlldetails.Rows[0]["ResultP"].ToString();
+            txte1.Text = dtAlldetails.Rows[0]["Content1"].ToString();
+            txte2.Text = dtAlldetails.Rows[0]["Content2"].ToString();
+            txtcheck.Text = dtAlldetails.Rows[0]["Result"].ToString();
+            txtuscp.Text = dtAlldetails.Rows[0]["CheckP"].ToString() + " - " + dtAlldetails.Rows[0]["ttcp"].ToString();
+            txtuse1.Text = dtAlldetails.Rows[0]["Entry1"].ToString() + " - " + dtAlldetails.Rows[0]["tte1"].ToString();
+            txtuse2.Text = dtAlldetails.Rows[0]["Entry2"].ToString() + " - " + dtAlldetails.Rows[0]["tte2"].ToString();
+            txtuscheck.Text = dtAlldetails.Rows[0]["Checker"].ToString() + " - " + dtAlldetails.Rows[0]["ttch"].ToString();
+        }
+
+        private void btnrp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                workdb.Return_P1(iddt);
+                MessageBox.Show("Ok");
+            }
+            catch
+            {
+                MessageBox.Show("Không phải dạng trả về");
+            }
+        }
+
+        private void btnrp2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                workdb.Return_P2(iddt);
+                MessageBox.Show("Ok");
+            }
+            catch
+            {
+                MessageBox.Show("Không phải dạng trả về");
+            }
+        }
+
+        private void btnrcp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                workdb.Return_CP(iddt);
+                MessageBox.Show("Ok");
+            }
+            catch
+            {
+                MessageBox.Show("Không phải dạng trả về");
+            }
+        }
+
+        private void btnre1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                workdb.Return_E1(iddt);
+                MessageBox.Show("Ok");
+            }
+            catch
+            {
+                MessageBox.Show("Không phải dạng trả về");
+            }
+        }
+
+        private void btnre2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                workdb.Return_E2(iddt);
+                MessageBox.Show("Ok");
+            }
+            catch
+            {
+                MessageBox.Show("Không phải dạng trả về");
+            }
+        }
+
+        private void btnch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                workdb.Return_Check(iddt);
+                MessageBox.Show("Ok");
+            }
+            catch
+            {
+                MessageBox.Show("Không phải dạng trả về");
+            }
+        }
+
+        private void btnqc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                workdb.Return_QC(iddt);
+                MessageBox.Show("Ok");
+            }
+            catch
+            {
+                MessageBox.Show("Không phải dạng trả về");
+            }
+        }
+    }
+}
